@@ -1,0 +1,66 @@
+%html
+  %head
+    %title MyFirstJob
+  = stylesheet_link_tag    "application", params[:controller], :media => "all"
+  = javascript_include_tag "application", params[:controller]
+  = csrf_meta_tags
+  %body
+    #admin
+      .navbar.navbar-inverse
+        .navbar-inner
+          .container-fluid
+            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            =link_to "MyFirstJob", root_path, :class => :brand
+            .nav-collapse.collapse
+            %ul.nav
+              %li.divider-vertical
+              %li{:class => (current_page?(root_path) ? :active : "") }
+                = link_to student_root_path do
+                  %i.icon-home
+                  Home
+              %li.divider-vertical
+              %li{:class => (current_page?(homes_company_hub_path) ? :active : "") }
+                = link_to homes_company_hub_path do
+                  %i.icon-lock
+                  Company Hub
+              %li.divider-vertical
+              %li{:class => (current_page?(homes_career_info_path) ? :active : "") }
+                = link_to homes_career_info_path do
+                  %i.icon-file
+                  Career Info
+              %li.divider-vertical
+            %ul.nav.pull-right
+              %li
+                = link_to student_root_url do
+                  %i.icon-inbox
+                  Inbox
+              %li.divider-vertical
+              %li
+                = link_to logout_url do
+                  %i.icon-off
+                  Logout
+
+      .container
+        = render "layouts/flash", :flash => flash
+        = yield
+        %footer
+          %ul.breadcrumb
+            %li
+              = link_to "About us"
+              %span.divider /
+            %li
+              = link_to "FAQ"
+              %span.divider /
+            %li
+              = link_to "Contact us"
+              %span.divider /
+            %li
+              = link_to "Terms"
+              %span.divider /
+            %li
+              = link_to "Privacy"
+              %span.divider /
+            %li.pull-right Funded By

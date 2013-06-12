@@ -1,0 +1,14 @@
+= simple_form_for @company_detail do |f|
+  = render "shared/errors", :object => @company_detail
+  = f.input :company_name
+  = f.input :company_type, :collection => CompanyDetail::TYPES
+  = f.input :address
+  = f.input :number_of_employees, :collection => CompanyDetail::NUMBER_OF_EMPLOYEES
+  = f.input :telephone
+  = f.input :fax
+  = f.input :contact_email
+  = f.input :about
+  = f.input :award
+  = f.input :opportunities
+  %br
+  = f.button :submit, :class => "btn btn-primary"

@@ -1,0 +1,16 @@
+%p Welcome to MyFirstJob!
+%h4 Registration is quick and does not cost time!
+%h4 For Employer,
+= simple_form_for @user do |f|
+  = render "shared/errors", :object => @user
+  = f.input :first_name
+  = f.input :last_name
+  = f.simple_fields_for :employer do |m|
+    = m.input :company_name
+    = m.input :company_type, :collection => Employer::TYPES
+    = m.input :address
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+  %br
+  = f.button :submit, :class => "btn btn-primary"

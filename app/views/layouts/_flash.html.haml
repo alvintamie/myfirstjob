@@ -1,0 +1,12 @@
+- unless flash.empty? 
+	- flash.each do |key, value|
+		.alert{ :class => "alert-#{ key }"}
+			- if value.respond_to?("each")
+				- value.each do |msg|
+					%a.close{ "data-dismiss" => "alert"} x
+					= msg
+					%br
+										 					
+			- else
+				%a.close{ "data-dismiss" => "alert"} x
+				= value

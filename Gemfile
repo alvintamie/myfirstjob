@@ -9,6 +9,7 @@ gem 'rails', '3.2.13'
 gem 'sidekiq'
 gem 'redis-rails'
 gem 'redis-store'
+gem 'paperclip'
 
 #front-end
 gem 'jquery-rails'
@@ -20,8 +21,10 @@ gem 'mysql2'
 
 #authorization
 gem "cancan"
+gem "bcrypt-ruby", "~> 3.0.0"
 
 #utilities
+gem "unicorn"
 gem "simple_form"
 gem "will_paginate", "~> 3.0.3"
 gem "foreman"
@@ -43,14 +46,12 @@ group :development do
   gem "pry"
   gem "pry-debugger"
   gem "pry-remote"
+  gem "binding_of_caller"
   gem "letter_opener"
   gem "better_errors"
   gem 'quiet_assets'
 end
 
-group :development, :staging do
-  gem 'rack-mini-profiler'
-end
 
 
 

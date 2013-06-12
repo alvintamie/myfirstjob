@@ -1,4 +1,44 @@
 Myfirstjob::Application.routes.draw do
+
+  resource :sessions, :only => [:new, :create, :destroy]
+
+  get "signup", to: "users#new", as: "signup"
+  get "login", to: "sessions#new", as: "login"
+  match 'logout', to: 'sessions#destroy', as: 'logout'
+
+  match "profile", to: "users#profile", via: [:get]
+  resource :profile, :controller => :users do
+    get :following, :followers, :change_password, :forget_password, :activities, :recommends, :wants, :photos, :reviews
+    post :post_forget_password
+    match "retrieve_password/:id/:expired/:digest", :to => "users#retrieve_password", :as => :retrieve_password, :via => :get
+    match "activate/:id/:key/:digest", :to => "users#activate", :as => :activate, :via => :get
+  end
+
+  resources :users do
+    collection do
+      get :confirmation_page
+    end
+  end
+
+  resources :employers
+  resources :company_details
+  namespace :employer do
+    root to: "homes#index"
+    get "homes" => "homes#index"
+  end
+
+  namespace :student do
+    root to: "homes#index"
+    get "homes" => "homes#index"
+  end
+
+  get "homes" => "homes#index"
+  get "company_hub" => "homes#company_hub", :as => "homes_company_hub"
+  get "career_info" => "homes#career_info", :as => "homes_career_info"
+  get "about" => "homes#about", :as => "homes_about"
+  get "contact" => "homes#contact", :as => "homes_contact"
+  root to: "homes#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

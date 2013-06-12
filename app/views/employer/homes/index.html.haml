@@ -1,0 +1,18 @@
+.row  
+  .span8
+    .hero-unit
+      %p Featured Company/Job/Internship/Events:
+    .hero-unit
+      %p Job Board Notification
+      %h1 In Construction For Company Posts
+  .span4 
+    .row
+      %ul.thumbnails
+        %li.span4
+          .thumbnail
+            =link_to "Are you an Employer? Click here to sign up!", new_employer_path
+    .row
+      %ul.thumbnails
+        %li.span4
+          .thumbnail
+            .fb-like{"data-href" => "http://localhost:3000/", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
