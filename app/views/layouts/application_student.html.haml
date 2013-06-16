@@ -37,6 +37,10 @@
                 = link_to student_root_url do
                   %i.icon-inbox
                   Inbox
+              %li
+                = link_to edit_student_user_url(current_user) do
+                  %i.icon-inbox
+                  Settings
               %li.divider-vertical
               %li
                 = link_to logout_url do

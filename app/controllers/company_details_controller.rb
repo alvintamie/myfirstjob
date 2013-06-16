@@ -29,6 +29,11 @@ class CompanyDetailsController < ApplicationController
     end  
   end
 
+  def show
+    @company_detail = CompanyDetail.find_by_id(params[:id])
+    @testimonials = @company_detail.testimonials
+  end
+
 
 
 end

@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
       "application_student"
     elsif current_user.is_employer?
       "application_employer"
+    elsif current_user.is_admin?
+      "application_admin"
    	else
       "application"
     end

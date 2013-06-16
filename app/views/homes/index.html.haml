@@ -6,9 +6,27 @@
       Learn More
 .row  
   .span8
-    .hero-unit
-      %p Featured Company/Job/Internship/Events:
-  .span4 
+    .row
+      .span8
+        .hero-unit
+          %p Featured Company/Job/Internship/Events:
+    .row
+      .span8
+        .hero-unit
+          %p Featured Events
+          - @events.each do |event|
+            .row  
+              %ul.thumbnails
+                %li.span7
+                  .thumbnail
+                    .row
+                      .span2
+                        %td= image_tag event.image.url(:thumbnail)
+                      .span2
+                        %p= link_to event.title, event_path(event)
+                        %p= event.content
+
+  .span4
     .row
       %ul.thumbnails
         %li.span4

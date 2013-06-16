@@ -1,0 +1,10 @@
+%table{:class => "table"}
+  %tr 
+    %th Job Title
+    %th Actions
+  - @jobs.each do |job|
+    %tr
+      %td= job.title
+      %td
+        = link_to "Edit", edit_employer_job_path(job), :class => "btn btn-primary"
+        = link_to "Delete", employer_job_path(job), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'

@@ -16,4 +16,16 @@ class MailUser < ActionMailer::Base
     @digest = digest
     mail to: @user.email
   end
+
+  def send_company_detail_rejection_message user, message
+    @user = user
+    @message = message
+    mail to: @user.email
+  end
+
+  def send_job_rejection_message user, message
+    @user = user
+    @message = message
+    mail to: @user.email
+  end
 end

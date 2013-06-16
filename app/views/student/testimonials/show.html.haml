@@ -1,0 +1,41 @@
+%table{:class => "table table-edit"}
+	%tr
+		%td= image_tag @testimonial.company_detail.image if @testimonial.company_detail.image.present?
+	%tr
+		%td Company Name
+		%td= @testimonial.company_detail.company_name
+	%tr
+		%td Grade
+		%td= @testimonial.grade
+	%tr
+		%td Position
+		%td= @testimonial.position
+	%tr
+		%td Culture
+		%td= @testimonial.contents["culture"]
+	%tr
+		%td Work Balance
+		%td= @testimonial.contents["work_balance"]
+	%tr
+		%td Work Experience
+		%td= @testimonial.contents["work_experience"]
+	%tr
+		%td Advice
+		%td= @testimonial.contents["advice"]
+- if @from_current_student
+	=link_to "Edit", edit_student_testimonial_path(@testimonial, :company_detail_id => @testimonial.company_detail.id), :class => "btn btn-primary"
+	=link_to "Delete", student_testimonial_path(@testimonial), :method => :delete,  data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+
+%br
+= simple_form_for @comment, :url => comment_student_testimonials_path(@comment), :method => 'post' do |f|
+	= f.input :content, :label => "Comment"
+	= f.input :testimonial_id, :as => :hidden, :input_html => { :value => @testimonial.id  }
+	= f.button :submit, :class => "btn btn-primary"
+
+- @comments.each do |c|
+	%table{:class => "table table-edit"}
+		%tr
+			- if c.user.profile_image.present?
+				%td= image_tag c.user.profile_image.url(:thumbnail)
+			%td= c.user.first_name
+			%td= c.content

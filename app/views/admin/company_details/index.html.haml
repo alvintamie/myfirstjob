@@ -1,0 +1,28 @@
+%h2 Manage Company Profiles Submissions
+=link_to "Create new Company Profile", new_admin_company_detail_path, :class => "btn btn-primary"
+%br
+%br
+.btn-group
+  %a.btn.btn-inverse.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    = @tab.humanize
+    %span.caret
+  %ul.dropdown-menu
+    %li= link_to "Pending", admin_company_details_path(:tab => "pending") unless @tab == "pending"
+    %li= link_to "Approved", admin_company_details_path(:tab => "approved") unless @tab == "approved"
+    %li= link_to "Rejected", admin_company_details_path(:tab => "rejected") unless @tab == "rejected"
+%br
+%br
+%table{:class => "table"}
+  %tr 
+    %th Company Name
+    %th Type
+    %th Actions
+  - @company_details.each do |company_detail|
+    %tr
+      %td= company_detail.company_name
+      %td= company_detail.company_type
+      %td
+        = link_to "Preview", admin_company_detail_path(company_detail), :class => "btn btn-primary"
+        = link_to "Edit", edit_admin_company_detail_path(company_detail), :class => "btn btn-primary"
+        = link_to "Delete", admin_company_detail_path(company_detail), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+= will_paginate @company_details

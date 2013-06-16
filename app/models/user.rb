@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :student_attributes
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :student_attributes, :role, :locked, :activated, :as => :admin
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :student_attributes, :employer_attributes, :profile_image
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :student_attributes, :employer_attributes, :profile_image, :role, :locked, :activated, :as => :admin
 
   has_secure_password
 
@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
 
   has_one :student, :dependent => :destroy
   has_one :employer, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+
+  has_attached_file :profile_image, :styles => {
+    :thumbnail => {
+      :geometry => "80x80",
+    }
+  }
 
   accepts_nested_attributes_for :student
   accepts_nested_attributes_for :employer

@@ -1,0 +1,52 @@
+.btn= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id)
+%br
+%br
+%table{:class => "table table-edit"}
+	%tr
+		%td Image
+		%td= image_tag @company_detail.image if @company_detail.image.present?
+	%tr
+		%td Company Name
+		%td= @company_detail.company_name
+	%tr
+		%td Company Type
+		%td= @company_detail.company_type
+	%tr
+		%td Address
+		%td= @company_detail.address
+	%tr
+		%td Number of Employees
+		%td= @company_detail.number_of_employees
+	%tr
+		%td Tel
+		%td= @company_detail.telephone
+	%tr
+		%td Fax
+		%td= @company_detail.fax
+	%tr
+		%td Contact Email
+		%td= @company_detail.contact_email
+	%tr
+		%td About
+		%td= @company_detail.about
+	%tr
+		%td Award
+		%td= @company_detail.award
+	%tr 
+		%td Opportunities
+		%td= @company_detail.opportunities
+
+%p Testimonials
+- @testimonials.each do |testimonial|
+	%table{:class => "table table-edit"}
+		%tr
+			%td= link_to "show", student_testimonial_path(testimonial), :class => "btn btn-primary"
+		%tr
+			%td Company Name
+			%td= testimonial.company_detail.company_name
+		%tr
+			%td Grade
+			%td= testimonial.grade
+		%tr
+			%td Position
+			%td= testimonial.position

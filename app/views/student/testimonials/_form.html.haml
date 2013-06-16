@@ -1,0 +1,29 @@
+= simple_form_for @testimonial, :url => student_testimonials_path(@testimonial), :html => {:multipart => true} do |f|
+  = render "shared/errors", :object => @testimonial
+  - if @company_detail.present?
+    .row  
+      %ul.thumbnails
+        %li.span8
+          .thumbnail
+            .row
+              .span2
+                %td= image_tag @company_detail.image.url(:thumbnail)
+              .span2
+                %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
+                %p= "Location : #{@company_detail.address}"
+                %p= "Industry : #{@company_detail.company_industry}"
+    = f.input :company_detail_id, :as => :hidden, :input_html => { :value => @company_detail.id  }
+  - else
+    = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}, :include_blank => false
+  = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
+  = f.input :position
+  = f.simple_fields_for :contents do |m|
+    = m.input :culture, :input_html => { :value => @testimonial.contents["culture"]}
+    = m.input :work_balance, :input_html => { :value => @testimonial.contents["work_balance"]}
+    = m.input :work_experience, :input_html => { :value => @testimonial.contents["work_experience"]}
+    = m.input :advice, :input_html => { :value => @testimonial.contents["advice"]}
+  = f.input :anonymous, :label => "as canonymous"
+  %br
+  = f.button :submit, :class => "btn btn-primary"
+
+

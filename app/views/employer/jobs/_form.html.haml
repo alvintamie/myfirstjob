@@ -1,0 +1,17 @@
+= simple_form_for @job, :url => employer_jobs_path(@job), :html => {:multipart => true} do |f|
+  = render "shared/errors", :object => @job
+  = f.input :title
+  = f.input :location
+  = f.input :date_posted
+  = f.input :responsibility
+  = f.input :requirements
+  = f.input :job_type, :collection => Job::JOB_TYPE
+  = f.input :industry, :collection => Job::JOB_INDUSTRY
+  = f.input :job_scope, :collection => Job::JOB_SCOPE
+  = f.input :salary
+  = f.input :start_date
+  = f.input :end_date
+  = f.input :deadline
+  = f.input :number_of_hires
+  %br
+  = f.button :submit, :class => "btn btn-primary"

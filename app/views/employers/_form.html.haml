@@ -1,7 +1,7 @@
 %p Welcome to MyFirstJob!
 %h4 Registration is quick and does not cost time!
 %h4 For Employer,
-= simple_form_for @user do |f|
+= simple_form_for @user, :url => employers_path(@user), :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @user
   = f.input :first_name
   = f.input :last_name

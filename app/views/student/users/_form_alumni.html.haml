@@ -1,0 +1,14 @@
+%h4 Settings
+= simple_form_for @user, :url => student_user_path(@user), :html => {:multipart => true} do |f|
+  = render "shared/errors", :object => @user
+  = image_tag @user.profile_image.url(:thumbnail)
+  = f.input :profile_image
+  = f.input :first_name
+  = f.input :last_name
+  = f.simple_fields_for :student do |m|
+    = m.input :school
+    = m.input :majors
+    = m.input :nationality, :collection => Student::NATIONALITIES
+  = f.input :email
+  %br
+  = f.button :submit, :name => "alumni", :class => "btn btn-primary"

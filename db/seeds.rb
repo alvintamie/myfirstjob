@@ -12,4 +12,4 @@ u.activated = true
 u.locked = false
 u.save!
 
-puts "you have created an admin user [admin@2359media.com] with password [admin2359]"
+puts "you have created an admin user [alvintamie@gmail.com] with password admin1234"

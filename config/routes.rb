@@ -22,14 +22,53 @@ Myfirstjob::Application.routes.draw do
 
   resources :employers
   resources :company_details
+  resources :events
   namespace :employer do
     root to: "homes#index"
     get "homes" => "homes#index"
+    resources :company_details
+    resources :users
+    resources :jobs
   end
 
   namespace :student do
     root to: "homes#index"
     get "homes" => "homes#index"
+    resources :company_details
+    resources :users
+    resources :testimonials do
+      collection do
+        post :comment
+      end
+    end
+  end
+
+  namespace :admin do
+    root to: "homes#index"
+    get "homes" => "homes#index"
+    resources :company_details do
+      member do
+        get :approve
+        post :reject
+        get :pending
+      end
+    end
+    resources :events
+    resources :jobs do
+      member do
+        get :approve
+        post :reject
+        get :pending
+      end
+    end
+    resources :testimonials do
+      member do
+        get :approve
+        post :reject
+        get :pending
+      end
+    end
+    resources :users
   end
 
   get "homes" => "homes#index"

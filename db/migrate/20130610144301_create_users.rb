@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :role, :default => "member"
       t.boolean :locked, :default => false
       t.boolean :activated, :default => false
+      t.attachment :profile_image
       t.string :auth_token
       t.timestamps
     end

@@ -1,0 +1,10 @@
+= simple_form_for @event, :url => admin_events_path(@event), :html => {:multipart => true} do |f|
+  = render "shared/errors", :object => @event
+  = f.input :image
+  = f.input :title
+  = f.input :content
+  = f.input :status, :collection => Event::STATUS
+  %br
+  = f.button :submit, :class => "btn btn-primary"
+
+

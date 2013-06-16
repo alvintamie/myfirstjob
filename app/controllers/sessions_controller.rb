@@ -30,6 +30,8 @@ class SessionsController < ApplicationController
         redirect_to student_root_path
       elsif user.is_employer?
         redirect_to employer_root_path
+      elsif user.is_admin?
+        redirect_to admin_root_path
       else
         redirect_to root_path
       end

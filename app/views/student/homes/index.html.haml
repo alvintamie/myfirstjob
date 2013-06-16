@@ -15,8 +15,9 @@
         %li.span4
           .thumbnail
             %h4 CONTRIBUTION PANEL
-            %br=link_to "Create a Company Profile", new_company_detail_path, :class => "btn btn-primary"
-            %br=link_to "Write a Testimonial", root_path, :class => "btn btn-primary"
+            %br=link_to "Create a Company Profile", new_student_company_detail_path, :class => "btn btn-primary"
+            %br=link_to "Manage your Company Profiles", student_company_details_path, :class => "btn btn-primary"
+            %br=link_to "Write a Testimonial", new_student_testimonial_path, :class => "btn btn-primary"
             %br=link_to "Share an interview", root_path, :class => "btn btn-primary"
     .row
       %ul.thumbnails

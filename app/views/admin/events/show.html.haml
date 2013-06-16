@@ -1,0 +1,23 @@
+%table{:class => "table table-edit"}
+	%tr
+		%td Status
+		%td= @company_detail.status
+	%tr
+		%td Image
+		%td= image_tag @company_detail.image if @company_detail.image.present?
+	%tr
+		%td Company Name
+		%td= @company_detail.company_name
+	%tr
+		%td Company Type
+		%td= @company_detail.company_type
+	%tr
+		%td Company Industry
+		%td= @company_detail.company_industry
+	%tr
+		%td Action
+		%td
+			- unless @event.is_approved?
+				= link_to "Approve", approve_admin_event_path(@event), :class => "btn btn-primary" 
+			- unless @event.is_pending? 
+				= link_to "Send to Pending", pending_admin_event_path(@event), :class => "btn btn-warning"
