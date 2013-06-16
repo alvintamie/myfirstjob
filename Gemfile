@@ -30,6 +30,9 @@ gem "will_paginate", "~> 3.0.3"
 gem "foreman"
 gem 'json'
 
+#testing
+gem 'populator'
+gem 'faker'
 
 
 # Gems used only for assets and not required

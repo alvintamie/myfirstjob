@@ -18,6 +18,7 @@ class CreateCompanyDetails < ActiveRecord::Migration
       t.string :status
       t.integer :employer_id
       t.integer :student_id
+      t.boolean :featured
       t.timestamps
     end
     add_index :company_details, :student_id

@@ -1,6 +1,6 @@
 class Testimonial < ActiveRecord::Base
   extend ModelUtilities 
-  attr_accessible :position, :grade, :tmp_company_name, :grade, :contents, :anonymous, :company_detail_id, :votes
+  attr_accessible :position, :tmp_company_name, :grade, :contents, :anonymous, :company_detail_id, :votes
 
   serialize :contents
 

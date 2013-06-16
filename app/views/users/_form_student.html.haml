@@ -6,7 +6,7 @@
   = f.input :first_name
   = f.input :last_name
   = f.simple_fields_for :student do |m|
-    = m.input :school
+    = m.input :school, :collection => Student::SCHOOLS
     = m.input :graduation_year
   = f.input :email, label: 'School Email'
   = f.input :password

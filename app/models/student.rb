@@ -7,7 +7,10 @@ class Student < ActiveRecord::Base
   has_many :testimonials
 
   NATIONALITIES = %w(indonesian singaporean malay)
+  SCHOOLS = %w(NTU NUS SIM)
 
+  validates :school, :presence => true, :inclusion => { :in => SCHOOLS}
+  validates :nationality, :inclusion => { :in => NATIONALITIES}, :allow_blank => true
 
 end
   

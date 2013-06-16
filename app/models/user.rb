@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  ROLES = %w(admin student alumni employer)
+  ROLES = %w(admin student employer)
   
   before_create :add_random_password_recoverable
   before_create { generate_token(:auth_token) }
