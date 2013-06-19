@@ -17,7 +17,8 @@ gem "haml-rails"
 
 
 #database
-gem 'mysql2'
+#gem 'mysql2'
+gem 'pg'
 
 #authorization
 gem "cancan"

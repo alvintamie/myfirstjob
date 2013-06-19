@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130616112204) do
     t.string   "status"
     t.integer  "employer_id"
     t.integer  "student_id"
+    t.boolean  "featured"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

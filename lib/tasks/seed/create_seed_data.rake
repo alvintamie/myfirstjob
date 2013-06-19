@@ -19,22 +19,25 @@ namespace :seed do
     Event.populate EVENT_COUNT do |event|
       event.title = Populator.words(1).titleize
       event.content = Populator.sentences(1..4)
-      event.image = File.open("public/#{%w(event_1 event_2 event_3).sample}.jpg")
-      event.status = ["pending", "approved"].sample
+      event.status = ["pending", "approved"]
     end
 
+    Event.all.each do |event|
+      event.update_attributes(:image => File.open("public/#{%w(event_1 event_2 event_3).sample}.jpeg"))
+    end
+
+
     USER_COUNT = 410
-    User.populate USER_CONT do |user| 
+    count = 1
+    User.populate USER_COUNT do |user| 
       user.email = Faker::Internet.email
       user.first_name = Faker::Name.first_name
       user.last_name = Faker::Name.last_name
-      user.password = "qwerqwer"
-      user.profile_image = File.open("public/#{(1..6).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpg")
       user.locked = false
       user.activated = true
       user.role = ["employer", "student"]
 
-      if user.is_employer?
+      if user.role == "employer"
         employer = Employer.new
         employer.company_name = Faker::Company.name
         employer.company_type = Employer::TYPES.sample
@@ -54,7 +57,6 @@ namespace :seed do
           company_detail.about = Populator.sentences(1..10)
           company_detail.award = Populator.sentences(1..6)
           company_detail.opportunities = Populator.sentences(1..4)
-          company_detail.image = File.open("public/#{(1..10).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpg")
           company_detail.status = CompanyDetail::STATUS
           company_detail.employer_id = employer.id
           company_detail.created_at = 3.months.ago..Time.now
@@ -62,16 +64,15 @@ namespace :seed do
 
         Job.populate 4 do |job|
           job = Job.new
-          job.majors = Populator.words(1..5).titleize
           job.title = Populator.words(1..5).titleize
           job.location = Faker::Address.street_name + " " + Faker::Address.state + " " + Faker::Address.postcode
           job.date_posted = 7.months.ago..Time.now
           job.deadline = Time.now..4.months.from_now
           job.start_date = Time.now..5.months.from_now
-          job.end_date = job.start_date..12.months.from_now
+          job.end_date = Time.now..12.months.from_now
           job.responsibility = Populator.sentences(5..15)
           job.requirements = Populator.sentences(5..8)
-          job.type = Job::JOB_TYPE
+          job.job_type = Job::JOB_TYPE
           job.industry = Job::JOB_INDUSTRY
           job.job_scope = Job::JOB_SCOPE
           job.salary = 1000..6000
@@ -80,7 +81,7 @@ namespace :seed do
           job.employer_id = employer.id
           job.created_at = 3.months.ago..Time.now
         end
-      else
+      elsif user.role == "student"
         #if student
         student = Student.new
         student.school = Student::SCHOOLS
@@ -100,7 +101,6 @@ namespace :seed do
           company_detail.about = Populator.sentences(1..10)
           company_detail.award = Populator.sentences(1..6)
           company_detail.opportunities = Populator.sentences(1..4)
-          company_detail.image = File.open("public/#{(1..10).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpg")
           company_detail.status = CompanyDetail::STATUS
           company_detail.student_id = student.id
           company_detail.created_at = 3.months.ago..Time.now
@@ -124,15 +124,26 @@ namespace :seed do
         end
 
         testimonial_ids = Testimonial.all.map{|t| t.id}
-
         Comment.populate 5 do |comment|
-          comment.user_id = user_id
+          comment.user_id = user.id
           comment.content = Populator.sentences(1..4)
           comment.testimonial_id = testimonial_ids
         end
-
       end
-
+      count += 1
+      puts count
+    end
+    count = 0
+    User.all.each do |user|
+      user.update_attributes(:profile_image => File.open("public/#{(1..6).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpeg"))
+      count += 1
+      puts "update user image " + count.to_s
+    end
+    count = 0
+    CompanyDetail.all.each do |company_detail|
+      company_detail.update_attributes(:image => File.open("public/#{(1..10).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpeg"))
+      count += 1
+      puts "update company detail image" + count.to_s
     end
   end
 
