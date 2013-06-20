@@ -1,0 +1,19 @@
+%h2 Featureds Company Profiles
+=link_to "Back", admin_company_details_path, :class => "btn btn-primary"
+%br
+%br
+%table{:class => "table"}
+  %tr 
+    %th Company Name
+    %th Type
+    %th Featured Position
+    %th Actions
+  - @company_details.each do |company_detail|
+    %tr
+      %td= company_detail.company_name
+      %td= company_detail.company_type
+      %td= company_detail.featured_position
+      %td
+        = link_to "Preview", admin_company_detail_path(company_detail), :class => "btn btn-primary"
+        = link_to "Edit", edit_admin_company_detail_path(company_detail), :class => "btn btn-primary"
+        = link_to "Delete", admin_company_detail_path(company_detail), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'

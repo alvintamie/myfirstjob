@@ -1,4 +1,4 @@
-= simple_form_for @testimonial, :url => student_testimonials_path(@testimonial), :html => {:multipart => true} do |f|
+= simple_form_for [:student, @testimonial], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @testimonial
   - if @company_detail.present?
     .row  
@@ -22,7 +22,7 @@
     = m.input :work_balance, :input_html => { :value => @testimonial.contents["work_balance"]}
     = m.input :work_experience, :input_html => { :value => @testimonial.contents["work_experience"]}
     = m.input :advice, :input_html => { :value => @testimonial.contents["advice"]}
-  = f.input :anonymous, :label => "as canonymous"
+  = f.input :anonymous, :label => "as anonymous"
   %br
   = f.button :submit, :class => "btn btn-primary"
 

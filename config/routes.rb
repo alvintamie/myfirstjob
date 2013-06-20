@@ -52,6 +52,9 @@ Myfirstjob::Application.routes.draw do
         post :reject
         get :pending
       end
+      collection do
+        get :featureds
+      end
     end
     resources :events
     resources :jobs do

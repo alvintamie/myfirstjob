@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.build_student
-    @form_type = params[:type] == "student" ? "form_student" : "form_alumni"
+    @form_type = "form_student"
   end
 
   def create

@@ -75,4 +75,7 @@ class Admin::CompanyDetailsController < ApplicationController
     redirect_to admin_company_details_path
   end
 
+  def featureds
+    @company_details = CompanyDetail.featureds
+  end
 end

@@ -1,4 +1,4 @@
-= simple_form_for @job, :url => admin_jobs_path(@job), :html => {:multipart => true} do |f|
+= simple_form_for [:admin,@job], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @job
   = f.input :employer_id, :label => 'Employer', :collection => Employer.all.map{|e| [e.company_name, e.id]}, :include_blank => false
   = f.input :title

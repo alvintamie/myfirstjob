@@ -2,6 +2,7 @@ class HomesController < ApplicationController
 
   def index
     @events = Event.approveds
+    @featured_company_details = CompanyDetail.featureds
   end 
 
   def company_hub

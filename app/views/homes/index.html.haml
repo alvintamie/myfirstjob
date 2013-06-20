@@ -9,7 +9,11 @@
     .row
       .span8
         .hero-unit
-          %p Featured Company/Job/Internship/Events:
+          %p Featured Company:
+          .row
+            - @featured_company_details.each do |c|
+              .span2
+                %td= image_tag c.image.url(:thumbnail)
     .row
       .span8
         .hero-unit

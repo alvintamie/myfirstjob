@@ -1,10 +1,37 @@
 .row  
   .span8
-    .hero-unit
-      %p Featured Company/Job/Internship/Events:
-    .hero-unit
-      %p Job Board Notification
-      %h1 In Construction For Company Posts
+    .row
+      .span8
+        .hero-unit
+          %p Latest Testimonials
+          - @testimonials.each do |testimonial|
+            .row  
+              %ul.thumbnails
+                %li.span7
+                  .thumbnail
+                    .row
+                      .span2
+                        %td= image_tag testimonial.profile_image
+                      .span4
+                        %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+                        %p= "Industry : " + testimonial.company_detail.company_industry
+                        = link_to "show", student_testimonial_path(testimonial)
+                        %p= testimonial.contents["work_experience"]
+    .row
+      .span8
+        .hero-unit
+          %p Featured Events
+          - @events.each do |event|
+            .row  
+              %ul.thumbnails
+                %li.span7
+                  .thumbnail
+                    .row
+                      .span2
+                        %td= image_tag event.image.url(:thumbnail)
+                      .span2
+                        %p= link_to event.title, event_path(event)
+                        %p= event.content
   .span4 
     .row
       %h2 Membership:

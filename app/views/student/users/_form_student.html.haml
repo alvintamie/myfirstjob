@@ -1,5 +1,5 @@
 %h4 Settings
-= simple_form_for @user, :url => student_user_path(@user), :html => {:multipart => true} do |f|
+= simple_form_for [:student, @user], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @user
   = image_tag @user.profile_image.url(:thumbnail)
   = f.input :profile_image

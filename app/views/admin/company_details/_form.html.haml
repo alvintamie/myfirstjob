@@ -1,4 +1,4 @@
-= simple_form_for @company_detail, :url => admin_company_details_path(@company_detail), :html => {:multipart => true} do |f|
+= simple_form_for [:admin, @company_detail], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @company_detail
   = f.input :image
   = f.input :company_name
@@ -12,6 +12,8 @@
   = f.input :about
   = f.input :award
   = f.input :opportunities
+  = f.input :featured
+  = f.input :featured_position, :collection => 1..10
   %br
   = f.button :submit, :class => "btn btn-primary"
 

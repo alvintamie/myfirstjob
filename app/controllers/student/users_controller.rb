@@ -2,7 +2,7 @@ class Student::UsersController < ApplicationController
   before_filter :authenticate_student_user!
 
   def edit
-    @form_type = current_user.role == "student" ? "form_student" : "form_alumni"
+    @form_type = "form_student"
     @user = current_user
   end
 

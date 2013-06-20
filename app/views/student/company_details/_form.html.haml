@@ -1,4 +1,4 @@
-= simple_form_for @company_detail, :url => student_company_details_path(@company_detail), :html => {:multipart => true} do |f|
+= simple_form_for [:student, @company_detail], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @company_detail
   = f.input :image
   = f.input :company_name

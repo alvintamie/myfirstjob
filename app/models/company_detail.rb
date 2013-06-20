@@ -1,6 +1,6 @@
 class CompanyDetail < ActiveRecord::Base
   extend ModelUtilities 
-  attr_accessible :company_name , :company_type, :company_industry, :address, :number_of_employees, :telephone, :fax, :contact_email, :about, :award, :opportunities, :employer, :image, :status, :rejected_message
+  attr_accessible :company_name , :company_type, :company_industry, :featured, :featured_position, :address, :number_of_employees, :telephone, :fax, :contact_email, :about, :award, :opportunities, :employer, :image, :status, :rejected_message
 
   belongs_to :employer
   belongs_to :student
@@ -13,6 +13,7 @@ class CompanyDetail < ActiveRecord::Base
   NUMBER_OF_EMPLOYEES = ["1-50", "51-100", "100-1000", "> 1000"]
   SEARCH_KEYS = ["company_name", "company_type", "company_industry"]
 
+  scope :featureds, where(:featured => true).order('featured_position ASC')
   scope :pendings, where(:status => "pending")
   scope :rejecteds, where(:status => "rejected")
   scope :approveds, where(:status => "approved")

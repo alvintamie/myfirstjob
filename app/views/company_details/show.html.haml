@@ -38,15 +38,20 @@
 
 %p Testimonials
 - @testimonials.each do |testimonial|
-	%table{:class => "table table-edit"}
-		%tr
-			%td= link_to "show", student_testimonial_path(testimonial), :class => "btn btn-primary"
-		%tr
-			%td Company Name
-			%td= testimonial.company_detail.company_name
-		%tr
-			%td Grade
-			%td= testimonial.grade
-		%tr
-			%td Position
-			%td= testimonial.position
+	.row
+		%ul.thumbnails
+			%li.span8
+				.thumbnail
+					.row
+						.span2
+							%td= image_tag testimonial.profile_image
+						.span4
+							%p= testimonial.student_name
+							%p= testimonial.position
+							%p= testimonial.grade
+							= link_to "show", student_testimonial_path(testimonial)
+						.span2
+							%p= testimonial.votes
+					.row
+						.span8
+							%p= testimonial.contents["work_experience"]

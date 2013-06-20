@@ -15,6 +15,12 @@ namespace :seed do
       ActiveRecord::Base.connection.reset_pk_sequence!(tbl.table_name)
     end
 
+    u = User.new(:email => "alvintamie@gmail.com", :password => "admin1234")
+    u.role = "admin"
+    u.activated = true
+    u.locked = false
+    u.save!
+
     EVENT_COUNT = 13
     Event.populate EVENT_COUNT do |event|
       event.title = Populator.words(1).titleize
@@ -27,7 +33,7 @@ namespace :seed do
     end
 
 
-    USER_COUNT = 410
+    USER_COUNT = 3
     count = 1
     User.populate USER_COUNT do |user| 
       user.email = Faker::Internet.email
@@ -84,10 +90,13 @@ namespace :seed do
       elsif user.role == "student"
         #if student
         student = Student.new
-        student.school = Student::SCHOOLS
+        student.school = Student::SCHOOLS.sample
         student.graduation_year = Time.now..3.years.from_now
         student.majors = Populator.words(1..5).titleize
-        student.nationality = Student::NATIONALITIES
+        student.nationality = Student::NATIONALITIES.sample
+        student.user_id = user.id
+        student.save
+
 
         CompanyDetail.populate 2 do |company_detail|
           company_detail.company_name = Faker::Company.name
@@ -119,15 +128,16 @@ namespace :seed do
           contents["work_experience"] = Populator.sentences(1..10)
           contents["advice"] = Populator.sentences(1..10)
           testimonial.contents = contents
-          testimonial.company_detail_id = company_detail_ids
+          testimonial.company_detail_id = 1..5
           testimonial.student_id = student.id
         end
+
 
         testimonial_ids = Testimonial.all.map{|t| t.id}
         Comment.populate 5 do |comment|
           comment.user_id = user.id
           comment.content = Populator.sentences(1..4)
-          comment.testimonial_id = testimonial_ids
+          comment.testimonial_id = 1..9
         end
       end
       count += 1
@@ -135,10 +145,12 @@ namespace :seed do
     end
     count = 0
     User.all.each do |user|
-      user.update_attributes(:profile_image => File.open("public/#{(1..6).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpeg"))
+      user.update_attributes(:password => "qweqwe", :profile_image => File.open("public/#{(1..6).to_a.map{|a| "profile_image_" + a.to_s}.sample}.jpeg"))
       count += 1
       puts "update user image " + count.to_s
     end
+    User.last.update_attributes(:email => "a@gmail.com")
+
     count = 0
     CompanyDetail.all.each do |company_detail|
       company_detail.update_attributes(:image => File.open("public/#{(1..10).to_a.map{|a| "employer_image_" + a.to_s}.sample}.jpeg"))
