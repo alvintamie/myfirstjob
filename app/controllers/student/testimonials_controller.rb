@@ -28,6 +28,7 @@ class Student::TestimonialsController < ApplicationController
 
   def show
     @testimonial = Testimonial.find(params[:id])
+    @upvoted, @downvoted = @testimonial.user_vote? current_user
     @comments = @testimonial.comments
     @comment = Comment.new
     @from_current_student  = @testimonial.student == current_user.student ? true : false
@@ -70,6 +71,41 @@ class Student::TestimonialsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def upvote
+    @testimonial = Testimonial.find(params[:id])
+    if @testimonial.upvotes.include? current_user.id
+      return render :json => { :status => "error", :message => "user already upvote"}
+    end
+    if @testimonial.downvotes.include? current_user.id
+      @testimonial.downvotes.delete(current_user.id)
+      @testimonial.votes += 1
+      @testimonial.save
+      return render :json => { :status => "success", :message => "neutralize downvoted"}
+    end
+    @testimonial.upvotes << current_user.id
+    @testimonial.votes +=1
+    @testimonial.save
+    render :json => { :status => "success"}
+  end
+
+  def downvote
+    @testimonial = Testimonial.find(params[:id])
+    @testimonial.downvotes = [] if @testimonial.downvotes.nil?
+    if @testimonial.downvotes.include? current_user.id
+      return render :json => { :status => "error", :message => "user already downvote"}
+    end
+    if @testimonial.upvotes.include? current_user.id
+      @testimonial.upvotes.delete(current_user.id)
+      @testimonial.votes -=1
+      @testimonial.save
+      return render :json => { :status => "success", :message => "neutralize upvoted"}
+    end
+    @testimonial.downvotes << current_user.id
+    @testimonial.votes -=1
+    @testimonial.save
+    render :json => { :status => "success"}
   end
 
 end

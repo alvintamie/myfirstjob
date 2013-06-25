@@ -36,6 +36,11 @@
                   %i.icon-file
                   Career Info
               %li.divider-vertical
+              %li{:class => (current_page?(events_path) ? :active : "") }
+                = link_to events_path do
+                  %i.icon-file
+                  Events
+              %li.divider-vertical
             %ul.nav.pull-right
               %li= link_to "Sign Up", new_user_path(:type => "student")
               %li.divider-vertical

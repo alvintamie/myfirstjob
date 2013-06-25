@@ -1,0 +1,14 @@
+=link_to "Back", root_path, :class =>"btn btn-primary"
+= will_paginate @events
+
+- @events.each do |event|
+  .row  
+    %ul.thumbnails
+      %li.span7
+        .thumbnail
+          .row
+            .span2
+              %td= image_tag event.image.url(:thumbnail)
+            .span2
+              %p= link_to event.title, event_path(event)
+              %p= event.content

@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @events = Event.approveds
+    @events = Event.approveds.limit(4)
     @featured_company_details = CompanyDetail.featureds
   end 
 
@@ -14,10 +14,21 @@ class HomesController < ApplicationController
   end
 
   def about
-
   end
 
   def contact
+
+  end
+
+  def faq
+
+  end
+
+  def privacy
+
+  end
+
+  def terms
 
   end
 

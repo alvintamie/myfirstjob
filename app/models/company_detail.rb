@@ -5,6 +5,7 @@ class CompanyDetail < ActiveRecord::Base
   belongs_to :employer
   belongs_to :student
   has_many :testimonials
+  has_many :interviews
 
   SORT_KEYS = { :asc => %w(company_name, company_type, company_industry), :default => "id desc"}
   TYPES = ["accounting", "it"]

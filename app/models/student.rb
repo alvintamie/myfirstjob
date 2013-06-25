@@ -5,6 +5,7 @@ class Student < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   has_many :company_details
   has_many :testimonials
+  has_many :interviews
 
   NATIONALITIES = %w(indonesian singaporean malay)
   SCHOOLS = %w(NTU NUS SIM)

@@ -45,7 +45,4 @@ class Student::CompanyDetailsController < ApplicationController
       redirect_to student_company_details_path
     end
   end
-
-
-
 end

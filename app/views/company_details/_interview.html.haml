@@ -1,0 +1,33 @@
+%p Interviews
+= will_paginate @interviews
+- @interviews.each do |interview|
+	.row
+		%ul.thumbnails
+			%li.span8
+				.thumbnail
+					.row
+						.span2
+							%td= image_tag interview.profile_image
+						.span4
+							.row 
+								.span2
+									%p= interview.student_name
+									%p= interview.position
+									%p= interview.interview_date
+									= link_to "show", student_interview_path(interview)
+								.span2
+									- upvoted, downvoted = interview.user_vote? current_user
+									%td
+										%p{:id => "votes"}= interview.votes
+									%td
+										= link_to upvote_student_interview_path(interview), :class => "upvote", :tid => "#{interview.id}" do
+											%i.icon-thumbs-up
+											Upvote
+									%br
+									%td
+										= link_to downvote_student_interview_path(interview), :class => "downvote", :tid => "#{interview.id}" do
+											%i.icon-thumbs-up
+											Downvote
+					.row
+						.span8
+							%p= interview.contents["interview_process"]

@@ -31,7 +31,9 @@ class CompanyDetailsController < ApplicationController
 
   def show
     @company_detail = CompanyDetail.find_by_id(params[:id])
-    @testimonials = @company_detail.testimonials
+    @testimonials = @company_detail.testimonials.paginate(:page => params[:page], :per_page => 10)
+    @interviews = @company_detail.interviews.paginate(:page => params[:page], :per_page => 3)
+    @tab = params[:tab].nil? ? "default" : params[:tab]
   end
 
 

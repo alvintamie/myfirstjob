@@ -1,0 +1,36 @@
+%p Testimonials
+= will_paginate @testimonials
+%p= "Positive : " + Testimonial.positives.size.to_s
+%p= "Neutral : " + Testimonial.neutrals.size.to_s
+%p= "Negative : " + Testimonial.negatives.size.to_s
+- @testimonials.each do |testimonial|
+	.row
+		%ul.thumbnails
+			%li.span8
+				.thumbnail
+					.row
+						.span2
+							%td= image_tag testimonial.profile_image
+						.span4
+							.row 
+								.span2
+									%p= testimonial.student_name
+									%p= testimonial.position
+									%p= testimonial.grade
+									= link_to "show", student_testimonial_path(testimonial)
+								.span2
+									- upvoted, downvoted = testimonial.user_vote? current_user
+									%td
+										%p{:id => "votes"}= testimonial.votes
+									%td
+										= link_to upvote_student_testimonial_path(testimonial), :class => "upvote", :tid => "#{testimonial.id}" do
+											%i.icon-thumbs-up
+											Upvote
+									%br
+									%td
+										= link_to downvote_student_testimonial_path(testimonial), :class => "downvote", :tid => "#{testimonial.id}" do
+											%i.icon-thumbs-up
+											Downvote
+					.row
+						.span8
+							%p= testimonial.contents["work_experience"]

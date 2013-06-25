@@ -55,6 +55,7 @@ class Admin::CompanyDetailsController < ApplicationController
 
   def approve
     @company_detail = CompanyDetail.find(params[:id])
+    SendCompanyDetailApprovalMessageWorker.perform_async(current_user.id, @company_detail.id)
     @company_detail.update_attributes(:status => "approved")
     flash[:success] = "You have successfully approve a company detail"
     redirect_to admin_company_details_path

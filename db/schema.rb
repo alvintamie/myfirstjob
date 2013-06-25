@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616112204) do
+ActiveRecord::Schema.define(:version => 20130621161001) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
     t.integer  "user_id"
     t.integer  "testimonial_id"
+    t.integer  "interview_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
+  add_index "comments", ["interview_id"], :name => "index_comments_on_interview_id"
   add_index "comments", ["testimonial_id"], :name => "index_comments_on_testimonial_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
@@ -76,6 +78,27 @@ ActiveRecord::Schema.define(:version => 20130616112204) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "interviews", :force => true do |t|
+    t.string   "position"
+    t.string   "tmp_company_name"
+    t.text     "contents"
+    t.datetime "interview_date"
+    t.boolean  "anonymous"
+    t.string   "status"
+    t.string   "offer_status"
+    t.text     "rejected_message"
+    t.integer  "votes",             :default => 0
+    t.text     "downvotes"
+    t.text     "upvotes"
+    t.integer  "company_detail_id"
+    t.integer  "student_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "interviews", ["company_detail_id"], :name => "index_interviews_on_company_detail_id"
+  add_index "interviews", ["student_id"], :name => "index_interviews_on_student_id"
+
   create_table "jobs", :force => true do |t|
     t.string   "title"
     t.string   "location"
@@ -119,11 +142,13 @@ ActiveRecord::Schema.define(:version => 20130616112204) do
     t.boolean  "anonymous"
     t.string   "status"
     t.text     "rejected_message"
-    t.integer  "votes"
+    t.integer  "votes",             :default => 0
+    t.text     "downvotes"
+    t.text     "upvotes"
     t.integer  "company_detail_id"
     t.integer  "student_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "testimonials", ["company_detail_id"], :name => "index_testimonials_on_company_detail_id"
