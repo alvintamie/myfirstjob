@@ -1,43 +1,35 @@
-.hero-unit
-  %h1 Hero Shot
-  %p Tagline
-  %p
-    %btn.btn-primary.btn-large
-      Learn More
+.row
+  =image_tag("heroshot.png",:class=>'heroshot')
 .row  
   .span8
     .row
-      .span8
-        .hero-unit
-          %p Featured Company:
-          .row
-            - @featured_company_details.each do |c|
-              .span2
-                %td= image_tag c.image.url(:thumbnail)
+      .hero-unit1
+        %h1 Featured Companies
+        .row
+          - @featured_company_details.each do |c|
+            .span2
+              %td= image_tag c.image.url(:thumbnail)
     .row
       .span8
-        .hero-unit
-          %p Featured Events
+        .hero-unit1
+          %h1 Featured Events
           - @events.each do |event|
-            .row  
-              %ul.thumbnails
-                %li.span7
-                  .thumbnail
-                    .row
-                      .span2
-                        %td= image_tag event.image.url(:thumbnail)
-                      .span2
-                        %p= link_to event.title, event_path(event)
-                        %p= event.content
+            .row
+              .span2
+                %p= image_tag event.image.url(:thumbnail)
+              .span6
+                %p= link_to event.title, event_path(event)
+                .ellipsis
+                  %p= event.content
+            .herolist
 
   .span4
     .row
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            =link_to "Are you an Employer? Click here to sign up!", new_employer_path
+      .hero-unit1
+        %h1 Employer
+        %p Reach out to students and graduates effectively now through events, posts and referrals. Registration is free!
+        =link_to "Register", new_employer_path, :class => "btn btn-primary"
+        =link_to "Sign In", login_url, :class => "btn btn-primary"
     .row
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            .fb-like{"data-href" => "http://localhost:3000/", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
+      .hero-unit1
+        .fb-like{"data-href" => "http://localhost:3000/", "data-send" => "true", "data-show-faces" => "true", "data-width" => "150"}

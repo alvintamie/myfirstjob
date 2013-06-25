@@ -1,4 +1,3 @@
-%h4 Settings
 = simple_form_for [:student, @student], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @user
   = image_tag @user.profile_image.url(:thumbnail)

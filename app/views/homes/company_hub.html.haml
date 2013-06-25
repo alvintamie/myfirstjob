@@ -1,17 +1,20 @@
-
-= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
-
+.row
+  .span8
+    .hero-unit1
+      %h1 List of Companies
+      - @company_details.each do |company_detail|
+        .row
+          .span2
+            %p= image_tag company_detail.image.url(:thumbnail)
+          .span6
+            %p= link_to company_detail.company_name, company_detail_path(company_detail)
+            %p= "Location : #{company_detail.address}"
+            %p= "Industry : #{company_detail.company_industry}"
+        .herolist
+  .span4
+    .hero-unit
+      %h1 Advanced Search
+      <div id="searchbox">
+      = render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+      </div>
 = will_paginate @company_details
-
-- @company_details.each do |company_detail|
-  .row  
-    %ul.thumbnails
-      %li.span8
-        .thumbnail
-          .row
-            .span2
-              %td= image_tag company_detail.image.url(:thumbnail)
-            .span2
-              %p= link_to company_detail.company_name, company_detail_path(company_detail)
-              %p= "Location : #{company_detail.address}"
-              %p= "Industry : #{company_detail.company_industry}"

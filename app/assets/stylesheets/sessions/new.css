@@ -1,0 +1,20 @@
+#loginbutton{
+	position:relative;
+	left:325px;
+	top:0px;
+}
+
+#checkbox{
+	position:relative;
+	top:-15px;
+	left:15px;
+}
+
+#loginbox{
+	height:300px;
+}
+
+#signup{
+	text-align: center;
+	font-size: 14pt;
+}

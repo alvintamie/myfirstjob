@@ -1,5 +1,6 @@
 %html
   %head
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     %title MyFirstJob
   = stylesheet_link_tag    "application", params[:controller], :media => "all"
   = javascript_include_tag "application", params[:controller]
@@ -13,7 +14,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            =link_to "MyFirstJob", root_path, :class => :brand
+            =link_to image_tag("Logo white caption.png"), root_path, :class => :brand
             .nav-collapse.collapse
             %ul.nav
               %li.divider-vertical
@@ -67,4 +68,4 @@
             %li
               = link_to "Privacy"
               %span.divider /
-            %li.pull-right Funded By
+            %li.pull-right &copy2013 MyFirstJob. All Rights Reserved

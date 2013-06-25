@@ -1,23 +1,42 @@
-.row  
+
+%br
+%br
+.row 
   .span8
     .hero-unit
       #login-section
-        %h2 System Login
+        <div id="loginbox">
+        %h1 System Login
         = form_tag sessions_path, :class => "form form-inline" do
           .field
-            = label_tag :email
-            %br= text_field_tag :email, params[:email]
+            %br
+            %p Email:
+            %p= text_field_tag :email, params[:email]
           .field
-            = label_tag :password
-            %br= password_field_tag :password, nil
+            %p Password:
+            %p= password_field_tag :password, nil
           .field
             = check_box_tag :remember_me, 1, params[:remember_me]
+            <div id="checkbox">
             = label_tag :remember_me
+            </div>
           .actions
+            <div id="loginbutton">
             = submit_tag "Login", :class => "btn btn-primary"
-            %br
-          #sign_up
-            = link_to "Sign Up", "/signup"
-          #forget_password
-            = link_to "Forget password?", forget_password_profile_url
-          .clearfix
+            #forget_password
+            = link_to "Forgot Password?", forget_password_profile_url
+            </div>
+        </div>
+    <div id="signup">
+    %p Don't have an account? Sign up now for free!
+    #sign_up
+    = link_to "Sign Up Here", "/signup"
+    </div>
+    .clearfix
+%br
+%br
+%br
+%br
+%br
+%br
+%br

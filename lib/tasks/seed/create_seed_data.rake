@@ -33,7 +33,7 @@ namespace :seed do
     end
 
 
-    USER_COUNT = 3
+    USER_COUNT = 20
     count = 1
     User.populate USER_COUNT do |user| 
       user.email = Faker::Internet.email

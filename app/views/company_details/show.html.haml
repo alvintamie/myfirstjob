@@ -1,57 +1,43 @@
-.btn= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id)
-%br
-%br
-%table{:class => "table table-edit"}
-	%tr
-		%td Image
-		%td= image_tag @company_detail.image if @company_detail.image.present?
-	%tr
-		%td Company Name
-		%td= @company_detail.company_name
-	%tr
-		%td Company Type
-		%td= @company_detail.company_type
-	%tr
-		%td Address
-		%td= @company_detail.address
-	%tr
-		%td Number of Employees
-		%td= @company_detail.number_of_employees
-	%tr
-		%td Tel
-		%td= @company_detail.telephone
-	%tr
-		%td Fax
-		%td= @company_detail.fax
-	%tr
-		%td Contact Email
-		%td= @company_detail.contact_email
-	%tr
-		%td About
-		%td= @company_detail.about
-	%tr
-		%td Award
-		%td= @company_detail.award
-	%tr 
-		%td Opportunities
-		%td= @company_detail.opportunities
-
-%p Testimonials
-- @testimonials.each do |testimonial|
-	.row
-		%ul.thumbnails
-			%li.span8
-				.thumbnail
+.row
+	.span8
+		.row
+			.span3
+				.hero-unit1
+					= image_tag @company_detail.image if @company_detail.image.present?
+			.span5
+				.hero-unit1
+					%h2= @company_detail.company_name
+					%p= @company_detail.company_type
+					%p= @company_detail.number_of_employees 
+					%br
+					%p= @company_detail.address
+					%br
+					%p=@company_detail.telephone
+					%p= @company_detail.fax
+					%p= @company_detail.contact_email
+		.herolist
+		.row
+			.hero-unit1
+				%h2 About
+				%p= @company_detail.about
+				%h2 Award
+				%p= @company_detail.award
+				%h2 Opportunities
+				%p= @company_detail.opportunities
+		.row 
+			.hero-unit1
+				%h1 Testimonials
+				- @testimonials.each do |testimonial|
 					.row
 						.span2
-							%td= image_tag testimonial.profile_image
-						.span4
+							%p= image_tag testimonial.profile_image
+						.span3
 							%p= testimonial.student_name
 							%p= testimonial.position
 							%p= testimonial.grade
-							= link_to "show", student_testimonial_path(testimonial)
+							%p= link_to "show", student_testimonial_path(testimonial)
 						.span2
 							%p= testimonial.votes
-					.row
-						.span8
-							%p= testimonial.contents["work_experience"]
+					.hero-unit
+						%p= testimonial.contents["work_experience"]
+					.herolist

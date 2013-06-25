@@ -1,20 +1,28 @@
 .row
-  .span4
-    .row
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            %h3 Information
-            %p= "Current Job Posts : #{@total_jobs}"
-            %br
-            %p= "Current Internship Post : 0"
   .span8
     .row
-      %ul.thumbnails
-        %li.span8
-          .thumbnail
-            %br=link_to "Create new Company Profile", new_employer_company_detail_path, :class => "btn btn-primary"
-            %br=link_to "Manage your Company Profiles", employer_company_details_path, :class => "btn btn-primary"
-            %br=link_to "Create new Job/Internship", new_employer_job_path, :class => "btn btn-primary"
-            %br=link_to "Manage your Job/Internship", employer_jobs_path, :class => "btn btn-primary"
+      .hero-unit1
+        %h1 What should I do today?
+        =link_to "Create your Company Profile", new_employer_company_detail_path, :class => "btn btn-primary"
+        %br
+        =link_to "Manage your Company Profile", employer_company_details_path, :class => "btn btn-primary"
+        %br
+        =link_to "Create new Job/Internship", new_employer_job_path, :class => "btn btn-primary"
+        %br
+        =link_to "Manage your Job/Internship", employer_jobs_path, :class => "btn btn-primary"
+  .span4
+    .row
+      .hero-unit
+        %h1 Information
+        %p= "Current Job Posts : #{@total_jobs}"
+        %br
+        %p= "Current Internship Post : 0"
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+  
 
