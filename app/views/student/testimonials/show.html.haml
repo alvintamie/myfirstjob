@@ -1,4 +1,29 @@
+.row
+	%ul.thumbnails
+		%li.span8
+			.thumbnail
+				.row
+					.span4
+						%td= image_tag @testimonial.profile_image
+					.span4
+						.row 
+							.span2
+								%p= @testimonial.student_name
+
 %table{:class => "table table-edit"}
+	%tr	
+		%td
+			%p{:id => "votes"}= @testimonial.votes
+	%tr
+		%td.upvote{:class => @upvoted ? :active : "", :tid => @testimonial.id }
+			= link_to upvote_student_testimonial_path(@testimonial) do
+				%i.icon-thumbs-up
+				Upvote
+	%tr
+		%td.downvote{:class => @downvoted ? :active : "", :tid => @testimonial.id }
+			= link_to downvote_student_testimonial_path(@testimonial) do
+				%i.icon-thumbs-down
+				Downvote
 	%tr
 		%td= image_tag @testimonial.company_detail.image if @testimonial.company_detail.image.present?
 	%tr

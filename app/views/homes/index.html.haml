@@ -13,7 +13,7 @@
           .row
             - @featured_company_details.each do |c|
               .span2
-                %td= image_tag c.image.url(:thumbnail)
+                %td= link_to(image_tag(c.image.url(:thumbnail)), company_detail_path(c))
     .row
       .span8
         .hero-unit

@@ -23,6 +23,12 @@ class MailUser < ActionMailer::Base
     mail to: @user.email
   end
 
+  def send_company_detail_approval_message user, company_detail
+    @user = user
+    @company_detail = company_detail
+    mail to: @user.email
+  end
+
   def send_job_rejection_message user, message
     @user = user
     @message = message

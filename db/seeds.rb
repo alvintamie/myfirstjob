@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = User.new(:email => "alvintamie@gmail.com", :password => "admin1234")
+u = User.new(:email => "admin@gmail.com", :password => "qweqwe")
 u.role = "admin"
 u.activated = true
 u.locked = false
 u.save!
 
-puts "you have created an admin user [alvintamie@gmail.com] with password admin1234"
+puts "you have created an admin user [admin@gmail.com] with password qweqwe"

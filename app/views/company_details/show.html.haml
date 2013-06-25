@@ -1,4 +1,6 @@
 .btn= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id)
+.btn= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id)
+
 %br
 %br
 %table{:class => "table table-edit"}
@@ -26,32 +28,10 @@
 	%tr
 		%td Contact Email
 		%td= @company_detail.contact_email
-	%tr
-		%td About
-		%td= @company_detail.about
-	%tr
-		%td Award
-		%td= @company_detail.award
-	%tr 
-		%td Opportunities
-		%td= @company_detail.opportunities
 
-%p Testimonials
-- @testimonials.each do |testimonial|
-	.row
-		%ul.thumbnails
-			%li.span8
-				.thumbnail
-					.row
-						.span2
-							%td= image_tag testimonial.profile_image
-						.span4
-							%p= testimonial.student_name
-							%p= testimonial.position
-							%p= testimonial.grade
-							= link_to "show", student_testimonial_path(testimonial)
-						.span2
-							%p= testimonial.votes
-					.row
-						.span8
-							%p= testimonial.contents["work_experience"]
+.btn= link_to "Company Overview", company_detail_path(@company_detail)
+.btn= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial")
+.btn= link_to "Interview", company_detail_path(@company_detail, :tab => "interview")
+%br
+%br
+= render @tab

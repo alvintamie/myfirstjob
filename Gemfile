@@ -14,6 +14,7 @@ gem 'paperclip'
 #front-end
 gem 'jquery-rails'
 gem "haml-rails"
+gem 'jquery-ui-rails'
 
 
 #database

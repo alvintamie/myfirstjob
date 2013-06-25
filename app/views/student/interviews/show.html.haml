@@ -1,0 +1,65 @@
+.row
+	%ul.thumbnails
+		%li.span8
+			.thumbnail
+				.row
+					.span4
+						%td= image_tag @interview.profile_image
+					.span4
+						.row 
+							.span2
+								%p= @interview.student_name
+%table{:class => "table table-edit"}
+	%tr	
+		%td
+			%p{:id => "votes"}= @interview.votes
+	%tr
+		%td.upvote{:class => @upvoted ? :active : "", :tid => @interview.id }
+			= link_to upvote_student_testimonial_path(@interview) do
+				%i.icon-thumbs-up
+				Upvote
+	%tr
+		%td.downvote{:class => @downvoted ? :active : "", :tid => @interview.id }
+			= link_to downvote_student_testimonial_path(@interview) do
+				%i.icon-thumbs-down
+				Downvote
+	%tr
+		%td= image_tag @interview.company_detail.image if @interview.company_detail.image.present?
+	%tr
+		%td Company Name
+		%td= @interview.company_detail.company_name
+	%tr
+		%td Date of Interview
+		%td= @interview.interview_date
+	%tr 
+		%td Offer Status
+		%td= @interview.offer_status
+	%tr
+		%td Position
+		%td= @interview.position
+	%tr
+		%td Culture
+		%td= @interview.contents["interview_process"]
+	%tr
+		%td Work Balance
+		%td= @interview.contents["questions"]
+	%tr
+		%td Advice
+		%td= @interview.contents["advice"]
+- if @from_current_student
+	=link_to "Edit", edit_student_interview_path(@interview, :company_detail_id => @interview.company_detail.id), :class => "btn btn-primary"
+	=link_to "Delete", student_interview_path(@interview), :method => :delete,  data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+
+%br
+= simple_form_for @comment, :url => comment_student_interviews_path(@comment), :method => 'post' do |f|
+	= f.input :content, :label => "Comment"
+	= f.input :interview_id, :as => :hidden, :input_html => { :value => @interview.id  }
+	= f.button :submit, :class => "btn btn-primary"
+
+- @comments.each do |c|
+	%table{:class => "table table-edit"}
+		%tr
+			- if c.user.profile_image.present?
+				%td= image_tag c.user.profile_image.url(:thumbnail)
+			%td= c.user.first_name
+			%td= c.content

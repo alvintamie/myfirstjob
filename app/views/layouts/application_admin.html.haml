@@ -45,6 +45,11 @@
                   %i.icon-file
                   Career Info
               %li.divider-vertical
+              %li{:class => (current_page?(events_path) ? :active : "") }
+                = link_to events_path do
+                  %i.icon-file
+                  Events
+              %li.divider-vertical
             %ul.nav.pull-right
               %li
                 = link_to student_root_url do
@@ -66,18 +71,18 @@
         %footer
           %ul.breadcrumb
             %li
-              = link_to "About us"
+              = link_to "About us", homes_about_path
               %span.divider /
             %li
-              = link_to "FAQ"
+              = link_to "FAQ", homes_faq_path
               %span.divider /
             %li
-              = link_to "Contact us"
+              = link_to "Contact us", homes_contact_path
               %span.divider /
             %li
-              = link_to "Terms"
+              = link_to "Terms", homes_terms_path
               %span.divider /
             %li
-              = link_to "Privacy"
+              = link_to "Privacy", homes_privacy_path
               %span.divider /
             %li.pull-right Funded By
