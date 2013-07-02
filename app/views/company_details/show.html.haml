@@ -46,31 +46,28 @@
 .row
 	.span8
 		.hero-unit1
-			.span3
-				<div class="photo220">
-				= image_tag @company_detail.image if @company_detail.image.present?
-				</div>
-			.span5
-				%h2= @company_detail.company_name
-				%table{:class => "table table-edit"}
-					%tr
-						%td Industry:
-						%td= @company_detail.company_type
-					%tr
-						%td Address:
-						%td= @company_detail.address
-					%tr 
-						%td Employee:
-						%td= @company_detail.number_of_employees
-					%tr 
-						%td Tel:
-						%td= @company_detail.telephone
-					%tr 
-						%td Fax:
-						%td= @company_detail.telephone
-					%tr
-						%td Email:
-						%td= @company_detail.contact_email
+			%h2= @company_detail.company_name
+			.center
+				%p= image_tag @company_detail.image if @company_detail.image.present?
+			%table{:class => "table table-edit"}
+				%tr
+					%td Industry:
+					%td= @company_detail.company_type
+				%tr
+					%td Address:
+					%td= @company_detail.address
+				%tr 
+					%td Employee:
+					%td= @company_detail.number_of_employees
+				%tr 
+					%td Tel:
+					%td= @company_detail.telephone
+				%tr 
+					%td Fax:
+					%td= @company_detail.telephone
+				%tr
+					%td Email:
+					%td= @company_detail.contact_email
 			.btn= link_to "Overview", company_detail_path(@company_detail)
 			.btn= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial")
 			.btn= link_to "Interview", company_detail_path(@company_detail, :tab => "interview")

@@ -5,10 +5,11 @@
       - @company_details.each do |company_detail|
         .row
           .span2
-            .center
-              <div class="photo100">
-              %p= image_tag company_detail.image.url
-              </div>
+            <div class="photo100box">
+            <div class="photo100">
+            %p= image_tag company_detail.image.url
+            </div>
+            </div>
           .span6
             %p= link_to company_detail.company_name, company_detail_path(company_detail)
             %p= "Location : #{company_detail.address}"

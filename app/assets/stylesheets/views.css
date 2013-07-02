@@ -1,4 +1,25 @@
+input[type="text"]{
+	height:20px;
+}
 
+#photobox{
+	height:300px;
+	position:relative;
+	display:table;
+}
+
+.photo100box{
+	height:100px;
+	width:150px;
+	position:relative;
+	display:table;
+}
+
+.photo100{
+	display:table-cell;
+	vertical-align:middle;
+	text-align: center;
+}
 
 .photo100 p img{
 	height:auto;
@@ -11,7 +32,6 @@
 	border-color:#cccccc;
 	border-top-color:#dddddd;
 	border-left-color:#dddddd;
-	vertical-align: middle;
 }
 
 .photo150 p img{
@@ -28,7 +48,12 @@
 	vertical-align: middle;
 }
 
-.photo220 img{
+.photo220{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.photo220 p img{
 	height:auto;
 	width:220px;
 	border-style: none;
@@ -39,7 +64,6 @@
 	border-color:#cccccc;
 	border-top-color:#dddddd;
 	border-left-color:#dddddd;
-	vertical-align: middle;
 }
 
 .photo300 img{
