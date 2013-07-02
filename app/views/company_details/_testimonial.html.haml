@@ -21,7 +21,7 @@
 								.span2
 									- upvoted, downvoted = testimonial.user_vote? current_user
 									%td
-										%p{:id => "votes"}= testimonial.votes
+										%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
 									%td
 										= link_to upvote_student_testimonial_path(testimonial), :class => "upvote", :tid => "#{testimonial.id}" do
 											%i.icon-thumbs-up

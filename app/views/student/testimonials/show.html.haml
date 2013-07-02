@@ -13,7 +13,7 @@
 %table{:class => "table table-edit"}
 	%tr	
 		%td
-			%p{:id => "votes"}= @testimonial.votes
+			%p{:id => "votes-"+@testimonial.id.to_s}= @testimonial.votes
 	%tr
 		%td.upvote{:class => @upvoted ? :active : "", :tid => @testimonial.id }
 			= link_to upvote_student_testimonial_path(@testimonial) do
