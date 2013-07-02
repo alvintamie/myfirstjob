@@ -5,9 +5,9 @@ class Job < ActiveRecord::Base
 
   belongs_to :employer
 
-  JOB_TYPE = %w(it accounting)
-  JOB_INDUSTRY = %w(it banking)
-  JOB_SCOPE = %w(test1 test2 test3)
+  JOB_TYPE = %w(Full-time Part-time Internship)
+  JOB_INDUSTRY = ["Accounting & Financial Management","Consulting","Aerospace","Engineering & Manufacturing","Banking","Insurance & Financial Services","Investment & Investment Banking","Construction","Civil Engineering","Property & Development","Hospitality","Leisure & Tourism","Infocomms","Energy/Oil & Gas/Utilities","FMCG/Retail","Healthcare & Pharmaceutical","Scientific Research & Development","Legal","Logistics","Transport & SUpply Chain","Public Sector"]
+  JOB_SCOPE = %w(Engineering Research Accounting)
   STATUS = %w(rejected approved pending)
 
   scope :pendings, where(:status => "pending")

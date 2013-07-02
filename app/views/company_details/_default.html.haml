@@ -1,10 +1,12 @@
-%table{:class => "table table-edit"}
-	%tr
-		%td About
-		%td= @company_detail.about
-	%tr
-		%td Award
-		%td= @company_detail.award
-	%tr 
-		%td Opportunities
-		%td= @company_detail.opportunities
+%h1 About
+.essay
+	%p= @company_detail.about
+%br
+%h1 Award
+.essay
+	%p= @company_detail.award
+%br
+%h1 Opportunities
+.essay
+	%p= @company_detail.opportunities
+%br

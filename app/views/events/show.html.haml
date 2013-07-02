@@ -1,12 +1,18 @@
-=link_to "See all events", events_path, :class =>"btn btn-primary"
+.row
+	.span8
+		.hero-unit1
+			%h1 Event Details
+			.row
+				.span4
+					<div class="photo300">
+					%p= image_tag @event.image.url
+					</div>
+				.span3
+					%h2= @event.title
+			.row
+				%p= @event.content
+				%br
+				%br
+				.pull-right
+					=link_to "See all events", events_path, :class =>"btn btn-primary"
 
-%table{:class => "table table-edit"}
-	%tr
-		%td Image
-		%td= image_tag @event.image.url
-	%tr
-		%td Title
-		%td= @event.title
-	%tr
-		%td Content
-		%td= @event.content

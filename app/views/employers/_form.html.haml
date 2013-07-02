@@ -1,16 +1,25 @@
-%p Welcome to MyFirstJob!
-%h4 Registration is quick and does not cost time!
-%h4 For Employer,
-= simple_form_for @user, :url => employers_path(@user), :html => {:multipart => true} do |f|
-  = render "shared/errors", :object => @user
-  = f.input :first_name
-  = f.input :last_name
-  = f.simple_fields_for :employer do |m|
-    = m.input :company_name
-    = m.input :company_type, :collection => Employer::TYPES
-    = m.input :address
-  = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
+.hero-unit3
+  %p Dear Employer,
   %br
-  = f.button :submit, :class => "btn btn-primary"
+  %h1 Welcome to MyFirstJob!
+  %h2 Registration is quick and does not cost a dime!
+  <div class="signupform">
+  = simple_form_for @user, :url => employers_path(@user), :html => {:multipart => true} do |f|
+    = render "shared/errors", :object => @user
+    = f.input :first_name
+    = f.input :last_name
+    = f.simple_fields_for :employer do |m|
+      = m.input :company_name
+      = m.input :company_type, :collection => Employer::TYPES
+      = m.input :address
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    %br
+    .psmall
+      By registering, you accept our Terms.
+    %br
+    %br
+    .signupbutton
+      = f.button :submit, :class => "btn btn-primary"
+  </div>

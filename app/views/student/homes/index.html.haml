@@ -1,54 +1,52 @@
 .row  
   .span8
     .row
-      .span8
-        .hero-unit
-          %p Latest Testimonials
-          - @testimonials.each do |testimonial|
-            .row  
-              %ul.thumbnails
-                %li.span7
-                  .thumbnail
-                    .row
-                      .span2
-                        %td= image_tag testimonial.profile_image
-                      .span4
-                        %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
-                        %p= "Industry : " + testimonial.company_detail.company_industry
-                        = link_to "show", student_testimonial_path(testimonial)
-                        %p= testimonial.contents["work_experience"]
+      .hero-unit1
+        %h1 Latest Testimonials 
+        - @testimonials.each do |testimonial|
+          .row  
+            .span1
+              <div class="photo100">
+              %p= image_tag testimonial.profile_image
+              </div>
+            .span7
+              %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+              %p= "Industry : " + testimonial.company_detail.company_industry
+              .ellipsis
+                %p= testimonial.contents["work_experience"]
+              .pull-right
+                %p= link_to "Read More",  company_detail_path(testimonial.company_detail)
+          .herolist
     .row
-      .span8
-        .hero-unit
-          %p Featured Events
-          - @events.each do |event|
-            .row  
-              %ul.thumbnails
-                %li.span7
-                  .thumbnail
-                    .row
-                      .span2
-                        %td= image_tag event.image.url(:thumbnail)
-                      .span2
-                        %p= link_to event.title, event_path(event)
-                        %p= event.content
-  .span4 
+      .hero-unit1
+        %h1 Featured Events
+        - @events.each do |event|
+          .row  
+            .span2
+              <div class="photo150">
+              %p= image_tag event.image.url(:thumbnail)
+              </div>
+            .span6
+              %p= link_to event.title, event_path(event)
+              .ellipsis
+                %p= event.content
+              .pull-right
+                %p= link_to "Read More", event_path(event)
+          .herolist
+  .span4
     .row
-      %h2 Membership:
-      %small Basic
-      %p You will be able to see the testimonials and bla bla kasdf ajskldf jaksldjf jasdklfja slkdj fkl ajsdklfj alskdj f
+      .hero-unit
+        %h1 Contribute
+        %p=link_to "Create a Company Profile", new_student_company_detail_path, :class => "btn btn-primary"
+        %p=link_to "Manage your Company Profiles", student_company_details_path, :class => "btn btn-primary"
+        %p=link_to "Write a Testimonial", new_student_testimonial_path, :class => "btn btn-primary"
+        %p=link_to "Share an interview", new_student_interview_path, :class => "btn btn-primary"
     .row
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            %h4 CONTRIBUTION PANEL
-            %br=link_to "Create a Company Profile", new_student_company_detail_path, :class => "btn btn-primary"
-            %br=link_to "Manage your Company Profiles", student_company_details_path, :class => "btn btn-primary"
-            %br=link_to "Write a Testimonial", new_student_testimonial_path, :class => "btn btn-primary"
-            %br=link_to "Share an interview", new_student_interview_path, :class => "btn btn-primary"
+      .hero-unit
+        %h1 Personal
+        %p=link_to "Edit Profile", edit_student_user_url(current_user), :class => "btn btn-primary"
     .row
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            %h4 PERSONAL PANEL
-            =link_to "Edit Profile", edit_student_user_url(current_user), :class => "btn btn-primary"
+      .hero-unit
+        %h1 Membership
+        %p Basic
+        %p You will be able to see the testimonials if you are smart

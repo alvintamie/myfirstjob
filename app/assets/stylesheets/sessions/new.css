@@ -1,0 +1,30 @@
+.loginbox{
+position:relative;
+left:175px;
+}
+
+#submitbutton{
+position:relative;
+left:230px;
+}
+
+#forget_password{
+position:relative;
+left:390px;
+}
+
+#remember_me{
+	position:relative;
+	top:-2.5px;
+}
+
+#rememberme{
+	position:relative;
+	left:115px;
+}
+
+#signup{
+	text-align: center;
+	font-size: 13pt;
+}
+

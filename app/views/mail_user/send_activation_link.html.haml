@@ -1,11 +1,38 @@
-%h1 Hello #{@user.first_name}
+%table{:style => "width: 600px" "height => 1000px"}
+	%tr
+		%td=image_tag "http://s23.postimg.org/fuehkfjsr/Heroshot6.png"
+		%td 
+			%h1 MyFirstJob Account Confirmation 
+	%tr
+	%tr
+		%td 
+		%td <b> Hi #{@user.first_name}, </b>
+	%tr
+	%tr
+	%tr
+	%tr
+		%td
+		%td You just signed up for MyFirstJob.
+	%tr
+	%tr
+		%td
+		%td Please follow this link to confirm that this is your e-mail address.
+	%tr
+	%tr
+	%tr
+	%tr
+		%td
+		%td= link_to "Click here", activate_profile_url(:id => @user.id, :digest => @digest, :key => @key), :target => "_blank"
+	%tr
+	%tr
+	%tr
+	%tr
+	%tr
+	%tr
+		%td
+		%td Best Regards,
+	%tr
+	%tr
+		%td
+		%td MyFirstJob Management Team
 
-%p Welcome to be part of our family! Click the following link to activate your account!
-
-= link_to "Click here", activate_profile_url(:id => @user.id, :digest => @digest, :key => @key), :target => "_blank"
-
-
-%br
-%br
-
-%p Best Regards

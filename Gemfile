@@ -18,7 +18,7 @@ gem 'jquery-ui-rails'
 
 
 #database
-#gem 'mysql2'
+gem 'mysql2'
 gem 'pg'
 
 #authorization

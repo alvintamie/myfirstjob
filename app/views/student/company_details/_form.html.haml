@@ -1,6 +1,7 @@
+%br
 = simple_form_for [:student, @company_detail], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @company_detail
-  = f.input :image
+  = f.input :image, :label => "Company Logo (Best in Square Dimension)"
   = f.input :company_name
   = f.input :company_type, :collection => CompanyDetail::TYPES
   = f.input :address
@@ -12,4 +13,5 @@
   = f.input :award
   = f.input :opportunities
   %br
-  = f.button :submit, :class => "btn btn-primary"
+  .center
+    = f.button :submit, :class => "btn btn-primary"

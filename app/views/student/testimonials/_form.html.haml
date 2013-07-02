@@ -2,28 +2,50 @@
   = render "shared/errors", :object => @testimonial
   - if @company_detail.present?
     .row  
-      %ul.thumbnails
-        %li.span8
-          .thumbnail
-            .row
-              .span2
-                %td= image_tag @company_detail.image.url(:thumbnail)
-              .span2
-                %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
-                %p= "Location : #{@company_detail.address}"
-                %p= "Industry : #{@company_detail.company_industry}"
+      .span3
+        %p= image_tag @company_detail.image
+      .span4
+        %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
+        %p= "Location : #{@company_detail.address}"
+        %p= "Industry : #{@company_detail.company_industry}"
     = f.input :company_detail_id, :as => :hidden, :input_html => { :value => @company_detail.id  }
+    %br
+    %br
   - else
-    = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}, :include_blank => false
-  = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
-  = f.input :position
-  = f.simple_fields_for :contents do |m|
-    = m.input :culture, :input_html => { :value => @testimonial.contents["culture"]}
-    = m.input :work_balance, :input_html => { :value => @testimonial.contents["work_balance"]}
-    = m.input :work_experience, :input_html => { :value => @testimonial.contents["work_experience"]}
-    = m.input :advice, :input_html => { :value => @testimonial.contents["advice"]}
-  = f.input :anonymous, :label => "as anonymous"
+    .row
+      %br
+      = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}, :include_blank => false
+  <b>Overall Experience</b>
   %br
-  = f.button :submit, :class => "btn btn-primary"
+  = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
+  %br
+  %p= f.input :position
+  <b> Help Us Elaborate Your Experience </b>
+  = f.simple_fields_for :contents do |m|
+    %br
+    %br
+    .pmedium
+      <b>1. Comment on the company environment</b>
+      %br
+      (i.e: Amount of autonomy, mentorship, relationship with colleagues, etc)
+    %p= m.text_area :culture, :input_html => { :value => @testimonial.contents["culture"]}
+    %br
+    .pmedium
+      <b>2. Comment on the work-life balance</b>
+      %br
+      (i.e: Working hours, break time, frequency of overtime, weekend shift, etc)
+    %p= m.text_area :work_balance, :input_html => { :value => @testimonial.contents["work_balance"]}
+    %br
+    .pmedium
+      <b>3. Share with us the overall job/internship experience</b>
+    %p= m.text_area :work_experience, :input_html => { :value => @testimonial.contents["work_experience"]}
+    %br
+    .pmedium
+      <b>4. Advice for your peers joining the company</b>
+    %p= m.text_area :advice, :input_html => { :value => @testimonial.contents["advice"]}
+  %p= f.input :anonymous, :label => "Submit as anonymous"
+  %br
+  .center
+    = f.button :submit, :class => "btn btn-primary"
 
 

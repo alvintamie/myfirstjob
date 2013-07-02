@@ -8,8 +8,8 @@ class CompanyDetail < ActiveRecord::Base
   has_many :interviews
 
   SORT_KEYS = { :asc => %w(company_name, company_type, company_industry), :default => "id desc"}
-  TYPES = ["accounting", "it"]
-  INDUSTRIES = ["engineering", "computer sciences"]
+  TYPES = ["Multi-national Company", "Small Medium Enterprise","Start-up","Government Agency","Government-Linked Companies"]
+  INDUSTRIES = ["Accounting & Financial Management","Aerospace","Banking","Civil Engineering","Construction","Consulting","Energy/Oil & Gas/Utilities","Engineering & Manufacturing","FMCG/Retail","Healthcare & Pharmaceutical","Hospitality","Infocomms","Insurance & Financial Services","Investment & Investment Banking","Legal","Leisure & Tourism","Logistics","Property & Development","Public Sector","Scientific Research & Development","Transport & Supply Chain"]
   STATUS = ["approved", "rejected", "pending"]
   NUMBER_OF_EMPLOYEES = ["1-50", "51-100", "100-1000", "> 1000"]
   SEARCH_KEYS = ["company_name", "company_type", "company_industry"]

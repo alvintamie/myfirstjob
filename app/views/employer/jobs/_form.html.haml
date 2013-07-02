@@ -1,3 +1,4 @@
+%br
 = simple_form_for [:employer , @job], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @job
   = f.input :title
@@ -18,5 +19,6 @@
   = f.text_field :deadline, :value => @job.deadline.try(:strftime,'%d/%m/%Y')
   = f.input :number_of_hires
   %br
-  = f.button :submit, :class => "btn btn-primary"
+  .center
+    = f.button :submit, :class => "btn btn-primary"
 

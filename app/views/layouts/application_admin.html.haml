@@ -5,6 +5,9 @@
   = javascript_include_tag "application", params[:controller]
   = csrf_meta_tags
   %body
+    #fb-root
+    :javascript
+      (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=475780035833133"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
     #admin
       .navbar.navbar-inverse
         .navbar-inner
@@ -13,7 +16,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            =link_to "MyFirstJob", root_path, :class => :brand
+            =link_to image_tag("Logo white caption.png"), root_path, :class => :brand
             .nav-collapse.collapse
             %ul.nav
               %li.divider-vertical
@@ -85,4 +88,4 @@
             %li
               = link_to "Privacy", homes_privacy_path
               %span.divider /
-            %li.pull-right Funded By
+            %li.pull-right &copy2013 MyFirstJob. All Rights Reserved

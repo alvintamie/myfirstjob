@@ -16,7 +16,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            =link_to "MyFirstJob", root_path, :class => :brand
+            =link_to image_tag("Logo white caption.png"), root_path, :class => :brand
             .nav-collapse.collapse
             %ul.nav
               %li.divider-vertical
@@ -51,18 +51,18 @@
         %footer
           %ul.breadcrumb
             %li
-              = link_to "About us"
+              = link_to "About us", homes_about_path
               %span.divider /
             %li
-              = link_to "FAQ"
+              = link_to "FAQ", homes_faq_path
               %span.divider /
             %li
-              = link_to "Contact us"
+              = link_to "Contact us", homes_contact_path
               %span.divider /
             %li
-              = link_to "Terms"
+              = link_to "Terms", homes_terms_path
               %span.divider /
             %li
-              = link_to "Privacy"
+              = link_to "Privacy", homes_privacy_path
               %span.divider /
-            %li.pull-right Funded By
+            %li.pull-right &copy2013 MyFirstJob. All Rights Reserved

@@ -1,4 +1,4 @@
-.search_box_section.pull-right
+.search_box_section
 	= form_tag nil, :method => :get do
 		= label_tag :company_name, "Company Name:"
 		= text_field_tag :search_key, params[:search_key], :placeholder => "Search Company Name"
@@ -6,4 +6,5 @@
 		= select_tag :company_type, options_for_select( CompanyDetail::TYPES.map{|key| [ key.humanize, key]}, params[:criterion])
 		= label_tag :company_industry, "Industry:"
 		= select_tag :company_industry, options_for_select( CompanyDetail::INDUSTRIES.map{|key| [ key.humanize, key]}, params[:criterion])
-		%br= submit_tag :search, :name => nil
+		%br
+		%br= submit_tag :Search, :name => nil
