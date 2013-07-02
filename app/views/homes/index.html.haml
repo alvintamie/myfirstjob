@@ -1,5 +1,6 @@
-.row
-  =image_tag("heroshot.png",:class=>'heroshot')
+=image_tag("Heroshot6.png",:class=>'heroshot')
+%br
+%br
 .row  
   .span8
     .row
@@ -8,7 +9,7 @@
         .row
           - @featured_company_details.each do |c|
             .span2
-              %td= link_to(image_tag(c.image.url(:thumbnail)), company_detail_path(c))
+              = link_to(image_tag(c.image.url(:thumbnail)), company_detail_path(c))
     .row
       .span8
         .hero-unit1
@@ -16,20 +17,26 @@
           - @events.each do |event|
             .row
               .span2
+                <div class="photo150">
                 %p= image_tag event.image.url(:thumbnail)
+                </div>
               .span6
                 %p= link_to event.title, event_path(event)
                 .ellipsis
                   %p= event.content
+                .pull-right
+                  %p= link_to "Read More", event_path(event)
             .herolist
 
   .span4
     .row
-      .hero-unit1
+      .hero-unit
         %h1 Employer
         %p Reach out to students and graduates effectively now through events, posts and referrals. Registration is free!
-        =link_to "Register", new_employer_path, :class => "btn btn-primary"
-        =link_to "Sign In", login_url, :class => "btn btn-primary"
+        .bigbutton
+          %p=link_to "Register", new_employer_path, :class => "btn btn-primary"
+          %p=link_to "Sign In", login_url, :class => "btn btn-primary"
     .row
-      .hero-unit1
+      .hero-unit
+        %h1 Find us
         .fb-like{"data-href" => "http://localhost:3000/", "data-send" => "true", "data-show-faces" => "true", "data-width" => "150"}

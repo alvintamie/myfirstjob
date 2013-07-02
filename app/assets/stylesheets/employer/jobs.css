@@ -1,0 +1,58 @@
+#new_job{
+	position:relative;
+	left:30px;
+}
+
+#job_date_posted{
+	width :520px;
+}
+
+.ui-datepicker-trigger{
+	margin-left:3px;
+	position:relative;
+	top:-5px;
+}
+
+#job_responsibility{
+	width:550px;
+	height:500px;
+}
+
+#job_requirements{
+	width:550px;
+	height:500px;
+}
+
+#job_job_type{
+	width:550px;
+}
+
+#job_industry{
+	width:550px;
+}
+
+#job_job_scope{
+	width:550px;
+}
+
+#job_salary{
+	width:550px;
+	height:30px;
+}
+
+#job_start_date{
+	width:520px;
+}
+
+#job_end_date{
+	width:520px;
+}
+
+#job_deadline{
+	width:520px;
+}
+
+#job_number_of_hires{
+	width:550px;
+	height:30px;
+}

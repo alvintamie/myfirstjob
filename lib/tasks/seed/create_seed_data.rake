@@ -15,7 +15,7 @@ namespace :seed do
       ActiveRecord::Base.connection.reset_pk_sequence!(tbl.table_name)
     end
 
-    u = User.new(:email => "alvintamie@gmail.com", :password => "admin1234")
+    u = User.new(:email => "admin@gmail.com", :password => "qweqwe")
     u.role = "admin"
     u.activated = true
     u.locked = false

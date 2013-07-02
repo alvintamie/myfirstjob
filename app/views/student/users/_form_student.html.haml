@@ -1,6 +1,6 @@
 = simple_form_for [:student, @user], :html => {:multipart => true} do |f|
-  = render "shared/errors", :object => @user
-  = image_tag @user.profile_image.url(:thumbnail)
+  = render "shared/errors", :object => @user 
+  = image_tag @user.profile_image.url(:thumbnail) if @user.profile_image.present?
   = f.input :profile_image
   = f.input :first_name
   = f.input :last_name
@@ -11,6 +11,8 @@
     = m.input :nationality, :collection => Student::NATIONALITIES
   = f.input :email, label: 'School Email'
   %br
+  %br
+  <div id="settingchange">
   = f.button :submit, :name => "student", :class => "btn btn-primary"
-
+  </div>
 

@@ -1,14 +1,24 @@
-%p Welcome to MyFirstJob!
-%h4 Registration is quick and does not cost time!
-%h4 For Alumni,
-= simple_form_for @user do |f|
-  = render "shared/errors", :object => @user
-  = f.input :first_name
-  = f.input :last_name
-  = f.simple_fields_for :student do |m|
-    = m.input :school
-  = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
+.hero-unit3
+  .pheading
+    Dear Alumni,
   %br
-  = f.button :submit, :name => "alumni", :class => "btn btn-primary"
+  %h1 Welcome to MyFirstJob!
+  %h2 Registration is quick and does not cost a dime!
+  <div class="signupform">
+  = simple_form_for @user do |f|
+    = render "shared/errors", :object => @user
+    = f.input :first_name
+    = f.input :last_name
+    = f.simple_fields_for :student do |m|
+      = m.input :school
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    %br
+    .psmall
+      By registering, you accept our Terms.
+    %br
+    %br
+    .signupbutton
+      = f.button :submit, :name => "alumni", :class => "btn btn-primary"
+  </div>

@@ -6,7 +6,7 @@ class HomesController < ApplicationController
   end 
 
   def company_hub
-    @company_details = CompanyDetail.search_and_sort(params).approveds.page(params[:page])
+    @company_details = CompanyDetail.search_and_sort(params).approveds.paginate(:page => params[:page], :per_page => 10)
   end
 
   def career_info

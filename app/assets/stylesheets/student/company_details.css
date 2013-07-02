@@ -1,0 +1,19 @@
+#new_company_detail{
+	position:relative;
+	left:30px;
+}
+
+#company_detail_about{
+	width:550px;
+	height:100px;
+}
+
+#company_detail_award{
+	width:550px;
+	height:100px;
+}
+
+#company_detail_opportunities{
+	width:550px;
+	height:100px;
+}

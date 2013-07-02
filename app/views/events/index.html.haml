@@ -1,14 +1,21 @@
-=link_to "Back", root_path, :class =>"btn btn-primary"
-= will_paginate @events
-
-- @events.each do |event|
-  .row  
-    %ul.thumbnails
-      %li.span7
-        .thumbnail
-          .row
-            .span2
-              %td= image_tag event.image.url(:thumbnail)
-            .span2
-              %p= link_to event.title, event_path(event)
+.pull-right
+  =link_to "Back to Welcome Page", root_path, :class =>"btn btn-primary"
+.row
+  .span8
+    .hero-unit1
+      %h1 Events
+      - @events.each do |event|
+        .row  
+          .span2
+            <div class="photo150">
+            %p= image_tag event.image.url
+            </div>
+          .span6
+            %p= link_to event.title, event_path(event)
+            .ellipsis
               %p= event.content
+            .pull-right
+              %p= link_to "Read More", event_path(event)
+        .herolist
+      .pull-right
+        = will_paginate @events

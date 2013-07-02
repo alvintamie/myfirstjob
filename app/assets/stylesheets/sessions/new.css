@@ -1,20 +1,30 @@
-#loginbutton{
-	position:relative;
-	left:325px;
-	top:0px;
+.loginbox{
+position:relative;
+left:175px;
 }
 
-#checkbox{
-	position:relative;
-	top:-15px;
-	left:15px;
+#submitbutton{
+position:relative;
+left:230px;
 }
 
-#loginbox{
-	height:300px;
+#forget_password{
+position:relative;
+left:390px;
+}
+
+#remember_me{
+	position:relative;
+	top:-2.5px;
+}
+
+#rememberme{
+	position:relative;
+	left:115px;
 }
 
 #signup{
 	text-align: center;
-	font-size: 14pt;
+	font-size: 13pt;
 }
+

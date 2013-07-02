@@ -1,38 +1,41 @@
 
 %br
 %br
-.row 
-  .span8
-    .hero-unit
-      #login-section
-        <div id="loginbox">
-        %h1 System Login
-        = form_tag sessions_path, :class => "form form-inline" do
-          .field
-            %br
-            %p Email:
-            %p= text_field_tag :email, params[:email]
-          .field
-            %p Password:
-            %p= password_field_tag :password, nil
-          .field
-            = check_box_tag :remember_me, 1, params[:remember_me]
-            <div id="checkbox">
-            = label_tag :remember_me
-            </div>
-          .actions
-            <div id="loginbutton">
-            = submit_tag "Login", :class => "btn btn-primary"
-            #forget_password
-            = link_to "Forgot Password?", forget_password_profile_url
-            </div>
+.row
+    .span8
+        <div class="loginbox">
+        .hero-unit
+            #login-section
+            %h1 System Login
+            = form_tag sessions_path, :class => "form form-inline" do
+                .field
+                    %br
+                    %p Email:
+                    %p= text_field_tag :email, params[:email]
+                .field
+                    %p Password:
+                    %p= password_field_tag :password, nil
+                .field
+                    <div id="rememberme">
+                    = check_box_tag :remember_me, 1, params[:remember_me]
+                    = label_tag :remember_me
+                    </div>
+                .actions
+                    <div id="submitbutton">
+                    = submit_tag "Login", :class => "btn btn-primary"
+                    </div>
+                #forget_password
+                    %p= link_to "Forgot Password?", forget_password_profile_url
         </div>
-    <div id="signup">
-    %p Don't have an account? Sign up now for free!
-    #sign_up
-    = link_to "Sign Up Here", "/signup"
-    </div>
-    .clearfix
+<div id="signup">
+%p Don't have an account? Sign up now for free!
+#sign_up
+%p= link_to "Sign Up Here", "/signup"
+.clearfix
+</div>    
+%br
+%br
+%br
 %br
 %br
 %br

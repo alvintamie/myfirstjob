@@ -1,6 +1,5 @@
 %html
   %head
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     %title MyFirstJob
   = stylesheet_link_tag    "application", params[:controller], :media => "all"
   = javascript_include_tag "application", params[:controller]
@@ -52,18 +51,18 @@
         %footer
           %ul.breadcrumb
             %li
-              = link_to "About us"
+              = link_to "About us", homes_about_path
               %span.divider /
             %li
-              = link_to "FAQ"
+              = link_to "FAQ", homes_faq_path
               %span.divider /
             %li
-              = link_to "Contact us"
+              = link_to "Contact us", homes_contact_path
               %span.divider /
             %li
-              = link_to "Terms"
+              = link_to "Terms", homes_terms_path
               %span.divider /
             %li
-              = link_to "Privacy"
+              = link_to "Privacy", homes_privacy_path
               %span.divider /
             %li.pull-right &copy2013 MyFirstJob. All Rights Reserved

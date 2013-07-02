@@ -10,5 +10,5 @@
       %td= company_detail.company_type
       %td= company_detail.status
       %td
-        = link_to "Edit", edit_student_company_detail_path(company_detail), :class => "btn btn-primary"
-        = link_to "Delete", student_company_detail_path(company_detail), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+        = link_to "Edit This Company Profile", edit_student_company_detail_path(company_detail), :class => "btn btn-primary"
+        = link_to " Delete This Company Profile  ", student_company_detail_path(company_detail), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'

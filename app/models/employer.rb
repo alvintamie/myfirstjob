@@ -6,7 +6,7 @@ class Employer < ActiveRecord::Base
   has_many :company_details, :dependent => :destroy
   has_many :jobs, :dependent => :destroy
   
-  TYPES = %w(mnc startup)
+  TYPES = ["Multi-national Company", "Small Medium Enterprise","Start-up","Government Agency","Government-Linked Companies"]
 
   validates :company_type, :presence => true, :inclusion => { :in => TYPES}
 

@@ -7,8 +7,8 @@ class Student < ActiveRecord::Base
   has_many :testimonials
   has_many :interviews
 
-  NATIONALITIES = %w(indonesian singaporean malay)
-  SCHOOLS = %w(NTU NUS SIM)
+  NATIONALITIES = %w(Singaporean PR Foreigner)
+  SCHOOLS = %w(NTU NUS SIM SUTD SMU SIT Others)
 
   validates :school, :presence => true, :inclusion => { :in => SCHOOLS}
   validates :nationality, :inclusion => { :in => NATIONALITIES}, :allow_blank => true

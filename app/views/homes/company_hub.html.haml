@@ -5,16 +5,21 @@
       - @company_details.each do |company_detail|
         .row
           .span2
-            %p= image_tag company_detail.image.url(:thumbnail)
+            .center
+              <div class="photo100">
+              %p= image_tag company_detail.image.url
+              </div>
           .span6
             %p= link_to company_detail.company_name, company_detail_path(company_detail)
             %p= "Location : #{company_detail.address}"
             %p= "Industry : #{company_detail.company_industry}"
         .herolist
+      .pull-right
+        = will_paginate @company_details
   .span4
     .hero-unit
       %h1 Advanced Search
       <div id="searchbox">
       = render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
       </div>
-= will_paginate @company_details
+
