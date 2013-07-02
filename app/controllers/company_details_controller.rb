@@ -17,6 +17,7 @@ class CompanyDetailsController < ApplicationController
 
   def edit
     @user = current_user
+    @company_detail = CompanyDetail.find_by_id(params[:id])
   end
 
   def update

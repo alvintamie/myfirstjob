@@ -1,8 +1,9 @@
-%p Testimonials
 = will_paginate @testimonials
-%p= "Positive : " + Testimonial.positives.size.to_s
-%p= "Neutral : " + Testimonial.neutrals.size.to_s
-%p= "Negative : " + Testimonial.negatives.size.to_s
+- if @testimonials.blank?
+	%p Not Available
+%p= "Positive : " + @testimonials.positives.size.to_s
+%p= "Neutral : " + @testimonials.neutrals.size.to_s
+%p= "Negative : " + @testimonials.negatives.size.to_s
 - @testimonials.each do |testimonial|
 	.row
 		%ul.thumbnails
@@ -22,15 +23,7 @@
 									- upvoted, downvoted = testimonial.user_vote? current_user
 									%td
 										%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
-									%td
-										= link_to upvote_student_testimonial_path(testimonial), :class => "upvote", :tid => "#{testimonial.id}" do
-											%i.icon-thumbs-up
-											Upvote
-									%br
-									%td
-										= link_to downvote_student_testimonial_path(testimonial), :class => "downvote", :tid => "#{testimonial.id}" do
-											%i.icon-thumbs-up
-											Downvote
 					.row
 						.span8
 							%p= testimonial.contents["work_experience"]
+= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"

@@ -71,15 +71,13 @@
 					%tr
 						%td Email:
 						%td= @company_detail.contact_email
-			.btn= link_to "Overview", company_detail_path(@company_detail)
-			.btn= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial")
-			.btn= link_to "Interview", company_detail_path(@company_detail, :tab => "interview")
+			.company-detail-navigation
+				= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
+				= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
+				= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
 			%br
 			%br
 			= render @tab
-			= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
-			.pull-right
-				= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"
 	.span4
 		.hero-unit
 			%h1 Contribute

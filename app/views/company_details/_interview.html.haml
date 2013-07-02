@@ -1,5 +1,6 @@
-%p Interviews
 = will_paginate @interviews
+- if @interviews.blank?
+	%p Not Available
 - @interviews.each do |interview|
 	.row
 		%ul.thumbnails
@@ -19,15 +20,7 @@
 									- upvoted, downvoted = interview.user_vote? current_user
 									%td
 										%p{:id => "votes"}= interview.votes
-									%td
-										= link_to upvote_student_interview_path(interview), :class => "upvote", :tid => "#{interview.id}" do
-											%i.icon-thumbs-up
-											Upvote
-									%br
-									%td
-										= link_to downvote_student_interview_path(interview), :class => "downvote", :tid => "#{interview.id}" do
-											%i.icon-thumbs-up
-											Downvote
 					.row
 						.span8
 							%p= interview.contents["interview_process"]
+= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"

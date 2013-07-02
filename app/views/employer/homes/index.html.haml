@@ -5,10 +5,19 @@
         %h1 Recent Posts
         %table{:class => "table table-edit"}
           %tr
+            %th Status
             %th Date Posted
             %th Title
             %th Job Type
             %th Deadline
+          - @jobs.each do |job|
+            %tr
+              %td= job.status
+              %td= job.date_posted.try(:strftime,'%d/%m/%Y')
+              %td= job.title
+              %td= job.job_type
+              %td= job.deadline.try(:strftime,'%d/%m/%Y')
+
   .span4
     .row
       .hero-unit

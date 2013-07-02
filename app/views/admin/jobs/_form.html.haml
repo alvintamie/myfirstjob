@@ -13,7 +13,7 @@
   = f.input :salary
   %label Start Date
   = f.text_field :start_date, :value => @job.start_date.try(:strftime,'%d/%m/%Y')
-  %label End Date
+  %label End Date(optional)
   = f.text_field :end_date, :value => @job.end_date.try(:strftime,'%d/%m/%Y')
   %label Deadline
   = f.text_field :deadline, :value => @job.deadline.try(:strftime,'%d/%m/%Y')

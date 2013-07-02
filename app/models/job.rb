@@ -30,8 +30,10 @@ class Job < ActiveRecord::Base
     errors.add :date_posted, "Your date format is invalid" unless check_date_format self.date_posted
     errors.add :deadline, "Your date format is invalid" unless check_date_format self.deadline
     errors.add :start_date, "Your date format is invalid" unless check_date_format self.start_date 
-    errors.add :end_date, "Your date format is invalid"  unless check_date_format self.end_date
-    errors.add(:start_date, "must be earlier than end_date") if start_date.to_i > end_date.to_i
+    if self.end_date.present?
+      errors.add :end_date, "Your date format is invalid"  unless check_date_format self.end_date
+      errors.add(:start_date, "must be earlier than end_date") if start_date.to_i > end_date.to_i
+    end
   end
 
   def is_approved?

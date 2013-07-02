@@ -12,15 +12,15 @@
 %table{:class => "table table-edit"}
 	%tr	
 		%td
-			%p{:id => "votes"}= @interview.votes
+			%p{:id => "votes-"+@interview.id.to_s}= @interview.votes
 	%tr
-		%td.upvote{:class => @upvoted ? :active : "", :tid => @interview.id }
-			= link_to upvote_student_testimonial_path(@interview) do
+		%td.upvote{:class => @upvoted ? :active : "", :iid => @interview.id }
+			= link_to upvote_student_interview_path(@interview) do
 				%i.icon-thumbs-up
 				Upvote
 	%tr
-		%td.downvote{:class => @downvoted ? :active : "", :tid => @interview.id }
-			= link_to downvote_student_testimonial_path(@interview) do
+		%td.downvote{:class => @downvoted ? :active : "", :iid => @interview.id }
+			= link_to downvote_student_interview_path(@interview) do
 				%i.icon-thumbs-down
 				Downvote
 	%tr

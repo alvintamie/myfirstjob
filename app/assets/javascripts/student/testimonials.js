@@ -17,6 +17,7 @@ $(document).ready(function(){
   
   $(".downvote").on("click",function(event){
     testimonial_id = this.getAttribute("tid");
+    tid = $(this).attr("tid");
     event.preventDefault();
       $.ajax({
          type: "GET",
