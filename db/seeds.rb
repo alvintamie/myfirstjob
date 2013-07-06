@@ -12,4 +12,16 @@ u.activated = true
 u.locked = false
 u.save!
 
+u = User.new(:email => "test@gmail.com", :password => "qweqwe")
+u.role = "student"
+u.activated = true
+u.locked =false
+s = Student.new(:school => "NTU", :graduation_year => 1234, :majors => "Math", :nationality => "Singaporean")
+s.save!
+u.student = s
+u.save!
+
 puts "you have created an admin user [admin@gmail.com] with password qweqwe"
+
+
+  
