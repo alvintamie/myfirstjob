@@ -5,6 +5,8 @@ class Admin::EventsController < ApplicationController
     @events, @tab = case params[:tab]
     when "approved"
       [Event.approveds.order('updated_at DESC').page(params[:page]), "approved"]
+    when "featured"
+      [Event.approveds.featureds.order('updated_at DESC').page(params[:page]), "featured"]
     else
       [Event.pendings.order('updated_at DESC').page(params[:page]), "pending"]
     end

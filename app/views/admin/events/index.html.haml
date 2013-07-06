@@ -9,6 +9,8 @@
   %ul.dropdown-menu
     %li= link_to "Pending", admin_events_path(:tab => "pending") unless @tab == "pending"
     %li= link_to "Approved", admin_events_path(:tab => "approved") unless @tab == "approved"
+    %li= link_to "Featured", admin_events_path(:tab => "featured") unless @tab == "featured"
+
 %br
 %br
 %table{:class => "table"}
