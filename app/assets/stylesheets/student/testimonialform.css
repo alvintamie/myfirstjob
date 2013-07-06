@@ -47,3 +47,56 @@ label[class="boolean optional"]{
 	left:20px;
 	top:-16px;
 }
+
+/* Testimonial Details*/
+
+.voting{
+	font-size: 11pt;
+	position:relative;
+	left:77px;
+	top:-10px;
+}
+
+.active.upvote a{
+	color:black;
+}
+
+.active.downvote a{
+	color:black;
+}
+
+.position_testimonial_photo{
+	position:relative;
+	left:20px;
+	top:20px;
+}
+
+.testimonial_photo{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	width:110px;
+	height:110px;
+	border-color:#cccccc;
+	border-width:1px;
+	border-style:solid;
+	-webkit-box-shadow: 0 6px 6px -6px black;
+	-moz-box-shadow: 0 6px 6px -6px black;
+	box-shadow: 0 6px 6px -6px black;
+	background:white;
+}
+
+.testimonial_photo img{
+	height:auto;
+	width:100px;
+}
+
+.popularity_shift{
+	position:relative;
+	top:12px;
+}
+
+#comment_content{
+	width:580px;
+	height:100px;
+}

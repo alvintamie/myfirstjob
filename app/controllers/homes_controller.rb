@@ -6,7 +6,11 @@ class HomesController < ApplicationController
   end 
 
   def company_hub
-    @company_details = CompanyDetail.search_and_sort(params).approveds.paginate(:page => params[:page], :per_page => 10)
+    @company_details = CompanyDetail
+    @company_details = @company_details.where("lower(company_name) LIKE ?", "%#{params[:search_key].downcase}%") if params[:search_key].present?
+    @company_details = @company_details.where(:company_type => params[:company_type]) unless params[:company_type] == "all" || params[:company_type].nil?
+    @company_details = @company_details.where(:company_industry => params[:company_industry]) unless params[:company_industry] == "all" || params[:company_industry].nil?
+    @company_details = @company_details.approveds.order('company_name ASC').paginate(:page => params[:page], :per_page => 10)
   end
 
   def career_info

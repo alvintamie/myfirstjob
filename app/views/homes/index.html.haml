@@ -1,33 +1,31 @@
-=image_tag("Heroshot6.png",:class=>'heroshot')
+/      .hero-unit1
+/        %h1 Featured Companies
+/        .row
+/          - @featured_company_details.each do |c|
+/            .span9
+/              .photo130
+/                = link_to(image_tag(c.image.url(:thumbnail)), company_detail_path(c))
+
+=image_tag("Heroshot.jpg",:class=>'heroshot')
 %br
 %br
 .row  
   .span8
-    .row
-      .hero-unit1
-        %h1 Featured Companies
+    .hero-unit1
+      %h1 Featured Topics
+      - @events.each do |event|
         .row
-          - @featured_company_details.each do |c|
-            .span2
-              = link_to(image_tag(c.image.url(:thumbnail)), company_detail_path(c))
-    .row
-      .span8
-        .hero-unit1
-          %h1 Featured Events
-          - @events.each do |event|
-            .row
-              .span2
-                <div class="photo150">
-                %p= image_tag event.image.url(:thumbnail)
-                </div>
-              .span6
-                %p= link_to event.title, event_path(event)
-                .ellipsis
-                  %p= event.content
-                .pull-right
-                  %p= link_to "Read More", event_path(event)
-            .herolist
-
+          .span2
+            <div class="photo150">
+            = image_tag event.image.url(:thumbnail)
+            </div>
+          .span6
+            %p= link_to event.title, event_path(event)
+            .ellipsis
+              %p= event.content
+            .pull-right
+              %p= link_to "... Read More", event_path(event)
+        .herolist
   .span4
     .row
       .hero-unit
@@ -36,6 +34,10 @@
         .bigbutton
           %p=link_to "Register", new_employer_path, :class => "btn btn-primary"
           %p=link_to "Sign In", login_url, :class => "btn btn-primary"
+    .hero-unit
+      %h1 Listing
+      - @events.each do |event|
+        %p= link_to event.title, event_path(event)
     .row
       .hero-unit
         %h1 Find us

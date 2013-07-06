@@ -22,11 +22,12 @@ class Student::CompanyDetailsController < ApplicationController
   end
 
   def edit
-    @user = CompanyDetail.find_by_id(params[:id])
+    @company_detail = CompanyDetail.find_by_id(params[:id])
   end
 
   def update
     @company_detail = CompanyDetail.find_by_id(params[:id])
+    @company_detail.status = "pending"
     if @company_detail.update_attributes(params[:company_detail])
       flash[:success] = "You have successfully updated a company detail, thank you for your update"
       redirect_to student_company_details_path    

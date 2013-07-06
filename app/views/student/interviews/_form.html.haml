@@ -1,31 +1,41 @@
 = simple_form_for [:student, @interview], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @interview
   - if @company_detail.present?
+    %br
     .row  
-      %ul.thumbnails
-        %li.span8
-          .thumbnail
-            .row
-              .span2
-                %td= image_tag @company_detail.image.url(:thumbnail)
-              .span2
-                %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
-                %p= "Location : #{@company_detail.address}"
-                %p= "Industry : #{@company_detail.company_industry}"
+      .span2
+        <div class="photo130">
+        = image_tag @company_detail.image.url(:thumbnail)
+        </div>
+      .span5
+        .bold
+          %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
+        %p= "Location : #{@company_detail.address}"
+        %p= "Industry : #{@company_detail.company_industry}"
     = f.input :company_detail_id, :as => :hidden, :input_html => { :value => @company_detail.id  }
+    %br
   - else
-    = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}, :include_blank => false
+    .row
+      %br
+      = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}, :include_blank => false
   %label Interview Date
   = f.text_field :interview_date, :value => @interview.interview_date.try(:strftime,'%d/%m/%Y')
   = f.input :position
+  %label Offer Status
   = f.collection_radio_buttons :offer_status, Interview::OFFER_STATUS.map{|a| [a,a]}, :first, :last, :checked => @interview.offer_status
-  = f.simple_fields_for :contents do |m|
-    = m.input :interview_process, :input_html => { :value => @interview.contents["interview_process"]}
-    = m.input :questions, :input_html => { :value => @interview.contents["questions"]}
-    = m.input :advice, :input_html => { :value => @interview.contents["advice"]}
-  = f.input :anonymous, :label => "as anonymous"
   %br
-  = f.button :submit, :class => "btn btn-primary"
+  %br
+  = f.simple_fields_for :contents do |m|
+    %label Interview Process
+    = m.text_area :interview_process, :input_html => { :value => @interview.contents["interview_process"]}
+    %label Interview Questions
+    = m.text_area :questions, :input_html => { :value => @interview.contents["questions"]}
+    %label Advice for Peers
+    = m.text_area :advice, :input_html => { :value => @interview.contents["advice"]}
+  = f.input :anonymous, :label => "Submit as anonymous"
+  %br
+  .center
+    = f.button :submit, :class => "btn btn-primary"
 
 
 

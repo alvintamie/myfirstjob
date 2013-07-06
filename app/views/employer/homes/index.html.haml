@@ -9,13 +9,20 @@
             %th Title
             %th Job Type
             %th Deadline
+            %th Status
+          - @jobs.each do |job|
+            %tr
+              %td= job.date_posted.try(:strftime,'%d/%m/%Y')
+              %td= job.title
+              %td= job.job_type
+              %td= job.deadline.try(:strftime,'%d/%m/%Y')
+              %td= job.status
+
   .span4
     .row
       .hero-unit
         %h1 Information
-        %p= "Current Job Posts : #{@total_jobs}"
-        %br
-        %p= "Current Internship Post : 0"
+        %p= "Current Job/Internship Posts : #{@total_jobs}"
       .hero-unit
         %h1 Activity
         %p=link_to "Create your Company Profile", new_employer_company_detail_path, :class => "btn btn-primary"

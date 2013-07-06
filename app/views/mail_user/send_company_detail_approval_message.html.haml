@@ -1,13 +1,15 @@
-
-%h1 Hello #{@user.first_name}
-
-%p Your company detail has been approved
+%h2 MyFirstJob Submission Approval
 %br
-
+<b>
+%p Hi #{@user.first_name},
+</b>
+%p Congratulation! Your submission to MyFirstJob has been approved!
+%br
 %p= @company_detail.company_name
-
-
 %br
-%br
+%p Best Regards,
+%p MyFirstJob Management Team
 
-%p Best Regards
+%table{:style => "width: 600px" "height => 1000px"}
+	%tr
+		%td{:width => "100"}=image_tag "http://img.wikinut.com/img/3p.jzz3yjo0596b5/jpeg/0/Copyright-Symbol-Image-via-Wikipedia.jpeg"

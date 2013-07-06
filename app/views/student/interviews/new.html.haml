@@ -1,5 +1,11 @@
-%h1 Your Interview will come in handy for juniors!
-
-.row  
-  .span8
-    =render "form"
+.row
+	.span8
+		.hero-unit
+			%h1 Share Interview
+			=render "form"
+	.span4
+		.hero-unit
+			%h1 Advanced Search
+			<div id="searchbox">
+			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+			</div>
