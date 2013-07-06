@@ -1,5 +1,11 @@
-%h1 Edit Interview
-
-.row  
-  .span8
-    =render "form"
+.row
+	.span8
+		.hero-unit
+			%h1 Edit Interview
+			=render "form"
+	.span4
+		.hero-unit
+			%h1 Advanced Search
+			<div id="searchbox">
+			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+			</div>

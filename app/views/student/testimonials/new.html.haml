@@ -3,3 +3,9 @@
 		.hero-unit
 			%h1 Create Testimonial
 			=render "form"
+	.span4
+		.hero-unit
+			%h1 Advanced Search
+			<div id="searchbox">
+			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+			</div>

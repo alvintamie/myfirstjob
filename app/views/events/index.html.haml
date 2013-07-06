@@ -1,14 +1,12 @@
-.pull-right
-  =link_to "Back to Welcome Page", root_path, :class =>"btn btn-primary"
 .row
   .span8
     .hero-unit1
-      %h1 Events
+      %h1 Hot Topics
       - @events.each do |event|
         .row  
           .span2
             <div class="photo150">
-            %p= image_tag event.image.url
+            = image_tag event.image.url
             = event.created_at.strftime("%d %b %Y") + " by " + event.author
             </div>
           .span6
@@ -16,7 +14,17 @@
             .ellipsis
               %p= event.content
             .pull-right
-              %p= link_to "Read More", event_path(event)
+              %p= link_to "...Read More", event_path(event)
         .herolist
       .pull-right
         = will_paginate @events
+  .span4
+    .hero-unit
+      %h1 About Hot Topics
+      %p We bring "Hot News" updated everyday!
+      %p - Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
+      %p - Find tips for undergraduates and young working adults about life!
+    .hero-unit
+      %h1 Listing
+      - @events.each do |event|
+        %p= link_to event.title, event_path(event)

@@ -1,83 +1,56 @@
-
-/ 		.herolist
-/ 		.row
-/ 			.hero-unit1
-/ 				%h2 About
-/ 				%p= @company_detail.about
-/ 				%h2 Award
-/ 				%p= @company_detail.award
-/ 				%h2 Opportunities
-/ 				%p= @company_detail.opportunities
-/ 		.row 
-/ 			.hero-unit1
-/ 				%h1 Testimonials
-/ 				- @testimonials.each do |testimonial|
-/ 					.row
-/ 						.span2
-/ 							%p= image_tag testimonial.profile_image
-/ 						.span3
-/ 							%p= testimonial.student_name
-/ 							%p= testimonial.position
-/ 							%p= testimonial.grade
-/ 							%p= link_to "show", student_testimonial_path(testimonial)
-/ 						.span2
-/ 							%p= testimonial.votes
-/ 					.hero-unit
-/ 						%p= testimonial.contents["work_experience"]
-/ 					.herolist
-/ .row
-/ 	.span8
-/ 		.row
-/ 			.span3
-/ 				.hero-unit1
-/ 					= image_tag @company_detail.image if @company_detail.image.present?
-/ 			.span5
-/ 				.hero-unit1
-/ 					%h2= @company_detail.company_name
-/ 					%p= @company_detail.company_type
-/ 					%p= @company_detail.number_of_employees 
-/ 					%br
-/ 					%p= @company_detail.address
-/ 					%br
-/ 					%p=@company_detail.telephone
-/ 					%p= @company_detail.fax
-/ 					%p= @company_detail.contact_email
-
 .row
 	.span8
-		.hero-unit1
-			.span3
-				<div class="photo220">
-				= image_tag @company_detail.image if @company_detail.image.present?
-				</div>
-			.span5
-				%h2= @company_detail.company_name
-				%table{:class => "table table-edit"}
-					%tr
+		.hero-unit
+			.row
+				%h1= @company_detail.company_name
+				<div class="company_details">
+				%table{:class => "table"}
+					%tr 
 						%td Industry:
+						%td= @company_detail.company_industry
+					%tr
+						%td Type:
 						%td= @company_detail.company_type
 					%tr
 						%td Address:
 						%td= @company_detail.address
-					%tr 
-						%td Employee:
-						%td= @company_detail.number_of_employees
-					%tr 
+					%tr
 						%td Tel:
-						%td= @company_detail.telephone
-					%tr 
-						%td Fax:
 						%td= @company_detail.telephone
 					%tr
 						%td Email:
 						%td= @company_detail.contact_email
-			.company-detail-navigation
-				= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
-				= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
-				= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
-			%br
-			%br
+				</div>
+				- if @company_detail.image.present?
+					.herolist
+					.row
+						<div class="company_photo">
+						%h4 Sneak Peek on Company 
+						.span9
+							<div class="photo130">
+							= image_tag @company_detail.image if @company_detail.image.present?
+							</div>
+						.span9
+							<div class="photo130">
+							= image_tag @company_detail.image if @company_detail.image.present?
+							</div>
+						.span9
+							<div class="photo130">
+							= image_tag @company_detail.image if @company_detail.image.present?
+							</div>
+						.span9
+							<div class="photo130">
+							= image_tag @company_detail.image if @company_detail.image.present?
+							</div>
+						</div>
+		<div id="company_navigation">
+		.company-detail-navigation
+			= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
+			= link_to "Testimonial", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
+			= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
+		.hero-unitcompany
 			= render @tab
+		</div>
 	.span4
 		.hero-unit
 			%h1 Contribute

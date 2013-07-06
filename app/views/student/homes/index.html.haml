@@ -7,24 +7,24 @@
           .row  
             .span1
               <div class="photo100">
-              %p= image_tag testimonial.profile_image
+              = image_tag testimonial.profile_image
               </div>
             .span7
               %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
               %p= "Industry : " + testimonial.company_detail.company_industry
-              .ellipsis
+              .shortellipsis
                 %p= simple_format testimonial.contents["work_experience"]
               .pull-right
-                %p= link_to "Read More",  company_detail_path(testimonial.company_detail)
+                %p= link_to "... Read More",  company_detail_path(testimonial.company_detail)
           .herolist
     .row
       .hero-unit1
-        %h1 Featured Events
+        %h1 Featured Topics
         - @events.each do |event|
           .row  
             .span2
               <div class="photo150">
-              %p= image_tag event.image.url(:thumbnail)
+              = image_tag event.image.url(:thumbnail)
               = event.created_at.strftime("%d %b %Y") + " by " + event.author
               </div>
             .span6
@@ -32,7 +32,7 @@
               .ellipsis
                 %p= event.content
               .pull-right
-                %p= link_to "Read More", event_path(event)
+                %p= link_to "... Read More", event_path(event)
           .herolist
   .span4
     .row
@@ -50,4 +50,4 @@
       .hero-unit
         %h1 Membership
         %p Basic
-        %p You will be able to see the testimonials if you are smart
+        %p You are registered successfully!
