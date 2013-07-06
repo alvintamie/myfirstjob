@@ -60,7 +60,7 @@ module Injection::Controller::Application
     end
 
     def authenticate_student_user!
-      redirect_to login_url if current_user.nil? or !(current_user.is_student? || current_user.is_alumni?)
+      redirect_to login_url if current_user.nil? or !(current_user.is_student? || current_user.is_alumni? || current_user.is_admin?)
     end
 
     def authenticate_employer_user!

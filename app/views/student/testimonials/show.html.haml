@@ -36,14 +36,17 @@
 		%td Position
 		%td= @testimonial.position
 	%tr
+		%td Duration
+		%td= @testimonial.start_date.try(:strftime,'%d/%m/%Y') + " To " + @testimonial.end_date.try(:strftime,'%d/%m/%Y')
+	%tr
 		%td Culture
-		%td= @testimonial.contents["culture"]
+		%td= simple_format @testimonial.contents["culture"]
 	%tr
 		%td Work Balance
-		%td= @testimonial.contents["work_balance"]
+		%td= simple_format @testimonial.contents["work_balance"]
 	%tr
 		%td Work Experience
-		%td= @testimonial.contents["work_experience"]
+		%td= simple_format @testimonial.contents["work_experience"]
 	%tr
 		%td Advice
 		%td= @testimonial.contents["advice"]
@@ -56,6 +59,9 @@
 	= f.input :content, :label => "Comment"
 	= f.input :testimonial_id, :as => :hidden, :input_html => { :value => @testimonial.id  }
 	= f.button :submit, :class => "btn btn-primary"
+
+- if current_user.is_admin?
+	= link_to "Delete", student_testimonial_path(@testimonial), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
 
 - @comments.each do |c|
 	%table{:class => "table table-edit"}

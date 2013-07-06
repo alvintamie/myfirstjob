@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @events = Event.approveds.limit(4)
+    @events = Event.approveds.featureds.order("created_at DESC").limit(4)
     @featured_company_details = CompanyDetail.featureds
   end 
 

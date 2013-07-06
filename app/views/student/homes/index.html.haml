@@ -13,7 +13,7 @@
               %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
               %p= "Industry : " + testimonial.company_detail.company_industry
               .ellipsis
-                %p= testimonial.contents["work_experience"]
+                %p= simple_format testimonial.contents["work_experience"]
               .pull-right
                 %p= link_to "Read More",  company_detail_path(testimonial.company_detail)
           .herolist
@@ -25,6 +25,7 @@
             .span2
               <div class="photo150">
               %p= image_tag event.image.url(:thumbnail)
+              = event.created_at.strftime("%d %b %Y") + " by " + event.author
               </div>
             .span6
               %p= link_to event.title, event_path(event)

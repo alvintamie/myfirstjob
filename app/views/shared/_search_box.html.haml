@@ -1,5 +1,5 @@
 .search_box_section
-	= form_tag nil, :method => :get do
+	= form_tag homes_company_hub_path, :method => :get do
 		= label_tag :company_name, "Company Name:"
 		= text_field_tag :search_key, params[:search_key], :placeholder => "Search Company Name"
 		= label_tag :company_type, "Type of Company:"

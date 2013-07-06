@@ -25,6 +25,9 @@ namespace :seed do
     Event.populate EVENT_COUNT do |event|
       event.title = Populator.words(1).titleize
       event.content = Populator.sentences(1..4)
+      event.author = Faker::Name.first_name
+      event.label = Faker::Name.first_name
+      event.label_link = "http://www.google.com"
       event.status = ["pending", "approved"]
     end
 
@@ -122,6 +125,8 @@ namespace :seed do
           testimonial.grade = Testimonial::GRADES
           testimonial.anonymous = [true,false]
           testimonial.votes = -10..50
+          testimonial.start_date = 3.months.ago
+          testimonial.end_date = Time.now
           contents = Hash.new
           contents["culture"] = Populator.sentences(1..10) 
           contents["work_balance"] = Populator.sentences(1..10)

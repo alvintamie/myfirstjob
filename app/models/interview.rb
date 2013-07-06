@@ -20,6 +20,8 @@ class Interview < ActiveRecord::Base
   scope :approveds, where(:status => "approved")
 
   validates :offer_status, :presence => true, :inclusion => { :in => OFFER_STATUS}
+  validates :status, :presence => true, :inclusion => { :in => STATUS}
+
 
   validate :date_validation
 

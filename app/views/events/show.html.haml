@@ -9,10 +9,12 @@
 					</div>
 				.span3
 					%h2= @event.title
+					= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
 			.row
-				%p= @event.content
+				%p= simple_format @event.content
 				%br
 				%br
+				%p= link_to @event.label, @event.label_link
 				.pull-right
 					=link_to "See all events", events_path, :class =>"btn btn-primary"
 

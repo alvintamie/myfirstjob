@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(:version => 20130621161001) do
     t.string   "title"
     t.text     "content"
     t.string   "status"
+    t.string   "author"
+    t.string   "label"
+    t.string   "label_link"
+    t.boolean  "featured"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -136,6 +140,8 @@ ActiveRecord::Schema.define(:version => 20130621161001) do
 
   create_table "testimonials", :force => true do |t|
     t.string   "position"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string   "tmp_company_name"
     t.text     "contents"
     t.string   "grade"

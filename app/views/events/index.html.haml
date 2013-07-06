@@ -9,6 +9,7 @@
           .span2
             <div class="photo150">
             %p= image_tag event.image.url
+            = event.created_at.strftime("%d %b %Y") + " by " + event.author
             </div>
           .span6
             %p= link_to event.title, event_path(event)

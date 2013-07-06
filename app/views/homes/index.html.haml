@@ -19,6 +19,7 @@
               .span2
                 <div class="photo150">
                 %p= image_tag event.image.url(:thumbnail)
+                = event.created_at.strftime("%d %b %Y") + " by " + event.author
                 </div>
               .span6
                 %p= link_to event.title, event_path(event)
@@ -27,6 +28,8 @@
                 .pull-right
                   %p= link_to "Read More", event_path(event)
             .herolist
+          .pull-right
+            %p= link_to "Show more", events_path
 
   .span4
     .row
@@ -34,8 +37,7 @@
         %h1 Employer
         %p Reach out to students and graduates effectively now through events, posts and referrals. Registration is free!
         .bigbutton
-          %p=link_to "Register", new_employer_path, :class => "btn btn-primary"
-          %p=link_to "Sign In", login_url, :class => "btn btn-primary"
+          %p=link_to "Are you employer?", employers_path, :class => "btn btn-primary"
     .row
       .hero-unit
         %h1 Find us

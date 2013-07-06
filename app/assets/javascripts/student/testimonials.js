@@ -30,4 +30,11 @@ $(document).ready(function(){
          }
        });
   });
+
+
+  op = { dateFormat: 'dd/mm/yy', showOn: 'button', buttonImage: '/assets/button_calendar.png', buttonImageOnly: true}
+  $("#testimonial_start_date").datepicker(op)
+  $("#testimonial_end_date").datepicker(op)
 })
+
+

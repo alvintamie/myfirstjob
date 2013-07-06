@@ -2,6 +2,10 @@ class EmployersController < ApplicationController
   before_filter :authenticate_user!, :only => [:edit, :show, :update, :change_password]
   before_filter :allow_non_login_only, :only => [:new, :create]
 
+  def index
+
+  end
+
   def new
     @user = User.new
     @user.build_employer

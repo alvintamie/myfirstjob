@@ -33,7 +33,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
-    @event = CompanyDetail.find_by_id(params[:id])
+    @event = Event.find_by_id(params[:id])
     if @event.update_attributes(params[:event])
       flash[:success] = "You have successfully updated a event"
       redirect_to admin_events_path    

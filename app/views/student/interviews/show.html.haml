@@ -39,16 +39,19 @@
 		%td= @interview.position
 	%tr
 		%td Culture
-		%td= @interview.contents["interview_process"]
+		%td= simple_format @interview.contents["interview_process"]
 	%tr
 		%td Work Balance
-		%td= @interview.contents["questions"]
+		%td= simple_format @interview.contents["questions"]
 	%tr
 		%td Advice
-		%td= @interview.contents["advice"]
+		%td= simple_format @interview.contents["advice"]
 - if @from_current_student
 	=link_to "Edit", edit_student_interview_path(@interview, :company_detail_id => @interview.company_detail.id), :class => "btn btn-primary"
 	=link_to "Delete", student_interview_path(@interview), :method => :delete,  data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+
+- if current_user.is_admin?
+	= link_to "Delete", student_interview_path(@interview), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
 
 %br
 = simple_form_for @comment, :url => comment_student_interviews_path(@comment), :method => 'post' do |f|

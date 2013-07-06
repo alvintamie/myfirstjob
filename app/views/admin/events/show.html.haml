@@ -6,5 +6,11 @@
 		%td Title
 		%td= @event.title
 	%tr
+		%td Posted at
+		%td= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
+	%tr
+		%td Label
+		%td= link_to @event.label, @event.label_link
+	%tr
 		%td Content
 		%td= @event.content

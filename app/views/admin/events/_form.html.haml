@@ -2,8 +2,12 @@
   = render "shared/errors", :object => @event
   = f.input :image
   = f.input :title
+  = f.input :author
   = f.input :content
+  = f.input :label
+  = f.input :label_lin
   = f.input :status, :collection => Event::STATUS
+  = f.input :featured
   %br
   = f.button :submit, :class => "btn btn-primary"
 

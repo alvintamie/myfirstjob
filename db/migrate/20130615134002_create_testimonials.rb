@@ -2,6 +2,8 @@ class CreateTestimonials < ActiveRecord::Migration
   def change
     create_table :testimonials do |t|
       t.string :position
+      t.datetime :start_date
+      t.datetime :end_date
       t.string :tmp_company_name
       t.text :contents
       t.string :grade

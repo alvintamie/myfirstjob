@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.approveds.paginate(:page => params[:page], :per_page => 3)
+    @events = Event.approveds.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
   end
 
   def show
