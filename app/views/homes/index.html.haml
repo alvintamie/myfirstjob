@@ -12,18 +12,59 @@
 .row  
   .span8
     .hero-unit1
-      %h1 Featured Topics
+      %h1 Latest Testimonials 
+      - @testimonials.each do |testimonial|
+        .row  
+          .span1
+            <div class="photo100">
+            = image_tag testimonial.profile_image
+            </div>
+          .span7
+            %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+            .green
+              %p= "Industry : " + testimonial.company_detail.company_industry
+            .space
+            .shortellipsis
+              %p= simple_format testimonial.contents["work_experience"]
+            .space
+            .pull-right
+              %p= link_to "... Read More",  company_detail_path(testimonial.company_detail)
+        .herolist
+    .hero-unit1
+      %h1 Latest Interviews
+      - @interviews.each do |interview|
+        .row  
+          .span1
+            <div class="photo100">
+            = image_tag interview.profile_image
+            </div>
+          .span7
+            %p= link_to interview.company_detail.company_name, company_detail_path(interview.company_detail)
+            .green
+              %p= "Industry : " + interview.company_detail.company_industry
+            .space
+            .shortellipsis
+              %p= simple_format interview.contents["interview_process"]
+            .space
+            .pull-right
+              %p= link_to "... Read More",  company_detail_path(interview.company_detail)
+        .herolist
+    .hero-unit1
+      %h1 Featured Stories
       - @events.each do |event|
         .row
           .span2
             <div class="photo150">
             = image_tag event.image.url(:thumbnail)
-            = event.created_at.strftime("%d %b %Y") + " by " + event.author
             </div>
           .span6
             %p= link_to event.title, event_path(event)
+            .green
+              %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
+            .space
             .ellipsis
               %p= event.content
+            .space
             .pull-right
               %p= link_to "... Read More", event_path(event)
         .herolist
@@ -31,12 +72,15 @@
     .row
       .hero-unit
         %h1 Employer
+        .space
         %p Reach out to students and graduates effectively now through events, posts and referrals. Registration is free!
+        .space
         .bigbutton
-          %p=link_to "Are you employer?", employers_path, :class => "btn btn-primary"
+          %p=link_to "Are you an employer?", employers_path, :class => "btn btn-primary"
     .hero-unit
-      %h1 Listing
+      %h1 Stories Listing
       - @events.each do |event|
+        .space
         %p= link_to event.title, event_path(event)
     .row
       .hero-unit

@@ -1,20 +1,24 @@
 .row
 	.span8
 		.hero-unit1
-			%h1 Topic Details
+			%h1 Story Details
 			.row
-				.span4
-					<div class="photo300">
+				.span3
+					<div class="photo220">
 					= image_tag @event.image.url
 					</div>
-				.span3
+				.span4
 					%h2= @event.title
-					= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
+					.green
+						%p= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
+			.space
 			.row
 				%p= simple_format @event.content
 				%br
 				%br
-				%p= link_to @event.label, @event.label_link
+				.italic
+					%p= link_to @event.label, @event.label_link
+				.herolist
 				.pull-right
 					=link_to "See all events", events_path, :class =>"btn btn-primary"
 	.span4

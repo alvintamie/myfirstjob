@@ -141,27 +141,18 @@ input[class="string email optional"]{
 	vertical-align: middle;
 }
 
-.essay{
-	margin-left:10px;
-}
-
 .center{
 	text-align: center;
 }
 
 .ellipsis {
   overflow: hidden;
-  height: 8.4em;
+  height: 7.6em;
  }
 
 .shortellipsis {
   overflow: hidden;
   height: 4.4em;
- }
-
-.ellipsiscompany {
-  overflow: hidden;
-  height: 10.5em;
  }
 
 .signupbutton{
@@ -180,6 +171,7 @@ border-radius:3px;
 
 body{
 	min-width:1100px;
+	height:auto;
 	background:url('background.jpg') fixed;
 	background-repeat:no-repeat;
 	background-size:100% 100%;
@@ -207,7 +199,7 @@ box-shadow:         0px 8px 30px rgba(50, 50, 50, 1);
 
 .hero-unit{
 padding-top:0px;
-padding-bottom:20px;
+padding-bottom:15px;
 margin-bottom:15px;
 margin-right:0px;
 margin-left:0px;
@@ -231,7 +223,7 @@ background:#fafafa;
 .hero-unit1{
 padding-left:10px;
 padding-right:10px;
-padding-bottom:20px;
+padding-bottom:15px;
 margin-bottom:15px;
 background:none;
 }
@@ -380,26 +372,35 @@ margin-bottom:10px;
 	margin-top: 0px;
 	padding-top: 0px;
 	font-weight:normal;
-	margin-left:19px;
 	margin-top:3px;
 }
 
 .hero-unit p{
-	font-size: 11pt;
+	font-size: 10pt;
 	line-height:150%;
 	margin-left:20px;
 	margin-right:20px;
-	margin-top:15px;
+	margin-top:0px;
 	margin-bottom:0px;
 }
 
 .hero-unit1 p{
-	font-size: 11pt;
+	font-size: 10pt;
 	line-height:150%;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
-p{
-	font-size:11pt;
+.space{
+	margin-top:10px;
+}
+
+.green{
+	color:green;
+}
+
+.gray{
+	color:#cccccc;
 }
 
 .italic{
@@ -415,7 +416,7 @@ p{
 }
 
 .pmedium{
-	font-size:11pt;
+	font-size:10pt;
 	line-height:150%;
 }
 
@@ -429,7 +430,7 @@ font-size:9pt;
 
 .navbar-inverse .navbar-inner{
 	height:40px;
-	font-size: 11pt;
+	font-size: 10pt;
 	min-width:1100px;
 	background-image: -ms-linear-gradient(top, #696969 0%, #000000 100%);
 
@@ -481,13 +482,10 @@ input[type="submit"]{
 	top:-10px;
 }
 
-
-#searchbox{
-	height:250px;
-}
-
 .search_box_section{
-	margin-left:53px;
+	margin-left:20px;
+	position:relative;
+	top:15px;
 }
 
 .bold{

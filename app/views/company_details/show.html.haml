@@ -54,7 +54,9 @@
 	.span4
 		.hero-unit
 			%h1 Contribute
+			.space
 			%p= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
+			.space
 			%p= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"
 		.hero-unit
 			%h1 Advanced Search

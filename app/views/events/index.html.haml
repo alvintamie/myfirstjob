@@ -1,18 +1,21 @@
 .row
   .span8
     .hero-unit1
-      %h1 Hot Topics
+      %h1 Stories
       - @events.each do |event|
         .row  
           .span2
             <div class="photo150">
             = image_tag event.image.url
-            = event.created_at.strftime("%d %b %Y") + " by " + event.author
             </div>
           .span6
             %p= link_to event.title, event_path(event)
+            .green
+              %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
+            .space
             .ellipsis
               %p= event.content
+            .space
             .pull-right
               %p= link_to "...Read More", event_path(event)
         .herolist
@@ -20,11 +23,13 @@
         = will_paginate @events
   .span4
     .hero-unit
-      %h1 About Hot Topics
-      %p We bring "Hot News" updated everyday!
+      %h1 About Stories
+      .space
+      %p We bring "Stories" updated everyday!
       %p - Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
       %p - Find tips for undergraduates and young working adults about life!
     .hero-unit
-      %h1 Listing
+      %h1 Stories Listing
       - @events.each do |event|
+        .space
         %p= link_to event.title, event_path(event)

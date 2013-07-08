@@ -10,23 +10,37 @@
     .hero-unit1
       %h1 List of Companies
       - @company_details.each do |company_detail|
-        <div id="company_list">
-        .ellipsiscompany
-          %p= link_to company_detail.company_name, company_detail_path(company_detail)
-          %p= "Industry : #{company_detail.company_industry}"
-          %p= "Type: #{company_detail.company_type}"
-          %p= "Opportunity : #{company_detail.opportunities}"
-        </div>
+        .span6
+          .ellipsiscompany
+            %p= link_to company_detail.company_name, company_detail_path(company_detail)
+            .bold
+              %p= "Industry : #{company_detail.company_industry}"
+            .green
+              %p= "Type: #{company_detail.company_type}"
+            .space
+            %p= "Opportunity : #{company_detail.opportunities}"
+          .space
+        .span1
+          %br
+          %br
+          %br
+          %br
+          .space
         .pull-right
           %p= link_to "... Read More", company_detail_path(company_detail)
+          .space
         %br
+        %br
+        %br
+        %br
+        %br
+        .space
+        .space
         .herolist
       .pull-right
         = will_paginate @company_details
   .span4
     .hero-unit
       %h1 Advanced Search
-      <div id="searchbox">
       = render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
-      </div>
 

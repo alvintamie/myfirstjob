@@ -25,16 +25,15 @@
 		.span7
 			.row 
 				.span4
-					.bold
-						%p= testimonial.student_name
-					%p= testimonial.position
+					%p= link_to testimonial.student_name, student_testimonial_path(testimonial)
+					.green
+						%p= testimonial.position
 					%p= testimonial.grade
 				.span1
 					.inline
 						%p Popularity:
 						- upvoted, downvoted = testimonial.user_vote? current_user
 						%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
-					%br
 					%p= link_to "See Details", student_testimonial_path(testimonial)
 	%br
 	.row

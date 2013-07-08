@@ -3,6 +3,7 @@ class Student::HomesController < ApplicationController
 
 	def index
     	@events = Event.approveds.featureds.order("created_at DESC").limit(4)
-    	@testimonials = Testimonial.find(:all, :limit => 2, :order => "created_at DESC")
+    	@testimonials = Testimonial.find(:all, :limit => 3, :order => "created_at DESC")
+    	@interviews = Interview.find(:all, :limit => 3, :order => "created_at DESC")
 	end 
 end

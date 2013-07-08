@@ -40,6 +40,11 @@ border-width:1px;
 color:#aaaaaa;
 }
 
+.hero-unitcompany p{
+font-size: 10pt;
+margin:0px;
+}
+
 .company_details{
 	margin-top:10px;
 	margin-left:15px;
@@ -67,3 +72,4 @@ color:#aaaaaa;
 	font-weight:normal;
 	margin-bottom:10px;
 }
+
