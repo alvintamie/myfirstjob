@@ -13,8 +13,7 @@
 		.span7
 			.row 
 				.span4
-					.bold
-						%p= interview.student_name
+					%p= link_to interview.student_name, student_interview_path(interview)
 					.green
 						%p= interview.position
 					%p Interview Date:
