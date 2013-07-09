@@ -15,7 +15,8 @@
 				.span4
 					.bold
 						%p= interview.student_name
-					%p= interview.position
+					.green
+						%p= interview.position
 					%p Interview Date:
 					%p= interview.interview_date
 				.span1
@@ -23,7 +24,6 @@
 						%p Popularity:
 						- upvoted, downvoted = interview.user_vote? current_user
 						%p{:id => "votes"}= interview.votes
-					%br
 					%p= link_to "See Details", student_interview_path(interview)
 	%br
 	.row

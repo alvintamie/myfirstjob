@@ -9,10 +9,12 @@
 							= image_tag @interview.profile_image
 				.span7
 					.span3
+						.space
 						.bold
 							%p= @interview.student_name
-						%p= @interview.company_detail.company_name
-						%p= @interview.position
+						%p= link_to @interview.company_detail.company_name, company_detail_path(@interview.company_detail)
+						.green
+							%p= @interview.position
 						%p= @interview.interview_date
 						%p= @interview.offer_status
 					.span3
@@ -23,19 +25,20 @@
 								%p{:id => "votes-"+@interview.id.to_s}= @interview.votes
 								</div>
 						%br
-						%br
-					.voting
-						%td
-						.upvote{:class => @upvoted ? :active : "", :iid => @interview.id }
-							= link_to upvote_student_interview_path(@interview) do
-								Upvote
-								%i.icon-thumbs-up
-						%td
-						.downvote{:class => @downvoted ? :active : "", :iid => @interview.id }
-							= link_to downvote_student_interview_path(@interview) do
-								Downvote
-								%i.icon-thumbs-down
-								
+						.space
+						.voting
+							.green
+								Do you find it useful? 
+							%td
+							.upvote{:class => @upvoted ? :active : "", :iid => @interview.id }
+								= link_to upvote_student_interview_path(@interview) do
+									Upvote
+									%i.icon-thumbs-up
+							%td
+							.downvote{:class => @downvoted ? :active : "", :iid => @interview.id }
+								= link_to downvote_student_interview_path(@interview) do
+									Downvote
+									%i.icon-thumbs-down			
 			.row
 				%br
 				- if @interview.contents["interview_process"].present?

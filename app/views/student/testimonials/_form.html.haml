@@ -22,11 +22,16 @@
     Overall Experience
   = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
   %br
-  %p= f.input :position
-  %p Duration
-  = f.text_field :start_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
-  = " To "
-  = f.text_field :end_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+  %br
+  .pmedium
+    %p= f.input :position
+    .space
+    Work/Internship Period
+    %br
+    = f.text_field :start_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+    =" to "
+    = f.text_field :end_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+  %br
   .bold
     Help Us Elaborate Your Experience
   = f.simple_fields_for :contents do |m|

@@ -9,10 +9,12 @@
 							= image_tag @testimonial.profile_image
 				.span7
 					.span3
+						.space
 						.bold
 							%p= @testimonial.student_name
-						%p= @testimonial.company_detail.company_name
-						%p= @testimonial.position
+						%p= link_to @testimonial.company_detail.company_name, company_detail_path(@testimonial.company_detail)
+						.green
+							%p= @testimonial.position
 						%p= @testimonial.grade
 					.span3
 						.pull-right
@@ -22,20 +24,22 @@
 								%p{:id => "votes-"+@testimonial.id.to_s}= @testimonial.votes
 								</div>
 						%br
-						%br
-					.voting
-						%td
-						.upvote{:class => @upvoted ? :active : "", :tid => @testimonial.id }
-							= link_to upvote_student_testimonial_path(@testimonial) do
-								Upvote
-								%i.icon-thumbs-up
-						%td
-						.downvote{:class => @downvoted ? :active : "", :tid => @testimonial.id }
-							= link_to downvote_student_testimonial_path(@testimonial) do
-								Downvote
-								%i.icon-thumbs-down 
+						.space
+						.voting
+							.green
+								Do you find it useful? 
+							%td
+							.upvote{:class => @upvoted ? :active : "", :tid => @testimonial.id }
+								= link_to upvote_student_testimonial_path(@testimonial) do
+									Upvote
+									%i.icon-thumbs-up
+							%td
+							.downvote{:class => @downvoted ? :active : "", :tid => @testimonial.id }
+								= link_to downvote_student_testimonial_path(@testimonial) do
+									Downvote
+									%i.icon-thumbs-down 
 			.row
-				%br
+				.space
 				- if @testimonial.contents["culture"].present?
 					%h2 Culture
 					%p= @testimonial.contents["culture"]

@@ -51,10 +51,13 @@ label[class="boolean optional"]{
 /* Testimonial Details*/
 
 .voting{
-	font-size: 11pt;
+	font-size: 10pt;
 	position:relative;
-	left:77px;
-	top:-10px;
+	left:78px;
+	background:white;
+	padding-left:10px;
+	width:140px;
+	border:solid 1px #cccccc;
 }
 
 .active.upvote a{
@@ -68,7 +71,7 @@ label[class="boolean optional"]{
 .position_testimonial_photo{
 	position:relative;
 	left:20px;
-	top:20px;
+	top:13px;
 }
 
 .testimonial_photo{
@@ -93,7 +96,7 @@ label[class="boolean optional"]{
 
 .popularity_shift{
 	position:relative;
-	top:12px;
+	top:5px;
 }
 
 #comment_content{

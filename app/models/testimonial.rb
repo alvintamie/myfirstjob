@@ -67,7 +67,7 @@ class Testimonial < ActiveRecord::Base
   end
 
   def student_name
-    anonymous ? "Anon" : student.user.first_name
+    anonymous ? "Anonymous" : student.user.first_name
   end
 
   def user_vote? user

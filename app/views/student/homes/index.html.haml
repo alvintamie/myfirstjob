@@ -78,6 +78,12 @@
         %p=link_to "Edit Profile", edit_student_user_url(current_user), :class => "btn btn-primary"
     .row
       .hero-unit
+        %h1 Stories Listing
+        - @events.each do |event|
+          .space
+          %p= link_to event.title, event_path(event)
+    .row
+      .hero-unit
         %h1 Membership
         .space
         %p Basic
