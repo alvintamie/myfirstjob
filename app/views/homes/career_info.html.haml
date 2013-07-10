@@ -1,27 +1,8 @@
 .row
 	.span8
-		.hero-unit1
-			%h1 Job/Internship Listing
-			<script type='text/javascript'>
-			var ind_pub = '8086320755554674';
-			var ind_el = 'indJobContent';
-			var ind_pf = '';
-			var ind_q = 'graduates';
-			var ind_l = '';
-			var ind_chnl = 'none';
-			var ind_n = 10;
-			var ind_d = 'http://www.indeed.com.sg';
-			var ind_t = 20;
-			var ind_c = 10;
-			var ind_pgn = 1;
-			var ind_pgnCnt = 5;
-			</script>
-			<script type='text/javascript' src='http://www.indeed.com.sg/ads/jobroll-widget-v3.js'></script>
-			<div id='indeed_widget_wrapper' style=''>
-			<div id='indeed_widget_header'>Jobs</div>
-
-			<div id='indJobContent' class=""></div>
-
+		.hero-unit
+			%h1 Job/Internship Search
+			.space
 			<div id='indeed_search_wrapper'>
 			<script type='text/javascript'>
 			function clearDefaults(){
@@ -33,20 +14,48 @@
 			}
 			}
 			</script>
-			<form onsubmit='clearDefaults();' method='get' action='http://www.indeed.com.sg/jobs' id='indeed_jobform' target="_new">
+			<form onsubmit='clearDefaults(); window.location.reload();' method='get' action='http://www.indeed.com.sg/jobs' id='indeed_jobform' target="results">
 			<div id="qc"><label>What:</label><input type='text' onfocus='this.value=""' value='title, keywords' name='q' id='q'></div>
 			<div id="lc"><label>Where:</label><input type='text' onfocus='this.value=""' value='city, state, or zip' name='l' id='l'></div>
 			<div id='indeed_search_footer'>
-			<div style='float:left'><input type='submit' value='Find Jobs' class='findjobs'></div>
+			<div style='float:left'>
+			<input type='submit' value='Find Position' class='findjobs' onsubmit='window.location.reload();'></div>
 			</div>
 			<input type='hidden' name='indpubnum' id='indpubnum' value='8086320755554674'>
 			</form>
 			</div>
+		.zero_search
+			.center
+				.italic
+					%p Your Search Did Not Match Any Postings
+		<script type='text/javascript'>
+		var ind_pub = '8086320755554674';
+		var ind_el = 'indJobContent';
+		var ind_pf = '';
+		var ind_q = 'asdfgh';
+		var ind_l = '';
+		var ind_chnl = 'none';
+		var ind_n = 10;
+		var ind_d = 'http://www.indeed.com.sg';
+		var ind_t = 100;
+		var ind_c = 30;
+		var ind_pgn = 1;
+		var ind_pgnCnt = 5;
+		</script>
+		<script type='text/javascript' src='http://www.indeed.com.sg/ads/jobroll-widget-v3.js'></script>
+		<div id='indeed_widget_wrapper' style=''>
+		<div id='indeed_widget_header'>Results</div>
 
-			<div id='indeed_link'>
-			<a title="Job Search" href="http://www.indeed.com.sg/" target="_new">jobs by <img alt=Indeed src='http://www.indeed.com/p/jobsearch.gif' style='border: 0;vertical-align: bottom;'></a>
-			</div>
-			</div>
+		<div id='indJobContent' class=""></div>
+		</div>
+		
+		
+		<div id='indeed_link'>
+		<a title="Job Search" href="http://www.indeed.com.sg/" target="_new">jobs by <img alt=Indeed src='http://www.indeed.com/p/jobsearch.gif' style='border: 0;vertical-align: bottom;'></a>
+		</div>
+		
+	<iframe width="0" id=”results” name="results" height="0" border="0" frameborder="0" scrolling="auto" align="center" hspace="0" vspace=""></iframe>
+
 	.span4
 		.hero-unit
 			%h1 Know Yourself

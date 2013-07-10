@@ -7,4 +7,4 @@
 		= label_tag :company_industry, "Industry:"
 		= select_tag :company_industry, options_for_select( CompanyDetail::INDUSTRIES.map{|key| [ key.humanize, key]}.unshift(["All","all"]), params[:criterion])
 		%br
-		%br= submit_tag :Search, :name => nil
+		%br= submit_tag :Search, :name => nil, :class => "submit_search"
