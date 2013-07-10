@@ -3,7 +3,7 @@
 %br
 .row
     .span8
-        <div class="loginbox">
+        <div class="loginbox"> 
         .hero-unit
             #login-section
             %h1 System Login
@@ -24,9 +24,17 @@
                     <div id="submitbutton">
                     = submit_tag "Login", :class => "btn btn-primary"
                     </div>
+                .space
                 #forget_password
                     %p= link_to "Forgot Password?", forget_password_profile_url
+                %br
+        .green
+            .bold
+                .center
+                    .italic
+                        %p Company Reviews, Interview and Company Profile are only available for registered users.
         </div>
+        
 .center
     %p Don't have an account? Sign up now for free!
     %p= link_to "Sign Up Here", "/signup"

@@ -5,12 +5,12 @@ left:175px;
 
 #submitbutton{
 position:relative;
-left:230px;
+left:330px;
 }
 
 #forget_password{
-position:relative;
-left:390px;
+position:absolute;
+left:385px;
 }
 
 #remember_me{

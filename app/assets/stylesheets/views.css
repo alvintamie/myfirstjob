@@ -9,7 +9,7 @@ input[class="password optional"]{
 }
 
 #password{
-	height:25px;
+	height:30px;
 }
 
 input[class="string tel optional"]{
@@ -157,8 +157,9 @@ input[class="string email optional"]{
 
 .signupbutton{
 	position:relative;
-	left:192px;
+	left:163px;
 }
+
 .btn.btn-primary{
 border-radius:3px;
 	width:235px;

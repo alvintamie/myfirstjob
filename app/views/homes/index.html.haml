@@ -12,7 +12,7 @@
 .row  
   .span8
     .hero-unit1
-      %h1 Latest Testimonials 
+      %h1 Latest Company Reviews
       - @testimonials.each do |testimonial|
         .row  
           .span1
@@ -69,14 +69,20 @@
               %p= link_to "... Read More", event_path(event)
         .herolist
   .span4
-    .row
-      .hero-unit
-        %h1 Employer
-        .space
-        %p Reach out to students and graduates effectively now through events, posts and referrals. Find out more!
-        .space
-        .bigbutton
-          %p=link_to "Are you an employer?", employers_path, :class => "btn btn-primary"
+    .hero-unit
+      %h1 Job / Internship Seeker
+      .space
+      %p See all the company reviews and interviews by signing up with us! Registration is Free!
+      .space
+      .bigbutton
+        %p=link_to "Get Started", new_user_path(:type => "student"), :class => "btn btn-primary"
+    .hero-unit
+      %h1 Employer
+      .space
+      %p Reach out to students and graduates effectively now through events, posts and referrals.
+      .space
+      .bigbutton
+        %p=link_to "Find Out More", employers_path, :class => "btn btn-primary"
     .hero-unit
       %h1 Stories Listing
       - @events.each do |event|
