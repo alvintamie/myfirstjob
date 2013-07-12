@@ -21,7 +21,11 @@ Myfirstjob::Application.routes.draw do
   end
 
   resources :employers
-  resources :company_details
+  resources :company_details do
+    collection do
+      get :industry
+    end
+  end
   resources :events
   namespace :employer do
     root to: "homes#index"
@@ -89,6 +93,7 @@ Myfirstjob::Application.routes.draw do
 
   get "homes" => "homes#index"
   get "company_hub" => "homes#company_hub", :as => "homes_company_hub"
+  get "search_jobs" => "homes#search_jobs", :as => "homes_search_jobs"
   get "career_info" => "homes#career_info", :as => "homes_career_info"
   get "about" => "homes#about", :as => "homes_about"
   get "terms" => "homes#terms", :as => "homes_terms"

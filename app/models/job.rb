@@ -5,7 +5,9 @@ class Job < ActiveRecord::Base
 
   belongs_to :employer
 
-  JOB_TYPE = %w(Full-time Part-time Internship)
+  JOB_TYPE = [["All","all"],["Full time","full+time"],["Part time","part+time"],["Contract","contract"],["Internship","internship"],["Temporary","temporary"]]
+  JOB_POSITION_LEVEL = [["All","all"],["Fresh Graduates","graduate"],["Manager","manager"],["Senior Executive","senior+executive"],["Junior Executive","junior+executive"]]
+  JOB_EDUCATION = [["All","all"],["Diploma","diploma"],["Degree, Bachelor","degree+or+bachelor"],["Masters, MBA","masters+or+mba"],["Doctorate, PHD","doctorate+or+phd"]]
   JOB_INDUSTRY = ["Accounting & Financial Management","Consulting","Aerospace","Engineering & Manufacturing","Banking","Insurance & Financial Services","Investment & Investment Banking","Construction","Civil Engineering","Property & Development","Hospitality","Leisure & Tourism","Infocomms","Energy/Oil & Gas/Utilities","FMCG/Retail","Healthcare & Pharmaceutical","Scientific Research & Development","Legal","Logistics","Transport & SUpply Chain","Public Sector"]
   JOB_SCOPE = %w(Engineering Research Accounting)
   STATUS = %w(rejected approved pending)

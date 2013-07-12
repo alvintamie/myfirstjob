@@ -1,0 +1,17 @@
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-home
+		%span.divider /
+		%li
+			= link_to homes_company_hub_path do 
+				Companies
+		%span.divider /
+		%li.gray
+			=@industry
+%br
+%br
+%h4= @industry
+- @company_details.each do |company_detail|
+	%p= link_to company_detail.company_name, company_detail_path(company_detail)

@@ -15,7 +15,7 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require_tree .
-
+//= require_tree ../../../vendor/assets/javascripts/.
 /*
 * Slides, A Slideshow Plugin for jQuery
 * Intructions: http://slidesjs.com

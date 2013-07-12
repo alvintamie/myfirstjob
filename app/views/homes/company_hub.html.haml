@@ -76,4 +76,25 @@
       %h1 Article
       %p Loren Ipsum
 
+/.row
+/  .span8
+/    .hero-unit1
+/      %h1 List of Companies
+/      - @company_details.each do |company_detail|
+/        .span6
+/          .ellipsiscompany
+/            %p= link_to company_detail.company_name, company_detail_path(company_detail)
+/            .bold
+/              %p= "Industry : #{company_detail.company_industry}"
+/            .green
+/              %p= "Type: #{company_detail.company_type}"
+/            .space
+/            %p= "Opportunity : #{company_detail.opportunities}"
+/          .space
+/        .span1
+
+- CompanyDetail::INDUSTRIES.each do |industry|
+  %h4= link_to industry, industry_company_details_path(:category => industry)
+  - CompanyDetail.where(:company_industry => industry).order("company_name ASC").each do |company_detail|
+    %p= link_to company_detail.company_name, company_detail_path(company_detail)
     

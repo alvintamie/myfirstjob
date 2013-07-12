@@ -71,6 +71,7 @@ class Testimonial < ActiveRecord::Base
   end
 
   def user_vote? user
+      return [false,false]
       upvoted = upvotes.include? user.id
       downvoted = downvotes.include? user.id
       [upvoted, downvoted]

@@ -1,5 +1,5 @@
 class CompanyDetailsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :show, :new, :create, :update]
+  before_filter :authenticate_user!, :only => [:edit, :new, :create, :update]
 
   def new
     @company_detail = CompanyDetail.new
@@ -34,9 +34,14 @@ class CompanyDetailsController < ApplicationController
     @company_detail = CompanyDetail.find_by_id(params[:id])
     @testimonials = @company_detail.testimonials.paginate(:page => params[:page], :per_page => 3)
     @interviews = @company_detail.interviews.paginate(:page => params[:page], :per_page => 3)
-    @tab = params[:tab].nil? ? "default" : params[:tab]
+    @tab = params[:tab].nil? ? "testimonial" : params[:tab]
+    @most_popular_testimonial = @company_detail.testimonials.order("votes DESC").first
   end
 
+  def industry
+    @company_details = CompanyDetail.where(:company_industry => params[:category]).order("company_name ASC")
+    @industry = params[:category]
+  end
 
 
 end

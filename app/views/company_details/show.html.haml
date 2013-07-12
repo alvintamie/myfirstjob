@@ -8,8 +8,13 @@
 			= link_to homes_company_hub_path do 
 				Companies
 		%span.divider /
+		%li
+			= link_to industry_company_details_path(:category => @company_detail.company_industry) do
+				=@company_detail.company_industry
+		%span.divider /
 		%li.gray
 			= @company_detail.company_name
+
 %br
 %br
 .row
@@ -17,10 +22,11 @@
 		.hero-unit8
 			%h1= @company_detail.company_name
 			%p= @company_detail.about
+		- ts = @company_detail.testimonials.size
 		.span4
 			.company_comments
 				.figure1
-					%h1 34%
+					%h1= ts == 0 ? 'NA' : number_to_percentage((@company_detail.testimonials.positives.size*100.0/ts), :precision => 0)
 				.text
 					%p
 						%strong
@@ -28,7 +34,7 @@
 		.span4
 			.company_comments
 				.figure2
-					%h1 10
+					%h1= ts
 				.text
 					%p 
 						%strong
@@ -58,11 +64,12 @@
 			.span4
 				.company_details
 					%h2 Top Review
+					%p= @most_popular_testimonial.contents["work_experience"].split(".").first + "." unless @most_popular_testimonial.nil?
 		.row
 			<div id="company_navigation">
 			.company-detail-navigation
 				= link_to "Reviews", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
-				= link_to "Opportunity", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
+				= link_to "Opportunity", company_detail_path(@company_detail, :tab => "default"), :class => @tab == "default" ? "active btn" : "btn"
 			.hero-unitcompany
 				= render @tab
 			</div>

@@ -1,4 +1,5 @@
 class HomesController < ApplicationController
+  require 'net/http'
 
   def index
     @events = Event.approveds.featureds.order("created_at DESC").limit(2)
@@ -16,7 +17,28 @@ class HomesController < ApplicationController
   end
 
   def career_info
+  
+  end
 
+  def search_jobs
+    key = params[:keyword].split(" ").join("+")
+    position_level = "%22"+params[:position_level]+"%22"
+    education = "%28"+params[:education]+"%29"
+    job_type = params[:job_type]
+    query = key 
+    query += "+"+position_level unless params[:position_level] == "all"
+    query += "+"+education unless params[:education] == "all"
+    user_agent = URI.encode(request.env['HTTP_USER_AGENT'])
+    user_ip = request.remote_ip
+    start = params[:page].present? ? params[:page].to_i*10 - 10 : 0
+    start = start.to_s
+    url_path = "http://api.indeed.com/ads/apisearch?publisher=8086320755554674&q="+query+"&format=json&l=singapore&sort=&radius=&st=&jt="+job_type+"&start="+start+"&limit=&fromage=&filter=&co=sg&chnl=&userip="+user_ip+"&useragent="+user_agent+"&v=2"
+    request_result = Net::HTTP.get(URI.parse(url_path))
+    json = ActiveSupport::JSON.decode(request_result)
+    @results = json["results"]
+    @total_results = json["totalResults"]
+    @total_pages = @total_results/10+1
+    @page_number = json["pageNumber"]+1
   end
 
   def about
