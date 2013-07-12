@@ -1,37 +1,37 @@
+.hero-unit8
+  %ul.breadcrumb
+    %li
+      = link_to root_path do
+        %i.icon-home
+    %span.divider /
+    %li.gray
+      Stories
+%br
+%br
 .row
   .span8
-    .hero-unit1
-      %h1 Stories
-      - @events.each do |event|
-        .row  
-          .span2
-            <div class="photo150">
+    .hero-unit8
+      %h1 Articles
+      %p The latest news for cool undergarduates and young career people! Updated regularly with no boring option!
+      %br
+    - @events.each do |event|
+      .span4
+        .article_box
+          .article_image_box
             = image_tag event.image.url
-            </div>
-          .span6
-            %p= link_to event.title, event_path(event)
-            .green
-              %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
-            .space
-            .ellipsis
-              %p= event.content
-            .space
-            .pull-right
-              %p= link_to "...Read More", event_path(event)
-        .herolist
-      .pull-right
-        = will_paginate @events
+          <div class="snippets">
+          %h1= link_to event.title, event_path(event)
+          .green
+            %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
+          .space
+          .ellipsis
+            %p= event.content
+          </div>
+    .pull-right
+      = will_paginate @events
   .span4
-    .hero-unit
-      %h1 About Stories
-      .space
-      %p We bring "Stories" updated everyday!
-      .space
-      %p Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
-      .space
-      %p Find tips for undergraduates and young working adults about life!
-    .hero-unit
-      %h1 Stories Listing
-      - @events.each do |event|
-        .space
-        %p= link_to event.title, event_path(event)
+    .hero-unit4
+      %h1 Articles
+      
+      
+

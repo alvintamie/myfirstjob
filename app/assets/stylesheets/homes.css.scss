@@ -4,31 +4,57 @@
 	top:10px;
 }
 
+/*homepage*/
 .heroshot{
 	width:100%;
 	height:auto;
-	position:relative;
-	left:10px;
+}
+
+.heroshot_container{
+	position:absolute;
+	text-align:center;
+	top:200px;
+	left:90px
+}
+
+.heroshot_container h1{
+	font-size:25pt;
 }
 
 
-
-/*	border-style:solid;
-	border-width:1px;
-	border-color:#cccccc;
-		-webkit-box-shadow: 0 6px 6px -6px black;
-	-moz-box-shadow: 0 6px 6px -6px black;
-	box-shadow: 0 6px 6px -6px black;
-}
-*/
-
-.brand{
- width:200px;
- height:10px;
- position:relative;
- top:-32px;
+.home_photo img{
+	width:300px;
+	height:200px;
+	margin-left:20px;
 }
 
+.home_photo_horizontal img{
+	width:620px;
+	height:100px;
+	margin-left:20px;
+}
+
+.home_photo img:hover{
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	zoom:1;
+}
+
+.home_photo_horizontal img:hover{
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	zoom:1;
+}
+
+
+#shortellipsis{
+  overflow:hidden;
+  height:3em;
+ }
 
 
 .ellipsiscompany {
@@ -36,72 +62,26 @@
   height: 8.2em;
  }
 
- /* career_info*/
+.company_photo img{
+ 	width:60px;
+ 	height:60px;
+ }
 
-.job{border-bottom-style:solid;border-width:1px;border-color:#cccccc}
-
-#indJobContent{padding-bottom: 5px;}
-
-#indJobContent .company_location{font-size: 11px;overflow: hidden;display:block;}
-
-#indJobContent.wide .job{display:block;float:left;margin-right: 5px;width: 135px;overflow: hidden}
-
-#indeed_widget_wrapper{position: relative;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 13px;font-weight: normal;line-height: 18px;padding: 10px;height: auto;overflow: hidden;}
-
-#indeed_widget_header{font-size:18px; padding-bottom: 5px; }
-
-
-
-/*Indeed Search*/
-#indeed_search_wrapper{clear: both;font-size: 10pt;margin-top: 5px;padding-top: 5px;}
-
-#indeed_search_wrapper label{font-size: 12pt;line-height: inherit; font-weight:bold; text-align: left; margin-right: 5px;}
-
-#indeed_search_wrapper input[type='text']{width: 220px; font-size: 10pt; }
-
-#indeed_search_wrapper #qc{float:left; font-size:10pt; margin-left:20px;}
-
-#indeed_search_wrapper #lc{float:left; margin-left:20px;}
-
-#indeed_search_wrapper.stacked #qc, #indeed_search_wrapper.stacked #lc{float: none; clear: both;}
-
-#indeed_search_wrapper.stacked input[type='text']{width: 150px;}#indeed_search_wrapper.stacked label{display: block;padding-bottom: 5px;}
-
-.findjobs{
-	background:#4a8bf5;
-	color:white;
-	height:30px;
-	padding-left:10px;
-	padding-right:10px;
-	position:relative;
-	border:none;
-	top:-45px;
-	left:495px;
+ .company_photo img:hover{
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	zoom:1;
 }
 
-.zero_search{
-	position:relative;
-	top:80px;
+.company_list_box{
+	height:80px;
+	margin-bottom:0px;
 }
-/*ends here*/
 
+.company_list_box p{
+	margin:0px;
+}
+/*finish homepage*/
 
-#indeed_search_footer{width:295px; padding-top: 5px; clear: both;}
-
-#indeed_link{text-align:right;clear: both;font-size: 11px; }
-
-#indeed_link a{text-decoration: none;}
-
-#results .job{padding: 1px 0px;}
-
-#pagination { clear: both; }
-
-#indeed_widget_wrapper{ width: 572px; height: auto; background: white;}
-
-#indeed_widget_wrapper, #indeed_link a{ color: #000000;}
-
-#indJobContent{ border-top: 1px solid #DDDDDD; }
-
-#indJobContent a { color: #00c; width:572px;}
-
-#indeed_widget_header{ color: #000000; }

@@ -1,34 +1,35 @@
-.row
-	.span8
-		.hero-unit1
-			%h1 Story Details
-			.row
-				.span3
-					<div class="photo220">
-					= image_tag @event.image.url
-					</div>
-				.span4
-					%h2= @event.title
-					.green
-						%p= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
-			.space
-			.row
-				%p= simple_format @event.content
-				%br
-				%br
-				.italic
-					%p= link_to @event.label, @event.label_link
-				.herolist
-				.pull-right
-					=link_to "See all events", events_path, :class =>"btn btn-primary"
-	.span4
-		.hero-unit
-			%h1 About Stories
-			.space
-			%p We bring "Stories" updated everyday!
-			.space
-			%p - Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
-			.space
-			%p - Find tips for undergraduates and young working adults about life!
+.hero-unit8
+	%ul.breadcrumb
+		%li
+			= link_to root_path do
+				%i.icon-home
+		%span.divider /
+		%li
+			= link_to events_path do 
+				Stories
+		%span.divider /
+%br
+%br
+.span8
+	.hero-unit8
+		%h1= @event.title
+		.green
+			%p= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
+	.article_detail_box
+		.article_detail_image
+			= image_tag @event.image.url
+		.article_write_up
+			%p= simple_format @event.content
+		.italic
+			%p= link_to @event.label, @event.label_link
+.span4
+	.hero-unit4
+		%h1 About Stories
+		.space
+		%p We bring "Stories" updated everyday!
+		.space
+		%p - Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
+		.space
+		%p - Find tips for undergraduates and young working adults about life!
 
 

@@ -1,0 +1,46 @@
+
+.article_box{
+padding-top:0px;
+margin-right:0px;
+margin-left:20px;
+padding-right:0px;
+padding-left:0px;
+margin-top:0px;
+border:none;
+background:none;
+height:170px;
+}
+
+.article_image_box{
+	width:110px;
+	height:140px;
+	margin-right:10px;
+	border:solid 1px #cccccc;
+	float:left;
+	text-align: center;
+	vertical-align:middle;
+	display:block;
+	overflow:hidden;
+}
+
+.article_image_box img{
+	width:auto;
+	height: 140px;
+	overflow:hidden;
+}
+
+
+.snippets{
+	width:175px;
+	height:140px;
+	overflow:hidden;
+	float:right;
+}
+
+.snippets h1{
+	font-size:14pt;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+	line-height:125%;
+}
