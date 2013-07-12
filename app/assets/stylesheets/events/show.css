@@ -1,16 +1,4 @@
-.article_detail_box{
-margin-bottom:10px;
-margin-left:0px;
-background:none;
-margin-top:10px;
-margin-bottom:0px;
-margin-left:20px;
-}
-
-.article_detail_image{
-	align:"right";
-}
-
-.article_write_up{
-	float:left;
+.article_image{
+	margin-left:10px;
+	margin-bottom:10px;
 }

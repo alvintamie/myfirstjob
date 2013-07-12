@@ -17,11 +17,13 @@
 		%h1= @event.title
 		.green
 			%p= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
-	.article_detail_box
-		.article_detail_image
-			= image_tag @event.image.url
-		.article_write_up
-			%p= simple_format @event.content
+		%br
+		.span4.pull-right
+			.article_image
+				= image_tag @event.image.url
+		%p= simple_format @event.content
+		%br
+		%br
 		.italic
 			%p= link_to @event.label, @event.label_link
 .span4

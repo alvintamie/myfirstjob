@@ -1,28 +1,33 @@
-.hero-unit3
-  %br
-  %br
-  .pheading
-    Dear Employer,
-  %br
-  %h1 Welcome to MyFirstJob!
-  %h2 Registration is quick and does not cost a dime!
-  <div class="signupform">
-  = simple_form_for @user, :url => employers_path(@user), :html => {:multipart => true} do |f|
-    = render "shared/errors", :object => @user
-    = f.input :first_name
-    = f.input :last_name
-    = f.simple_fields_for :employer do |m|
-      = m.input :company_name
-      = m.input :company_type, :collection => Employer::TYPES
-      = m.input :address
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-    %br
-    .psmall
-      By registering, you accept our Terms.
-    %br
-    %br
-    .signupbutton
-      = f.button :submit, :class => "btn btn-primary"
-  </div>
+.hero-unit8
+  %ul.breadcrumb.navigation
+    %li
+      = link_to root_path do
+        %i.icon-home
+    %span.divider /
+    %li.gray
+      Sign Up
+%br
+%br
+.row
+  .span8
+    .sign_up_box
+      %h1 Register for free access to CareerScout
+      %br
+      = simple_form_for @user, :url => employers_path(@user), :html => {:multipart => true} do |f|
+        = render "shared/errors", :object => @user
+        = f.input :first_name
+        = f.input :last_name
+        = f.simple_fields_for :employer do |m|
+          = m.input :company_name
+          = m.input :company_type, :collection => Employer::TYPES
+          = m.input :address
+        = f.input :email
+        = f.input :password
+        = f.input :password_confirmation
+        %br
+        .center
+          %p= link_to "By registering, you accept our Terms.", homes_terms_path
+        %br
+        %br
+        .signupbutton
+          = f.button :submit, :class => "btn btn-primary", :id => "sign_up_button"
