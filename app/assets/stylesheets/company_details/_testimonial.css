@@ -1,0 +1,23 @@
+.inline p{
+	display:inline;
+}
+
+.center{
+	text-align:center;
+}
+
+.herolist{
+	border-bottom:solid #cccccc 1px; 
+}
+
+.testimonial_profile{
+	width:80px;
+	height:auto;
+	overflow:hidden;
+	border:solid #cccccc 1px;
+
+}
+
+.testimonial_particular{
+	margin-left:10px;
+}

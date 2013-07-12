@@ -1,26 +1,34 @@
-.loginbox{
+.login_box{
 position:relative;
 left:175px;
+background:#f1f1f1;
+border-radius:3px;
+border:solid #cccccc 1px;
+padding-left:30px;
+padding-top:20px;
+padding-bottom:20px;
 }
 
-#submitbutton{
+.login_box h1{
+	font-size:20pt;
+	padding:0px;
+	margin:0px;
+}
+
+
+#sign_in_button{
 position:relative;
 left:330px;
+width:170px;
 }
 
 #forget_password{
 position:absolute;
-left:385px;
+left:395px;
 }
 
-#remember_me{
+label[for="remember_me"]{
 	position:relative;
-	top:-2.5px;
+	top:3px;
 }
-
-#rememberme{
-	position:relative;
-	left:115px;
-}
-
 

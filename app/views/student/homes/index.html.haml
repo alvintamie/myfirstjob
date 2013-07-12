@@ -1,90 +1,132 @@
-.row  
+/.row  
+/  .span8
+/    .row
+/      .hero-unit1
+/        %h1 Latest Company Reviews
+/        - @testimonials.each do |testimonial|
+/          .row  
+/            .span1
+/              <div class="photo100">
+/              = image_tag testimonial.profile_image
+/              </div>
+/            .span7
+/              %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+/              .green
+/                %p= "Industry : " + testimonial.company_detail.company_industry
+/              .space
+/              .shortellipsis
+/                %p= simple_format testimonial.contents["work_experience"]
+/              .space
+/              .pull-right
+/                %p= link_to "... Read More",  company_detail_path(testimonial.company_detail)
+/          .herolist
+/      .hero-unit1
+/        %h1 Latest Interviews
+/        - @interviews.each do |interview|
+/          .row  
+/            .span1
+/              <div class="photo100">
+/              = image_tag interview.profile_image
+/              </div>
+/            .span7
+/              %p= link_to interview.company_detail.company_name, company_detail_path(interview.company_detail)
+/              .green
+/                %p= "Industry : " + interview.company_detail.company_industry
+/              .space
+/              .shortellipsis
+/                %p= simple_format interview.contents["interview_process"]
+/              .space
+/              .pull-right
+/                %p= link_to "... Read More",  company_detail_path(interview.company_detail)
+/          .herolist
+/    .row
+/      .hero-unit1
+/        %h1 Featured Topics
+/        - @events.each do |event|
+/          .row  
+/            .span2
+/              <div class="photo150">
+/              = image_tag event.image.url(:thumbnail)
+/              </div>
+/            .span6
+/              %p= link_to event.title, event_path(event)
+/              .green
+/                %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
+/              .space
+/              .ellipsis
+/                %p= event.content
+/              .space
+/              .pull-right
+/               %p= link_to "... Read More", event_path(event)
+/          .herolist
+/  .span4
+/   .row
+/      .hero-unit
+/        %h1 Contribute
+/        .space
+/        %p=link_to "Create a Company Profile", new_student_company_detail_path, :class => "btn btn-primary"
+/        .space
+/        %p=link_to "Manage your Company Profiles", student_company_details_path, :class => "btn btn-primary"
+/        .space
+/        %p=link_to "Write a Company Review", new_student_testimonial_path, :class => "btn btn-primary"
+/        .space
+/        %p=link_to "Share an interview", new_student_interview_path, :class => "btn btn-primary"
+/    .row
+/      .hero-unit
+/        %h1 Personal
+/        .space
+/        %p=link_to "Edit Profile", edit_student_user_url(current_user), :class => "btn btn-primary"
+/    .row
+/      .hero-unit
+/        %h1 Stories Listing
+/        - @events.each do |event|
+/          .space
+/          %p= link_to event.title, event_path(event)
+
+
+=image_tag("Heroshot.jpg",:class=>'heroshot')
+.heroshot_container
+  %h1 Take an inside look at companies and Interviews
+  .space
+  .bold
+    %h5 Join thousands of people who use MyFirstJob to read employee reviews, get in-depth career advice and find jobs
+%br
+%br
+.row 
   .span8
     .row
-      .hero-unit1
-        %h1 Latest Company Reviews
-        - @testimonials.each do |testimonial|
-          .row  
-            .span1
-              <div class="photo100">
-              = image_tag testimonial.profile_image
-              </div>
-            .span7
-              %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
-              .green
-                %p= "Industry : " + testimonial.company_detail.company_industry
-              .space
-              .shortellipsis
-                %p= simple_format testimonial.contents["work_experience"]
-              .space
-              .pull-right
-                %p= link_to "... Read More",  company_detail_path(testimonial.company_detail)
-          .herolist
-      .hero-unit1
-        %h1 Latest Interviews
-        - @interviews.each do |interview|
-          .row  
-            .span1
-              <div class="photo100">
-              = image_tag interview.profile_image
-              </div>
-            .span7
-              %p= link_to interview.company_detail.company_name, company_detail_path(interview.company_detail)
-              .green
-                %p= "Industry : " + interview.company_detail.company_industry
-              .space
-              .shortellipsis
-                %p= simple_format interview.contents["interview_process"]
-              .space
-              .pull-right
-                %p= link_to "... Read More",  company_detail_path(interview.company_detail)
-          .herolist
+      .span4
+        .row
+          .home_photo
+            =link_to image_tag("Heroshot.jpg"), root_path
+      .span4
+        .row
+          .home_photo
+            =link_to image_tag("Heroshot.jpg"), root_path
+    %br
     .row
-      .hero-unit1
-        %h1 Featured Topics
-        - @events.each do |event|
-          .row  
-            .span2
-              <div class="photo150">
-              = image_tag event.image.url(:thumbnail)
-              </div>
-            .span6
-              %p= link_to event.title, event_path(event)
-              .green
-                %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
-              .space
-              .ellipsis
-                %p= event.content
-              .space
-              .pull-right
-                %p= link_to "... Read More", event_path(event)
-          .herolist
+      .span4
+        .row
+          .home_photo
+            =link_to image_tag("Heroshot.jpg"), root_path
+      .span4
+        .row
+          .home_photo
+            =link_to image_tag("Heroshot.jpg"), root_path
+    %br
+    .row
+      .span8
+        .home_photo_horizontal
+          =link_to image_tag("Heroshot.jpg"), root_path
+    %br
   .span4
     .row
-      .hero-unit
-        %h1 Contribute
-        .space
-        %p=link_to "Create a Company Profile", new_student_company_detail_path, :class => "btn btn-primary"
-        .space
-        %p=link_to "Manage your Company Profiles", student_company_details_path, :class => "btn btn-primary"
-        .space
-        %p=link_to "Write a Company Review", new_student_testimonial_path, :class => "btn btn-primary"
-        .space
-        %p=link_to "Share an interview", new_student_interview_path, :class => "btn btn-primary"
-    .row
-      .hero-unit
-        %h1 Personal
-        .space
-        %p=link_to "Edit Profile", edit_student_user_url(current_user), :class => "btn btn-primary"
-    .row
-      .hero-unit
-        %h1 Stories Listing
-        - @events.each do |event|
-          .space
-          %p= link_to event.title, event_path(event)
-    .row
-      .hero-unit
-        %h1 Membership
-        .space
-        %p Basic
-        %p You are registered successfully!
+      - @testimonials.each do |testimonial|
+        .company_list_box
+          .span1
+            =link_to image_tag("Heroshot.jpg"), company_detail_path(testimonial.company_detail), :class => "company_photo"
+          .span3
+            %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+            <div id="shortellipsis">
+            %p= simple_format testimonial.contents["work_experience"]
+            </div>

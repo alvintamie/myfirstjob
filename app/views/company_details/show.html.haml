@@ -1,65 +1,129 @@
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-home
+		%span.divider /
+		%li
+			= link_to homes_company_hub_path do 
+				Companies
+		%span.divider /
+		%li.gray
+			= @company_detail.company_name
+%br
+%br
 .row
 	.span8
-		.hero-unit
-			.row
-				%h1= @company_detail.company_name
-				<div class="company_details">
-				%table{:class => "table"}
-					%tr 
-						%td Industry:
-						%td= @company_detail.company_industry
-					%tr
-						%td Type:
-						%td= @company_detail.company_type
-					%tr
-						%td Address:
-						%td= @company_detail.address
-					%tr
-						%td Tel:
-						%td= @company_detail.telephone
-					%tr
-						%td Email:
-						%td= @company_detail.contact_email
-				</div>
-				- if @company_detail.image.present?
-					.herolist
-					.row
-						<div class="company_photo">
-						%h4 Sneak Peek on Company 
-						.span9
-							<div class="photo130">
-							= image_tag @company_detail.image if @company_detail.image.present?
-							</div>
-						.span9
-							<div class="photo130">
-							= image_tag @company_detail.image if @company_detail.image.present?
-							</div>
-						.span9
-							<div class="photo130">
-							= image_tag @company_detail.image if @company_detail.image.present?
-							</div>
-						.span9
-							<div class="photo130">
-							= image_tag @company_detail.image if @company_detail.image.present?
-							</div>
-						</div>
-		<div id="company_navigation">
-		.company-detail-navigation
-			= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
-			= link_to "Company Review", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
-			= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
-		.hero-unitcompany
-			= render @tab
-		</div>
-	.span4
-		.hero-unit
-			%h1 Contribute
-			.space
-			%p= link_to "Share your Company Review", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
-			.space
-			%p= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"
-		.hero-unit
-			%h1 Advanced Search
-			<div id="searchbox">
-			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+		.hero-unit8
+			%h1= @company_detail.company_name
+			%p= @company_detail.about
+		.span4
+			.company_comments
+				.figure1
+					%h1 34%
+				.text
+					%p
+						%strong
+							Percentage of Positive Company Reviews
+		.span4
+			.company_comments
+				.figure2
+					%h1 10
+				.text
+					%p 
+						%strong
+							Number of Company Reviews by Employee & Interns
+		.row
+			.span4
+				.company_details
+					%h2 Company Particulars
+					%table{:class => "table"}
+						%tr 
+							%td Industry:
+							%td= @company_detail.company_industry
+						%tr
+							%td Type:
+							%td= @company_detail.company_type
+						%tr
+							%td Address:
+							%td= @company_detail.address
+						- if @company_detail.contact_email.present?
+							%tr
+								%td Tel:
+								%td= @company_detail.telephone
+						- if @company_detail.contact_email.present?
+							%tr
+								%td Email:
+								%td= @company_detail.contact_email
+			.span4
+				.company_details
+					%h2 Top Review
+		.row
+			<div id="company_navigation">
+			.company-detail-navigation
+				= link_to "Reviews", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
+				= link_to "Opportunity", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
+			.hero-unitcompany
+				= render @tab
 			</div>
+
+/				<div class="company_details">
+/				%table{:class => "table"}
+/					%tr 
+/						%td Industry
+/						%td= @company_detail.company_industry
+/					%tr
+/						%td Type:
+/						%td= @company_detail.company_type
+/					%tr
+/						%td Address:
+/						%td= @company_detail.address
+/					%tr
+/						%td Tel:
+/						%td= @company_detail.telephone
+/					%tr
+/						%td Email:
+/						%td= @company_detail.contact_email
+/				</div>
+/				- if @company_detail.image.present?
+/					.herolist
+/					.row
+/						<div class="company_photo">
+/						%h4 Sneak Peek on Company 
+/						.span9
+/							<div class="photo130">
+/							= image_tag @company_detail.image if @company_detail.image.present?
+/							</div>
+/						.span9
+/							<div class="photo130">
+/							= image_tag @company_detail.image if @company_detail.image.present?
+/							</div>
+/						.span9
+/							<div class="photo130">
+/							= image_tag @company_detail.image if @company_detail.image.present?
+/							</div>
+/						.span9
+/							<div class="photo130">
+/							= image_tag @company_detail.image if @company_detail.image.present?
+/							</div>
+/						</div>
+/		<div id="company_navigation">
+/		.company-detail-navigation
+/			= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
+/			= link_to "Company Review", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
+/			= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
+/		.hero-unitcompany
+/			= render @tab
+/		</div>
+/	.span4
+/		.hero-unit
+/			%h1 Contribute
+/			.space
+/			%p= link_to "Share your Company Review", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
+/			.space
+/			%p= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"
+/		.hero-unit
+/			%h1 Advanced Search
+/			<div id="searchbox">
+/			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+/			</div>

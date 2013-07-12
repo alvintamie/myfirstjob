@@ -39,8 +39,7 @@
 								= link_to downvote_student_interview_path(@interview) do
 									Downvote
 									%i.icon-thumbs-down			
-			.row
-				%br
+			.review_text
 				- if @interview.contents["interview_process"].present?
 					%h2 Interview Process
 					%p= @interview.contents["interview_process"]

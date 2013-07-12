@@ -1,56 +1,23 @@
-.hero-unit3{
-border-radius:5px;
-padding-top:0px;
-padding-bottom:20px;
-margin-bottom:15px;
-margin-right:0px;
-margin-left:0px;
-padding-right:0px;
-padding-left:0px;
-border-style:solid;
-border-color:#cccccc;
-border-top-color:#dddddd;
-border-left-color:#dddddd;
-border-top-width:1px;
-border-left-width:1px; 
-border-right-width:1px;
-border-bottom-width:1px;
-background:#fafafa;
-
-	-webkit-box-shadow: 0 6px 6px -6px black;
-	-moz-box-shadow: 0 6px 6px -6px black;
-	box-shadow: 0 6px 6px -6px black;	
+.sign_up_box{
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	margin-top:10px;
+	margin-left:10px;
+	margin-bottom:10px;
+	border:1px #cccccc solid;
+	border-radius:3px;
 }
 
-.pheading{
-	font-size: 13pt;
-	line-height:125%;
-	position:relative;
-	left:190px;
+.sign_up_box h1{
+	padding:0px;
+	margin:0px;
+	font-size:20pt;
 }
 
-.hero-unit3 h1{
-	font-size:25pt;
-	text-align: center;
-	background:#eeeeee;
-	font-weight:normal;
+#sign_up_button{
+	width:175px;
 }
-
-.hero-unit3 h2{
-	font-size:16pt;
-	color:#4a8bf5;
-	font-weight:normal;
-	text-align:center;
-}
-
-.signupform{
-	position:relative;
-	left:190px;
-}
-
-
-
-
 
 #user_student_attributes_graduation_year{
 	height:30px;

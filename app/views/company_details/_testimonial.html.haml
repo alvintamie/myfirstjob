@@ -1,44 +1,42 @@
-%h1 Summary of Experience
-.row
-	.span2
-		.pull-right
-			%p= "Positive : " + @testimonials.positives.size.to_s
-	.span2
-		.pull-right
-			%p= "Neutral : " + @testimonials.neutrals.size.to_s
-	.span2
-		.pull-right
-			%p= "Negative : " + @testimonials.negatives.size.to_s
-.herolist
+/.row
+/	.span2
+/		.pull-right
+/			%p= "Positive : " + @testimonials.positives.size.to_s
+/	.span2
+/		.pull-right
+/			%p= "Neutral : " + @testimonials.neutrals.size.to_s
+/	.span2
+/		.pull-right
+/			%p= "Negative : " + @testimonials.negatives.size.to_s
+%h1 Company Reviews
 - if @testimonials.blank?
 	%br
 	.center
 		.italic
 			%p No Available Information. You may start to contribute now!
-
 - @testimonials.each do |testimonial|
 	.row
 		.span1
-			<div class="photo100">
-			= image_tag testimonial.profile_image
-			</div>
-		.span7
-			.row 
-				.span4
-					%p= link_to testimonial.student_name, student_testimonial_path(testimonial)
-					.green
-						%p= testimonial.position
-					%p= testimonial.grade
-				.span1
-					.inline
-						%p Popularity:
-						- upvoted, downvoted = testimonial.user_vote? current_user
-						%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
-					%p= link_to "See Details", student_testimonial_path(testimonial)
+			.testimonial_profile
+				= image_tag testimonial.profile_image
+		.span3
+			.testimonial_particular
+				%p= link_to testimonial.student_name, student_testimonial_path(testimonial)
+				.green
+					%p= testimonial.position
+				%p= testimonial.grade
+		.span3
+			.inline
+				%p Popularity:
+				- upvoted, downvoted = testimonial.user_vote? current_user
+				%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
+			%p= link_to "See Full Reviews", student_testimonial_path(testimonial)
 	%br
 	.row
 		%p= testimonial.contents["work_experience"]
+	%br
 	.herolist
+	%br
 .pull-right
 	= will_paginate @testimonials
 %br

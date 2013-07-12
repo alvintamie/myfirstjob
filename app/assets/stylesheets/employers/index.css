@@ -1,9 +1,3 @@
-.employer_heroshot{
-	width:100%;
-	height:auto;
-	border:solid #cccccc 1px;
-
-	-webkit-box-shadow: 0 6px 6px -6px black;
-	-moz-box-shadow: 0 6px 6px -6px black;
-	box-shadow: 0 6px 6px -6px black;
+#employer_register, #employer_sign{
+	width:175px;
 }

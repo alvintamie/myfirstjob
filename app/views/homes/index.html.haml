@@ -107,7 +107,7 @@
       - @testimonials.each do |testimonial|
         .company_list_box
           .span1
-            =link_to testimonial.company_detail.image.url(:thumbnail), company_detail_path(testimonial.company_detail), :class => "company_photo"
+            =link_to image_tag("Heroshot.jpg"), company_detail_path(testimonial.company_detail), :class => "company_photo"
           .span3
             %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
             <div id="shortellipsis">

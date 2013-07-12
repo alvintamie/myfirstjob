@@ -1,0 +1,49 @@
+.collection_radio_buttons{
+	display:inline;
+	padding-right: 20px;
+}
+
+label[class="collection_radio_buttons"]{
+	position:relative;
+	top:3px;
+	left:3px;
+}
+
+#new_testimonial{
+	position:relative;
+	left:22px;
+}
+
+#testimonial_contents_culture{
+	width:550px;
+	height:150px;
+	position:relative;
+	left:-20px;
+}
+
+#testimonial_contents_work_balance{
+width:550px;
+	height:150px;
+	position:relative;
+	left:-20px;
+}
+
+#testimonial_contents_work_experience{
+width:550px;
+	height:150px;
+	position:relative;
+	left:-20px;
+}
+
+#testimonial_contents_advice{
+width:550px;
+	height:150px;
+	position:relative;
+	left:-20px;
+}
+
+label[class="boolean optional"]{
+	position:relative;
+	left:20px;
+	top:-16px;
+}
