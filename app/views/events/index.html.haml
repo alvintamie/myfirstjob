@@ -2,8 +2,9 @@
   %ul.breadcrumb.navigation
     %li
       = link_to root_path do
-        %i.icon-home
-    %span.divider /
+        %i.icon-folder-open
+        Home
+    %span.divider >
     %li.gray
       Stories
 %br
@@ -19,13 +20,12 @@
         .article_box
           .article_image_box
             = image_tag event.image.url
-          <div class="snippets">
+          <div class="wrapper" id="snippets">
           %h1= link_to event.title, event_path(event)
           .green
             %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
           .space
-          .ellipsis
-            %p= event.content
+          = event.content
           </div>
     .pull-right
       = will_paginate @events

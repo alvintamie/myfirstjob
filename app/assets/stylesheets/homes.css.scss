@@ -4,3 +4,94 @@
 	top:10px;
 }
 
+#testimonial_home{
+  height:2.6em;
+ }
+
+ /*homepage*/
+.heroshot{
+	width:100%;
+	height:auto;
+}
+
+.heroshot_container{
+	position:absolute;
+	text-align:center;
+	top:180px;
+	left:100px;
+}
+
+.heroshot_container h1{
+	font-size:25pt;
+}
+
+.home_photo{
+	width:300px;
+	height:100px;
+	margin-left:20px;
+	float:left;
+	margin-bottom:20px;
+}
+
+.home_photo img{
+	width:300px;
+	height:100px;
+}
+
+.home_photo img:hover{
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	zoom:1;
+}
+
+#company_list_home{
+	width:640px;
+}
+
+.company_photo{
+	width:70px;
+	height:70px;
+	margin-left:20px;
+	float:left;
+}
+.company_photo img{
+ 	width:70px;
+ 	height:70px;
+ }
+
+ .company_photo img:hover{
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	zoom:1;
+}
+
+#company_list_box{
+	height:80px;
+	width:320px;
+	margin-bottom:0px;
+	float:left;
+}
+
+#testimonial_home{
+	width:220px;
+	height:70px;
+	margin-left:10px;
+	float:left;
+}
+
+#employer_button{
+	margin-top:10px;
+	width:200px;
+}
+
+#student_sign_up_button{
+	margin-top:10px;
+	width:200px;
+}
+
+
+/*finish homepage*/

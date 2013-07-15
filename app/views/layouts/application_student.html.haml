@@ -10,7 +10,7 @@
       (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=475780035833133"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
     #admin
       <div class="logo_box">
-      =link_to image_tag("Logo white caption.png"), root_path, :class => "brand"
+      =link_to image_tag("logo.png"), student_root_path, :class => "brand"
       </div>
       .navbar.navbar-inverse
         .navbar-inner
@@ -32,7 +32,7 @@
               %li.divider-vertical
               %li{:class => (current_page?(homes_career_info_path) ? :active : "") }
                 = link_to homes_career_info_path do
-                  Jobs/Internships
+                  Jobs & Internships
               %li.divider-vertical
               %li{:class => (current_page?(events_path) ? :active : "") }
                 = link_to events_path do
