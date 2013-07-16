@@ -43,5 +43,8 @@
 %br
 %br
 .center
-	= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
+	- if current_user.nil?
+		= link_to "Share your Testimonial", new_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
+	- else
+		= link_to "Share your Testimonial", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
 %br

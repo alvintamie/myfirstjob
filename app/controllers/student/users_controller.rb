@@ -7,6 +7,7 @@ class Student::UsersController < ApplicationController
   end
 
   def update
+    @form_type = "form_student"
     @user = current_user
     params[:user].delete(:email)
     if @user.update_attributes(params[:user])

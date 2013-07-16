@@ -84,49 +84,47 @@
 /          %p= link_to event.title, event_path(event)
 
 
-=image_tag("Heroshot.jpg",:class=>'heroshot')
+=image_tag("Heroshot.png",:class=>'heroshot')
 .heroshot_container
-  %h1 Take an inside look at companies and Interviews
+  %h1 Take an inside look at companies in Singapore
   .space
   .bold
-    %h5 Join thousands of people who use MyFirstJob to read employee reviews, get in-depth career advice and find jobs
-%br
-%br
+    %h5 Join many Singaporeans who use CareerScout to read employee reviews and find their dream jobs & internships
+  %br
+  %p What are you looking for?
 .row 
   .span8
+    .hero-unit8
+      %h1 Top Company Reviews
     .row
-      .span4
-        .row
-          .home_photo
-            =link_to image_tag("Heroshot.jpg"), root_path
-      .span4
-        .row
-          .home_photo
-            =link_to image_tag("Heroshot.jpg"), root_path
-    %br
-    .row
-      .span4
-        .row
-          .home_photo
-            =link_to image_tag("Heroshot.jpg"), root_path
-      .span4
-        .row
-          .home_photo
-            =link_to image_tag("Heroshot.jpg"), root_path
-    %br
-    .row
-      .span8
-        .home_photo_horizontal
-          =link_to image_tag("Heroshot.jpg"), root_path
-    %br
-  .span4
-    .row
+      <div id="company_list_home">
       - @testimonials.each do |testimonial|
-        .company_list_box
-          .span1
-            =link_to image_tag("Heroshot.jpg"), company_detail_path(testimonial.company_detail), :class => "company_photo"
-          .span3
-            %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
-            <div id="shortellipsis">
-            %p= simple_format testimonial.contents["work_experience"]
-            </div>
+        <div id="company_list_box">
+        =link_to image_tag("Heroshot.png"), company_detail_path(testimonial.company_detail), :class => "company_photo"
+        <div class="wrapper" id="testimonial_home">
+        %p= link_to testimonial.company_detail.company_name, company_detail_path(testimonial.company_detail)
+        %p= simple_format testimonial.contents["work_experience"]
+        </div>
+        </div>
+      </div>
+    .hero-unit8
+      %h1 Top Industries
+    .row
+      .home_photo
+        =link_to image_tag("Banking.png"), root_path
+      .home_photo
+        =link_to image_tag("Legal.png"), root_path
+      .home_photo
+        =link_to image_tag("Healthcare.png"), root_path
+      .home_photo
+        =link_to image_tag("public.png"), root_path
+      .home_photo
+        =link_to image_tag("Engineering.png"), root_path
+      .home_photo
+        =link_to image_tag("Moreindustries.png"), root_path
+  .span4
+    .hero-unit4
+      %h1 Top Stories
+      - @events.each do |event|
+        .space
+        %p= link_to event.title, event_path(event)

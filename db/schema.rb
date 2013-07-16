@@ -132,8 +132,14 @@ ActiveRecord::Schema.define(:version => 20130621161001) do
     t.integer  "user_id"
     t.string   "majors"
     t.string   "nationality"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "type_user"
+    t.string   "most_interested_industry"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "students", ["user_id"], :name => "index_students_on_user_id"

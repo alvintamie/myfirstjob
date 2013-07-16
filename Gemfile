@@ -10,6 +10,7 @@ gem 'sidekiq'
 gem 'redis-rails'
 gem 'redis-store'
 gem 'paperclip'
+gem 'aws-sdk'
 
 #front-end
 gem 'jquery-rails'

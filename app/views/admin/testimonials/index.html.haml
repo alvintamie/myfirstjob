@@ -1,0 +1,19 @@
+%h2 Manage Pending Testimonials Submissions
+%br
+%br
+%table{:class => "table"}
+  %tr 
+    %th Company Detail Id
+    %th Other
+    %th Status
+    %th Actions
+  - @testimonials.each do |testimonial|
+    %tr
+      %td= testimonial.company_detail_id
+      %td= testimonial.other
+      %td= testimonial.status
+      %td
+        = link_to "Preview", admin_testimonial_path(testimonial), :class => "btn btn-primary"
+        = link_to "Edit", edit_admin_testimonial_path(testimonial), :class => "btn btn-primary"
+        = link_to "Delete", admin_testimonial_path(testimonial), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger'
+= will_paginate @testimonials

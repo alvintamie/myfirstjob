@@ -64,6 +64,11 @@ Myfirstjob::Application.routes.draw do
   namespace :admin do
     root to: "homes#index"
     get "homes" => "homes#index"
+    resources :testimonials do
+      member do
+        get :approve
+      end
+    end
     resources :company_details do
       member do
         get :approve

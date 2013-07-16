@@ -18,7 +18,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            =link_to image_tag("Logo white caption.png"), root_path, :class => :brand
+            =link_to image_tag("logo.png"), root_path, :class => :brand
             .nav-collapse.collapse
             %ul.nav
               %li.divider-vertical
@@ -35,6 +35,10 @@
                 = link_to admin_company_details_path do
                   %i.icon-lock
                   Manage Company Hub
+              %li{:class => (current_page?(admin_testimonials_path) ? :active : "") }
+                = link_to admin_testimonials_path do
+                  %i.icon-lock
+                  Manage Testimonials
               %li{:class => (current_page?(admin_jobs_path) ? :active : "") }
                 = link_to admin_jobs_path do
                   %i.icon-lock

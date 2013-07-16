@@ -98,6 +98,8 @@ namespace :seed do
         student.majors = Populator.words(1..5).titleize
         student.nationality = Student::NATIONALITIES.sample
         student.user_id = user.id
+        student.type_user = Student::TYPES.sample
+        student.most_interested_industry = CompanyDetail::INDUSTRIES.sample
         student.save
 
 

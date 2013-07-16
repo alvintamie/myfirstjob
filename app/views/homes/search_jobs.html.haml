@@ -2,10 +2,11 @@
 	%ul.breadcrumb.navigation
 		%li
 			= link_to root_path do
-				%i.icon-home
-		%span.divider /
+				%i.icon-folder-open
+				Home
+		%span.divider >
 		%li.gray
-			Jobs and Internships
+			Jobs & Internships
 %br
 %br
 = render 'shared/search_job'
@@ -27,14 +28,6 @@
 	%p= job["source"]
 	%p= job["date"].split(" ")[1..3].join(" ")
 	= raw(job["snippet"])
-
-
-%br
-%br
-.row
-	.span8
-		.hero-unit8
-			%h1 Job/Internship Search
 	.span4
 		.hero-unit4
 			%h1 Articles

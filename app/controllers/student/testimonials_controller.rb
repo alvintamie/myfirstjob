@@ -12,7 +12,7 @@ class Student::TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(params[:testimonial])
     @company_detail = @testimonial.company_detail
     @company_details = CompanyDetail.approveds
-    @testimonial.status = "approved"
+    @testimonial.status = @testimonial.company_detail.nil? && @testimonial.present? ? "pending" : "approved"
     @testimonial.student = current_user.student
     if @testimonial.save
       flash[:success] = "You have successfully create a company detail, thank you for your submission"

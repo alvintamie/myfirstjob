@@ -6,6 +6,9 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :user_id
       t.string :majors
       t.string :nationality
+      t.string :type_user
+      t.string :most_interested_industry
+      t.attachment :resume
       t.timestamps
     end
     add_index :students, :user_id

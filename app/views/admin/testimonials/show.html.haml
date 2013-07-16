@@ -1,0 +1,44 @@
+%h3 Full Company Review
+%br
+%br
+.row
+	.span8
+		.hero-unit8
+			%h1 Full Company Review
+			<div class="reviewer_box">
+			.span1
+				.testimonial_profile
+					= image_tag @testimonial.profile_image
+			.span3
+				.testimonial_particular
+					.bold
+						%p= @testimonial.student_name
+					%p= link_to @testimonial.company_detail.company_name, company_detail_path(@testimonial.company_detail)
+					.green
+						%p= @testimonial.position
+					%p= @testimonial.grade
+			.span3
+				.inline
+					%p Popularity:
+					%p{:id => "votes-"+@testimonial.id.to_s}= @testimonial.votes
+			</div>
+		.review_text
+			- if @testimonial.contents["culture"].present?
+				%h2 Culture
+				%p= @testimonial.contents["culture"]
+				%br
+			- if @testimonial.contents["work_balance"].present?
+				%h2 Work Balance
+				%p= @testimonial.contents["work_balance"]
+				%br
+			- if @testimonial.contents["work_experience"].present?
+				%h2 Work Experience
+				%p= @testimonial.contents["work_experience"]
+				%br
+			- if @testimonial.contents["advice"].present?
+				%h2 Advice
+				%p= @testimonial.contents["advice"]
+				%br
+
+.row
+	= link_to "Send to Approved", approve_admin_testimonial_path(@testimonial), :class => "btn btn-warning"

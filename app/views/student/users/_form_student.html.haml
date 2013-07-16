@@ -5,6 +5,14 @@
   = f.input :first_name
   = f.input :last_name
   = f.simple_fields_for :student do |m|
+    = m.input :most_interested_industry, :label => "Choose an industry that you are most interested in", :collection => CompanyDetail::INDUSTRIES
+    %p Are you a student or professional?
+    = m.collection_radio_buttons :type_user, Student::TYPES.map{|a| [a,a]}, :first, :last
+    %br
+    %br
+    - if @user.student.resume.present?
+      = link_to "download current resume", @user.student.resume.url
+    = m.input :resume, :label => "Resume"
     = m.input :school, :collection => Student::SCHOOLS
     = m.input :graduation_year
     = m.input :majors

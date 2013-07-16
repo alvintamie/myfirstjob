@@ -1,6 +1,6 @@
 class Testimonial < ActiveRecord::Base
   extend ModelUtilities 
-  attr_accessible :position, :upvotes, :downvotes, :tmp_company_name, :other, :grade, :contents, :anonymous, :start_date, :end_date, :company_detail_id, :student_id, :student, :votes
+  attr_accessible :position, :upvotes, :status, :downvotes, :tmp_company_name, :other, :grade, :contents, :anonymous, :start_date, :end_date, :company_detail_id, :student_id, :student, :votes
 
   serialize :contents
   serialize :upvotes, Array
@@ -31,12 +31,16 @@ class Testimonial < ActiveRecord::Base
 
   validate :contents_validation
   validate :date_validation
+  validate :company_validation
+
+  def company_validation
+    errors.add :other, "You must either specify \"Company Name\" Field or \"Other\" Field if the company is not listed" if company_detail.nil? && other.blank?
+  end
 
   def contents_validation
     errors.add :contents, "Your Comment on the company environment can't be empty" if contents["culture"].blank?
     errors.add :contents, "Your Comment on the work-life balance  can't be empty" if contents["work_balance"].blank?
     errors.add :contents, "Your Share with us the overall job/internship experience can't be empty" if contents["work_experience"].blank?
-
   end
   def check_date_format t
     t.strftime('%d/%m/%Y/') rescue return false

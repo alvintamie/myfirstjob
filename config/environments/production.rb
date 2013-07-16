@@ -64,4 +64,12 @@ Myfirstjob::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'Myfirstjob-production',
+      :access_key_id => 'AKIAJGYFL7JJ32BED4YA',
+      :secret_access_key => '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'
+    }
+  }
 end

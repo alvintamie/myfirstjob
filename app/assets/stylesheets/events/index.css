@@ -30,14 +30,12 @@ height:170px;
 }
 
 
-.snippets{
+#snippets{
 	width:175px;
 	height:140px;
-	overflow:hidden;
-	float:right;
 }
 
-.snippets h1{
+#snippets h1{
 	font-size:14pt;
 	font-weight:bold;
 	margin:0px;

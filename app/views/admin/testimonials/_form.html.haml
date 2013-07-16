@@ -1,4 +1,4 @@
-= simple_form_for [:student, @testimonial], :html => {:multipart => true} do |f|
+= simple_form_for [:admin,@testimonial], :html => {:multipart => true} do |f|
   = render "shared/errors", :object => @testimonial
   - if @company_detail.present?
     %br
@@ -60,9 +60,9 @@
       .bold
         4. Advice for your peers joining the company
     %p= m.text_area :advice, :value => @testimonial.contents["advice"]
-  %p= f.input :anonymous, :label => "Submit as anonymous"
   %br
   .center
     = f.button :submit, :class => "btn btn-primary"
+
 
 
