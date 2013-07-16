@@ -39,8 +39,8 @@
                 = link_to events_path do
                   Stories
               %li.divider-vertical
-              %li{:class => (current_page?(events_path) ? :active : "") }
-                = link_to events_path do
+              %li{:class => (current_page?(new_testimonial_path) ? :active : "") }
+                = link_to new_testimonial_path do
                   Write a Review
               %li.divider-vertical
             %ul.nav.pull-right

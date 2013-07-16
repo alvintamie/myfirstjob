@@ -21,6 +21,7 @@ Myfirstjob::Application.routes.draw do
   end
 
   resources :employers
+  resources :testimonials
   resources :company_details do
     collection do
       get :industry

@@ -15,6 +15,7 @@ class CreateTestimonials < ActiveRecord::Migration
       t.text :upvotes
       t.integer :company_detail_id
       t.integer :student_id
+      t.string :other
       t.timestamps
     end
     add_index :testimonials, :company_detail_id

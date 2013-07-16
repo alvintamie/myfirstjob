@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20130621161001) do
     t.text     "upvotes"
     t.integer  "company_detail_id"
     t.integer  "student_id"
+    t.string   "other"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end

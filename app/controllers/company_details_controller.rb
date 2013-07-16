@@ -32,10 +32,10 @@ class CompanyDetailsController < ApplicationController
 
   def show
     @company_detail = CompanyDetail.find_by_id(params[:id])
-    @testimonials = @company_detail.testimonials.paginate(:page => params[:page], :per_page => 3)
+    @testimonials = @company_detail.testimonials.approveds.paginate(:page => params[:page], :per_page => 3)
     @interviews = @company_detail.interviews.paginate(:page => params[:page], :per_page => 3)
     @tab = params[:tab].nil? ? "testimonial" : params[:tab]
-    @most_popular_testimonial = @company_detail.testimonials.order("votes DESC").first
+    @most_popular_testimonial = @company_detail.testimonials.approveds.order("votes DESC").first
   end
 
   def industry

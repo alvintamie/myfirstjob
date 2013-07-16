@@ -127,6 +127,7 @@ namespace :seed do
           testimonial.votes = -10..50
           testimonial.start_date = 3.months.ago
           testimonial.end_date = Time.now
+          testimonial.status = "approved"
           contents = Hash.new
           contents["culture"] = Populator.sentences(1..10) 
           contents["work_balance"] = Populator.sentences(1..10)

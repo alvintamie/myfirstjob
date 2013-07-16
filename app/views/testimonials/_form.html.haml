@@ -1,0 +1,67 @@
+= simple_form_for [:student, @testimonial], :html => {:multipart => true} do |f|
+  = render "shared/errors", :object => @testimonial
+  - if @company_detail.present?
+    %br
+    .row  
+      .span2
+        <div class="photo130">
+        = image_tag @company_detail.image
+        </div>
+      .span5
+        .bold
+          %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
+        %p= "Industry : #{@company_detail.company_industry}"
+        %p= "Address : #{@company_detail.address}"
+    = f.input :company_detail_id, :as => :hidden, :input_html => { :value => @company_detail.id  }
+    %br
+  - else
+    .row
+      %br
+      = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}
+    .row
+      %br
+      = f.input :other, :label => "Other(please specify)"
+  .bold
+    Overall Experience
+  = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
+  %br
+  %br
+  .pmedium
+    %p= f.input :position
+    .space
+    Work/Internship Period
+    %br
+    = f.text_field :start_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+    =" to "
+    = f.text_field :end_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+  %br
+  .bold
+    Help Us Elaborate Your Experience
+  = f.simple_fields_for :contents do |m|
+    %br
+    .pmedium
+      .bold
+        1. Comment on the company environment
+      (i.e: Amount of autonomy, mentorship, relationship with colleagues, etc)
+    %p= m.text_area :culture, :value => @testimonial.contents["culture"]
+    %br
+    .pmedium
+      .bold
+        2. Comment on the work-life balance
+      (i.e: Working hours, break time, frequency of overtime, weekend shift, etc)
+    %p= m.text_area :work_balance, :value => @testimonial.contents["work_balance"]
+    %br
+    .pmedium
+      .bold
+        3. Share with us the overall job/internship experience
+    %p= m.text_area :work_experience, :value => @testimonial.contents["work_experience"]
+    %br
+    .pmedium
+      .bold
+        4. Advice for your peers joining the company
+    %p= m.text_area :advice, :value => @testimonial.contents["advice"]
+  %br
+  .center
+    = f.button :submit, :class => "btn btn-primary"
+
+

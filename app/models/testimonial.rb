@@ -1,6 +1,6 @@
 class Testimonial < ActiveRecord::Base
   extend ModelUtilities 
-  attr_accessible :position, :upvotes, :downvotes, :tmp_company_name, :grade, :contents, :anonymous, :start_date, :end_date, :company_detail_id, :student_id, :student, :votes
+  attr_accessible :position, :upvotes, :downvotes, :tmp_company_name, :other, :grade, :contents, :anonymous, :start_date, :end_date, :company_detail_id, :student_id, :student, :votes
 
   serialize :contents
   serialize :upvotes, Array
@@ -24,6 +24,7 @@ class Testimonial < ActiveRecord::Base
 
 
   validates :grade, :presence => true, :inclusion => { :in => GRADES}
+  validates :status, :presence => true, :inclusion => { :in => STATUS}
   validates :start_date, :presence => true
   validates :end_date, :presence => true
   validates :position, :presence => true

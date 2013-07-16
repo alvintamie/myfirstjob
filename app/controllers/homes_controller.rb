@@ -6,7 +6,7 @@ class HomesController < ApplicationController
     @testimonials = Testimonial.find(:all, :limit => 8, :order => "created_at DESC")
     @interviews = Interview.find(:all, :limit => 3, :order => "created_at DESC")
     @featured_company_details = CompanyDetail.featureds
-  end 
+  end
 
   def company_hub
     @company_details = CompanyDetail
