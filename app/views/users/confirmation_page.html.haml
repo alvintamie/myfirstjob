@@ -1,19 +1,26 @@
-.hero-unit3
-	%br
-	%br
-	%br
-	%br
-	%br
-	%br
-	%h1 Thank you for your registration!
-	%h2 We have sent a confirmation email to your email address!
-	%br
-	%br
-	%br
-	.center
-		=link_to "Back to Welcome Page", root_path, :class =>"btn btn-primary"
-	%br
-	%br
-	%br
-	%br
-	%br
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-folder-open
+				Home
+		%span.divider >
+		%li.gray
+			Confirmation
+%br
+%br
+%br
+%br
+.span8
+	.login_box
+		%br
+		%br
+		.center
+			%h1 Thank you for your registration!
+			%p We have sent a confirmation email to your email address!
+		%br
+		%br
+		%br
+		.center
+			=link_to "Back to Welcome Page", root_path, :class =>"btn btn-primary"
+		%br

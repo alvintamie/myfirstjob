@@ -9,8 +9,39 @@
 			Jobs & Internships
 %br
 %br
+.row
 	.span8
-		= render 'shared/search_job'
+		.job_compulsory
+			.job_compulsory_box
+				%h1 Step 1: Compulsory Field
+				= render 'shared/search_job'
+			.job_compulsory_box
+				%h1 Step 2: Optional Field
+		.hero-unit8_gray
+			%h1 Popular Keyword
+			%i.icon-search 
+			=link_to "Accounting", '/search_jobs?utf8=✓&job_type=all&keyword=Accounting&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Banking", '/search_jobs?utf8=✓&job_type=all&keyword=Banking&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Process Engineer", '/search_jobs?utf8=✓&job_type=all&keyword=Process+Engineer&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Marketing", '/search_jobs?utf8=✓&job_type=all&keyword=Marketing&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Research", '/search_jobs?utf8=✓&job_type=all&keyword=Research&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Lawyer", '/search_jobs?utf8=✓&job_type=all&keyword=Lawyer&position_level=all&education=all'
+			%i.icon-search 
+			=link_to "Quality Assurance", '/search_jobs?utf8=✓&job_type=all&keyword=Quality+Assurance&position_level=all&education=all'
 	.span4
 		.hero-unit4
-			%h1 Articles
+			%h1 Career Guidelines
+			%p Are you not sure about which job or internship position you should apply? Having problems in writing CV, Cover Letter or even not ready for interview?
+			.space
+			%p Fret not! We have all the resources that you need!
+			.space
+			%a{:href => "http://www.careercompass.gov.sg/Pages/Home.aspx", :target => "_blank"} Job/Internship Position Guide by Career Compass
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)

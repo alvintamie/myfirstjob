@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       render :new
     elsif @success
       if user.is_student? || user.is_alumni?
-        redirect_to root_path
+        redirect_to student_root_path
       elsif user.is_employer?
         redirect_to employer_root_path
       elsif user.is_admin?

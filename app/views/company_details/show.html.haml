@@ -2,16 +2,17 @@
 	%ul.breadcrumb.navigation
 		%li
 			= link_to root_path do
-				%i.icon-home
-		%span.divider /
+				%i.icon-folder-open
+				Home
+		%span.divider >
 		%li
 			= link_to homes_company_hub_path do 
 				Companies
-		%span.divider /
+		%span.divider >
 		%li
 			= link_to industry_company_details_path(:category => @company_detail.company_industry) do
 				=@company_detail.company_industry
-		%span.divider /
+		%span.divider >
 		%li.gray
 			= @company_detail.company_name
 
@@ -20,8 +21,13 @@
 .row
 	.span8
 		.hero-unit8
-			%h1= @company_detail.company_name
-			%p= @company_detail.about
+			.row
+				.company_hub_image
+					= image_tag @company_detail.image
+				.span4
+					.company_hub_description
+						%h1= @company_detail.company_name
+						%p= @company_detail.about
 		- ts = @company_detail.testimonials.size
 		.span4
 			.company_comments
@@ -73,6 +79,18 @@
 			.hero-unitcompany
 				= render @tab
 			</div>
+	.span4
+		.hero-unit4
+			%h1 Other Industries
+			- CompanyDetail::INDUSTRIES.each do |industry|
+				%i.icon-globe
+				= link_to industry, industry_company_details_path(:category => industry)
+		.hero-unit4
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)
+      
 
 /				<div class="company_details">
 /				%table{:class => "table"}

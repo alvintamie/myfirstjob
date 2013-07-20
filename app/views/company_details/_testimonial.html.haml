@@ -16,20 +16,28 @@
 			%p No Available Information. You may start to contribute now!
 - @testimonials.each do |testimonial|
 	.row
-		.span1
-			.testimonial_profile
+		.testimonial_profile
+			-if testimonial.profile_image.present?
 				= image_tag testimonial.profile_image
+			-else
+				= image_tag("anonymous.jpeg")
 		.span3
 			.testimonial_particular
-				%p= testimonial.student_name
+				.bold
+					%p= testimonial.student_name
 				.green
-					%p= testimonial.position
-				%p= testimonial.grade
+					%p=testimonial.created_at.strftime("%d %b %Y")
+				%i.icon-briefcase
+				=testimonial.position
+				%p
+				%i.icon-comment
+				=testimonial.grade
 		.span3
-			.inline
-				%p Popularity:
-				- upvoted, downvoted = testimonial.user_vote? current_user
-				%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
+			.bold
+				.inline
+					- upvoted, downvoted = testimonial.user_vote? current_user
+					%p{:id => "votes-"+testimonial.id.to_s}= testimonial.votes
+					%p person(s) found it useful
 			%p= link_to "See Full Reviews", student_testimonial_path(testimonial)
 	%br
 	.row

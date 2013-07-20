@@ -1,3 +1,8 @@
+/			%p= "Total Results "+@total_results.to_s
+/			%p= "Page Number "+@page_number.to_s
+/			%p= "Total Pages "+@total_pages.to_s
+/			- 1.upto(@total_pages) do |i|
+/				%p=link_to i, params.merge(:page => i)
 .hero-unit8
 	%ul.breadcrumb.navigation
 		%li
@@ -9,25 +14,107 @@
 			Jobs & Internships
 %br
 %br
-= render 'shared/search_job'
-
-%p= "Total Results "+@total_results.to_s
-%p= "Page Number "+@page_number.to_s
-%p= "Total Pages "+@total_pages.to_s
-%p= "Showing results #{@page_number*10 - 9} to #{@page_number*10 > @total_results ? @total_results.to_s : (@page_number*10).to_s} to of #{@total_results.to_s}"
-%br
-%p=link_to "<-", params.merge(:page => @page_number-1) if @page_number-1 > 0
-- 1.upto(@total_pages) do |i|
-	%p=link_to i, params.merge(:page => i)
-%p=link_to "->", params.merge(:page => @page_number+1) if @page_number < @total_pages
-
-
-- @results.each do |job|
-	%h3= link_to job["jobtitle"], job["url"], :onmousedown => "indeed_clk(this, '6931');",:target => "_blank"
-	%p= job["company"]
-	%p= job["source"]
-	%p= job["date"].split(" ")[1..3].join(" ")
-	= raw(job["snippet"])
+.row
+	.span8
+		.job_compulsory
+			.job_compulsory_box
+				%h1 Step 1: Compulsory Field
+				= render 'shared/search_job'
+			.job_compulsory_box
+				%h1 Step 2: Optional Field
 	.span4
 		.hero-unit4
-			%h1 Articles
+			%h1 Career Guidelines
+			%p Are you not sure about which job or internship position you should apply? Having problems in writing CV, Cover Letter or even not ready for interview?
+			.space
+			%p Fret not! We have all the resources that you need!
+			.space
+			%a{:href => "http://www.careercompass.gov.sg/Pages/Home.aspx", :target => "_blank"} Job/Internship Position Guide by Career Compass
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)
+.row
+	.span8
+		.hero-unit8
+			= "Showing results #{@page_number*10 - 9} to #{@page_number*10 > @total_results ? @total_results.to_s : (@page_number*10).to_s} of #{@total_results.to_s}"
+			.pull-right
+				=link_to raw('<i class="icon-chevron-left"></i>Prev '), params.merge(:page => @page_number-1) if @page_number-1 > 0
+				<div id="job_number_box">
+				-if @total_pages>1
+					-if @page_number>5
+						-if (@page_number+5)<@total_pages
+							- (@page_number-5).upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto (@page_number+5) do |i|
+								=link_to i, params.merge(:page => i)
+						-else
+							- (@page_number-5).upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto @total_pages do |i|
+								=link_to i, params.merge(:page => i)
+					-else
+						-if (@page_number+11)>@total_pages 
+							- 1.upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto @total_pages do |i|
+								=link_to i, params.merge(:page => i)
+						-else
+							- 1.upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto 11 do |i|
+								=link_to i, params.merge(:page => i)
+				</div>
+				=link_to raw(' Next<i class="icon-chevron-right"></i>'), params.merge(:page => @page_number+1) if @page_number < @total_pages
+			- @results.each do |job|
+				%h5= link_to job["jobtitle"], job["url"], :onmousedown => "indeed_clk(this, '6931');",:target => "_blank"
+				.pull-right.job_date
+					= job["date"].split(" ")[1..3].join(" ")
+				- if job["company"].present?
+					.bold
+						= job["company"]
+				- else
+					.bold
+						= job["source"]
+				= raw(job["snippet"])
+				.herolist
+			%br
+			%br
+			.pull-right
+				=link_to raw('<i class="icon-chevron-left"></i>Prev '), params.merge(:page => @page_number-1) if @page_number-1 > 0
+				<div id="job_number_box">
+				-if @total_pages>1
+					-if @page_number>5
+						-if (@page_number+5)<@total_pages
+							- (@page_number-5).upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto (@page_number+5) do |i|
+								=link_to i, params.merge(:page => i)
+						-else
+							- (@page_number-5).upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto @total_pages do |i|
+								=link_to i, params.merge(:page => i)
+					-else
+						-if (@page_number+11)>@total_pages 
+							- 1.upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto @total_pages do |i|
+								=link_to i, params.merge(:page => i)
+						-else
+							- 1.upto (@page_number-1) do |i|
+								=link_to i, params.merge(:page => i)
+							=@page_number
+							- (@page_number+1).upto 11 do |i|
+								=link_to i, params.merge(:page => i)
+				</div>
+				=link_to raw(' Next<i class="icon-chevron-right"></i>'), params.merge(:page => @page_number+1) if @page_number < @total_pages
+			%br
+			%br

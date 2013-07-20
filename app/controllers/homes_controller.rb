@@ -14,10 +14,11 @@ class HomesController < ApplicationController
     @company_details = @company_details.where(:company_type => params[:company_type]) unless params[:company_type] == "all" || params[:company_type].nil?
     @company_details = @company_details.where(:company_industry => params[:company_industry]) unless params[:company_industry] == "all" || params[:company_industry].nil?
     @company_details = @company_details.approveds.order('company_name ASC').paginate(:page => params[:page], :per_page => 10)
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def career_info
-  
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def search_jobs
@@ -39,25 +40,27 @@ class HomesController < ApplicationController
     @total_results = json["totalResults"]
     @total_pages = @total_results/10+1
     @page_number = json["pageNumber"]+1
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def about
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def contact
-
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def faq
-
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def privacy
-
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def terms
-
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
 end

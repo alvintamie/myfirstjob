@@ -12,11 +12,11 @@
 .row
   .span8
     .hero-unit8
-      %h1 Articles
-      %p The latest news for cool undergarduates and young career people! Updated regularly with no boring option!
+      %h1 Stories
+      %p The latest news for cool undergraduates and young career people! Updated regularly with no boring option!
       %br
-    - @events.each do |event|
-      .span4
+    .row
+      - @events.each do |event|
         .article_box
           .article_image_box
             = image_tag event.image.url
@@ -24,14 +24,24 @@
           %h1= link_to event.title, event_path(event)
           .green
             %p= event.created_at.strftime("%d %b %Y") + " by " + event.author
-          .space
           = event.content
           </div>
     .pull-right
       = will_paginate @events
   .span4
     .hero-unit4
-      %h1 Articles
+      %h1 About Stories
+      .space
+      %p We bring "Stories" updated everyday!
+      .space
+      %p - Explore all the gossips and what-you-have-to-know stuffs in Singapore. 
+      .space
+      %p - Find tips for undergraduates and young working adults about life!
+    .hero-unit4
+      %h1 Top Stories
+      - @featuredevents.each do |event|
+        .space
+        %p= link_to event.title, event_path(event)
       
       
 

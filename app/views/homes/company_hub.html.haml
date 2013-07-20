@@ -64,18 +64,17 @@
     .hero-unit8_gray
       %p Sign in to your account to access full information of the company profile and company reviews from interns, employee and alumni!
     .row
-      .span4
-        .hero-unit4
-          %p loren ipsum
-          - @company_details.each do |company_detail|
+      - CompanyDetail::INDUSTRIES.each do |industry|
+        .industry_list
+          %h4= link_to industry, industry_company_details_path(:category => industry)
+          - CompanyDetail.where(:company_industry => industry).order("company_name ASC").each do |company_detail|
             %p= link_to company_detail.company_name, company_detail_path(company_detail)
-      .span4
-        .hero-unit4
-          %p hefvhbsj
   .span4
     .hero-unit4
-      %h1 Article
-      %p Loren Ipsum
+      %h1 Top Stories
+      - @events.each do |event|
+        .space
+        %p= link_to event.title, event_path(event)
 
 /.row
 /  .span8
@@ -94,8 +93,5 @@
 /          .space
 /        .span1
 
-- CompanyDetail::INDUSTRIES.each do |industry|
-  %h4= link_to industry, industry_company_details_path(:category => industry)
-  - CompanyDetail.where(:company_industry => industry).order("company_name ASC").each do |company_detail|
-    %p= link_to company_detail.company_name, company_detail_path(company_detail)
+
     

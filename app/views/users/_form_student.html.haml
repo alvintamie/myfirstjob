@@ -2,23 +2,24 @@
   %ul.breadcrumb.navigation
     %li
       = link_to root_path do
-        %i.icon-home
-    %span.divider /
+        %i.icon-folder-open
+        Home
+    %span.divider >
     %li.gray
       Sign Up
 %br
 %br
 .row
   .span8
-    .sign_up_box
+    .hero-unit8_border
       %h1 Register for free access to CareerScout
-      %br
       = simple_form_for @user do |f|
         = render "shared/errors", :object => @user
         = f.input :first_name
         = f.input :last_name
         = f.simple_fields_for :student do |m|
           = m.input :most_interested_industry, :label => "Choose an industry that you are most interested in", :collection => CompanyDetail::INDUSTRIES
+          .space
           %p Are you a student or professional?
           = m.collection_radio_buttons :type_user, Student::TYPES.map{|a| [a,a]}, :first, :last
           %br
@@ -35,6 +36,6 @@
   .span4
     .hero-unit4
       %h1 What are the benefits?
-      %p All new members are able to see all the opportunities and programme catered by the companies.
+      %p All new members are able to see all the full company reviews! 
       %br
-      %p Most importantly, you are able to see "the sneak peek" and reviews on the companies you want to work at!
+      %p Most importantly, you are able to ask any question you have about a company before you decide to work or intern in that company. 

@@ -3,6 +3,7 @@ class TestimonialsController < ApplicationController
   def new
     @testimonial = Testimonial.new
     @testimonial.contents = Hash.new
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
     @company_detail = CompanyDetail.find_by_id(params[:company_detail_id])
     @company_details = CompanyDetail.approveds.order("company_name ASC")
   end

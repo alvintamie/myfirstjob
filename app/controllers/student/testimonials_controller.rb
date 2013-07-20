@@ -32,6 +32,7 @@ class Student::TestimonialsController < ApplicationController
     @comments = @testimonial.comments
     @comment = Comment.new
     @from_current_student  = @testimonial.student == current_user.student ? true : false
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def edit

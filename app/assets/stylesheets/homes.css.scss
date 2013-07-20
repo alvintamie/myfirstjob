@@ -58,7 +58,7 @@
 }
 .company_photo img{
  	width:70px;
- 	height:70px;
+ 	height:auto;
  }
 
  .company_photo img:hover{
@@ -93,5 +93,85 @@
 	width:200px;
 }
 
+#company_industry{
+	position:relative;
+	top:5px;
+}
 
 /*finish homepage*/
+
+/*company hub*/
+
+.industry_list{
+	width:300px;
+	height:150px;
+	float:left;
+	margin-left:20px;
+	margin-bottom:10px;
+}
+
+/**/
+
+/*career info*/
+.job_compulsory{
+	margin-left:20px;
+	height:270px;
+}
+
+.job_compulsory_box{
+	width:270px;
+	height:270px;
+	padding-left:19px;
+	padding-right:19px;
+	border:1px #cccccc solid;
+	float:left;
+}
+
+.job_compulsory_box h1{
+	font-size:15pt;
+	border-bottom: 1px solid #cccccc;
+}
+
+/**/
+
+/*search jobs*/
+#job_number_box{
+	padding-left:20px;
+	padding-right:20px;
+	display:inline;
+}
+
+.icon-chevron-left{
+	position:relative;
+	top:-1px;
+}
+
+.icon-chevron-right{
+	position:relative;
+	top:-1px;
+}
+
+.pull-right.job_date{
+	position:relative;
+	top:-20px;
+}
+
+.herolist{
+	border-bottom:1px #cccccc solid;
+	margin-top:15px;
+}
+
+.hero-unit8 h5{
+	margin-bottom:0px;
+	margin-top:15px;
+	font-size:12pt;
+	font-weight:normal;
+	width:540px;
+}
+/**/
+
+/*contact*/
+iframe[id="31782346136455"]{
+	margin:10px;
+	width:98%;
+}

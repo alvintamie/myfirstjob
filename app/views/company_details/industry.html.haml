@@ -2,16 +2,36 @@
 	%ul.breadcrumb.navigation
 		%li
 			= link_to root_path do
-				%i.icon-home
-		%span.divider /
+				%i.icon-folder-open
+		%span.divider >
 		%li
 			= link_to homes_company_hub_path do 
 				Companies
-		%span.divider /
+		%span.divider >
 		%li.gray
 			=@industry
 %br
 %br
-%h4= @industry
-- @company_details.each do |company_detail|
-	%p= link_to company_detail.company_name, company_detail_path(company_detail)
+.row
+	.span8
+		.hero-unit8
+			%h1= @industry
+			- @company_details.each do |company_detail|
+				%i.icon-circle-arrow-right
+				= link_to company_detail.company_name, company_detail_path(company_detail)
+				%br
+			%br
+			%br
+			%br
+			%h1 Other Industries
+			- CompanyDetail::INDUSTRIES.each do |industry|
+				%i.icon-globe
+				= link_to industry, industry_company_details_path(:category => industry)
+		%br
+	.span4
+		.hero-unit4
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)
+

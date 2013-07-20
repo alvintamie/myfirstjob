@@ -36,11 +36,13 @@ class CompanyDetailsController < ApplicationController
     @interviews = @company_detail.interviews.paginate(:page => params[:page], :per_page => 3)
     @tab = params[:tab].nil? ? "testimonial" : params[:tab]
     @most_popular_testimonial = @company_detail.testimonials.approveds.order("votes DESC").first
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def industry
     @company_details = CompanyDetail.where(:company_industry => params[:category]).order("company_name ASC")
     @industry = params[:category]
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
 

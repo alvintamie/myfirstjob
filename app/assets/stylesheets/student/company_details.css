@@ -18,3 +18,14 @@
 	height:100px;
 }
 
+.company_hub_image{
+	width:300px;
+	float:left;
+}
+
+.company_hub_image img{
+	width:280px;
+}
+.company_hub_description{
+	width:320px;
+}

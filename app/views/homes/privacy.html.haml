@@ -1,3 +1,21 @@
-.hero-unit
-	%h1 MyFirstJob Privacy Policy
-	
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-folder-open
+				Home
+		%span.divider >
+		%li.gray
+			Privacy
+%br
+%br
+.row
+	.span8
+		.hero-unit8
+			%h1 Privacy
+	.span4
+		.hero-unit4
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)

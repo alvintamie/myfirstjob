@@ -1,15 +1,25 @@
+.hero-unit8
+  %ul.breadcrumb.navigation
+    %li
+      = link_to root_path do
+        %i.icon-folder-open
+        Home
+    %span.divider >
+    %li.gray
+      Confusion
+%br
+%br
 .row  
   .span8
     %br
     %br
     %br
-    .loginbox
-      .hero-unit
-        #forget-password-section
-          %h1 Confused
-          .space
-          %p Hmmmm..... Are you joking around?
-          %br
-          %p You are already logged in.
-          %br
-          %p= link_to "Go back to Welcome Page", root_path
+    .login_box
+      #forget-password-section
+        %h1 Confused
+        .space
+        %p Hmmmm..... Are you joking around?
+        %br
+        %p You are already logged in.
+        %br
+        %p= link_to "Go back to Welcome Page", root_path

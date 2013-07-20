@@ -1,13 +1,15 @@
 .search_box_section
 	= form_tag homes_search_jobs_path, :method => :get do
+		= label_tag :job_type, "Which job type are you looking for? *"
+		= select_tag :job_type, options_for_select(Job::JOB_TYPE, params[:job_type])
+		<div id="optional_fields">
 		= label_tag :keyword, "Keyword "
 		= text_field_tag :keyword, params[:keyword], :placeholder => "e.g Accounting"
-		= label_tag :job_type, "Job Type:"
-		= select_tag :job_type, options_for_select(Job::JOB_TYPE, params[:job_type])
 		= label_tag :position_level, "Position Level:"
 		= select_tag :position_level, options_for_select(Job::JOB_POSITION_LEVEL, params[:position_level])
 		= label_tag :education, "Education:"
 		= select_tag :education, options_for_select(Job::JOB_EDUCATION, params[:education])
+		</div>
 		%br
-		%br= submit_tag :Search, :name => nil, :class => "submit_search"
+		%br= submit_tag :Search, :name => nil, :class => "btn btn-primary"
 

@@ -2,15 +2,16 @@
 	%ul.breadcrumb.navigation
 		%li
 			= link_to root_path do
-				%i.icon-home
-		%span.divider /
+				%i.icon-folder-open
+				Home
+		%span.divider >
 		%li
 			= link_to homes_company_hub_path do 
 				Companies
-		%span.divider /
+		%span.divider >
 		%li
 			= link_to @testimonial.company_detail.company_name, company_detail_path(@testimonial.company_detail)
-		%span.divider /
+		%span.divider >
 		%li.gray
 			Full Company Review
 %br
@@ -20,21 +21,27 @@
 		.hero-unit8
 			%h1 Full Company Review
 			<div class="reviewer_box">
-			.span1
-				.testimonial_profile
+			.testimonial_profile
+				-if @testimonial.profile_image.present?
 					= image_tag @testimonial.profile_image
+				-else
+					= image_tag("anonymous.jpeg")
 			.span3
 				.testimonial_particular
 					.bold
 						%p= @testimonial.student_name
-					%p= link_to @testimonial.company_detail.company_name, company_detail_path(@testimonial.company_detail)
 					.green
-						%p= @testimonial.position
-					%p= @testimonial.grade
+						%p=@testimonial.created_at.strftime("%d %b %Y")
+					%i.icon-briefcase
+					=@testimonial.position
+					%p
+					%i.icon-comment
+					=@testimonial.grade
 			.span3
-				.inline
-					%p Popularity:
-					%p{:id => "votes-"+@testimonial.id.to_s}= @testimonial.votes
+				.bold
+					.inline
+						%p{:id => "votes-"+@testimonial.id.to_s}= @testimonial.votes
+						%p person(s) found it useful
 				.voting
 					.green
 						Do you find it useful? 
@@ -59,7 +66,7 @@
 				%p= @testimonial.contents["work_balance"]
 				%br
 			- if @testimonial.contents["work_experience"].present?
-				%h2 Work Experience
+				%h2 Overall Work Experience
 				%p= @testimonial.contents["work_experience"]
 				%br
 			- if @testimonial.contents["advice"].present?
@@ -82,17 +89,28 @@
 		.comment_list
 			- @comments.each do |c|
 				.row
-					.span1
-						.testimonial_profile
-							= image_tag c.user.profile_image.url
-						.center
-							= c.user.first_name
+					.testimonial_profile
+						-if c.user.profile_image.present?	
+							=image_tag c.user.profile_image.url
+						-else
+							=image_tag("anonymous.jpeg")
 					.span6
 						.row
+							.bold
+								= c.user.first_name
+							.green
+								%p=c.created_at.strftime("%d %b %Y")
 							%p= c.content
-				%br
 				.herolist
 				%br
 	.span4
 		.hero-unit4
-			%h1 Articles
+			%h1 Other Industries
+			- CompanyDetail::INDUSTRIES.each do |industry|
+				%i.icon-globe
+				= link_to industry, industry_company_details_path(:category => industry)
+		.hero-unit4
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)

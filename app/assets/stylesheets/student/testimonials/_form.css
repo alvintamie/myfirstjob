@@ -9,37 +9,28 @@ label[class="collection_radio_buttons"]{
 	left:3px;
 }
 
-#new_testimonial{
-	position:relative;
-	left:22px;
-}
-
 #testimonial_contents_culture{
-	width:550px;
+width:590px;
 	height:150px;
-	position:relative;
-	left:-20px;
 }
 
 #testimonial_contents_work_balance{
-width:550px;
+width:590px;
 	height:150px;
-	position:relative;
-	left:-20px;
 }
 
 #testimonial_contents_work_experience{
-width:550px;
+width:590px;
 	height:150px;
-	position:relative;
-	left:-20px;
 }
 
 #testimonial_contents_advice{
-width:550px;
+width:590px;
 	height:150px;
-	position:relative;
-	left:-20px;
+}
+
+#testimonial_other{
+	width:220px;
 }
 
 label[class="boolean optional"]{

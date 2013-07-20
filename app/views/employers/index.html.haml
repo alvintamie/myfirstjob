@@ -1,9 +1,12 @@
+/					.space
+/					%p=link_to "Register", new_employer_path, :class => "btn btn-primary", :id=>"employer_register"
 .hero-unit8
 	%ul.breadcrumb.navigation
 		%li
 			= link_to root_path do
-				%i.icon-home
-		%span.divider /
+				%i.icon-folder-open
+				Home
+		%span.divider >
 		%li.gray
 			Employer
 %br
@@ -36,7 +39,7 @@
 				.bold
 					%p Whether you are a recruitment agency, an advertising agency or an employer, we work towards helping you get the best result.
 			%br
-			%p= link_to "Talk to us for more information and to request our media kit!",homes_contact_path
+			%p= link_to "Talk to us for more information and to request for our media kit!",homes_contact_path
 			%br
 			%br
 	.span4
@@ -47,12 +50,10 @@
 			.space
 			%p Registration is the first step to market your company to talents.
 			.space
-			%p The good news is:
+			%p Talk to us to register your company. The good news is:
 			.space
 			.green
 				.center
 					%p REGISTRATION IS FREE
 					.space
-					%p=link_to "Register", new_employer_path, :class => "btn btn-primary", :id=>"employer_register"
-					.space
-					%p=link_to "Sign In", login_url, :class => "btn btn-primary", :id=>"employer_sign"
+					%p=link_to "Employer Sign In", login_url, :class => "btn btn-primary", :id=>"employer_sign"

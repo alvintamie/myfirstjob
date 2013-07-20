@@ -1,1 +1,22 @@
-<script type="text/javascript" src="http://form.jotform.me/jsform/31782346136455"></script>
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-folder-open
+				Home
+		%span.divider >
+		%li.gray
+			Contact Us
+%br
+%br
+.row
+	.span8
+		.hero-unit8
+			<script type="text/javascript" src="http://form.jotform.me/jsform/31782346136455"></script>
+	.span4
+		.hero-unit4
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)
+
