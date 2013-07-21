@@ -6,6 +6,7 @@ class Student::TestimonialsController < ApplicationController
     @testimonial.contents = Hash.new
     @company_detail = CompanyDetail.find_by_id(params[:company_detail_id])
     @company_details = CompanyDetail.approveds
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def create

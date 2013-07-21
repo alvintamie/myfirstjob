@@ -1,9 +1,37 @@
+/.row
+/	.span8
+/		.hero-unit
+/			%h1 Create Company Review
+/			=render "form"
+/	.span4
+/		.hero-unit
+/			%h1 Advanced Search
+/			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-folder-open
+				Home
+		%span.divider >
+		%li.gray
+			New Company Review
+%br
+%br
 .row
 	.span8
-		.hero-unit
-			%h1 Create Company Review
+		.hero-unit8_gray
+			%p Your review will tremendously help fellow job & internship seekers!
+		.hero-unit8_border
+			%h1 New Company Review
 			=render "form"
 	.span4
-		.hero-unit
-			%h1 Advanced Search
-			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+		.hero-unit4
+			%h1 Message to Users
+			%p We will do our due dilligence to review every single submission to maintain credibility of the posts. 
+			.space
+			%p Please follow the approriate code of conduct, terms and guidelines in posting reviews. We will remove any posts that contain obscenities, defamatory attacks, trade secrets and etc.  
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)

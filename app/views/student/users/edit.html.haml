@@ -1,5 +1,22 @@
-.hero-unit3
-	%br
-	%br
-	%h1 Settings
-	=render @form_type
+.hero-unit8
+	%ul.breadcrumb.navigation
+		%li
+			= link_to root_path do
+				%i.icon-folder-open
+				Home
+		%span.divider >
+		%li.gray
+			Settings
+%br
+%br
+.row
+	.span8
+		.hero-unit8
+			%h1 Settings
+			=render @form_type
+	.span4
+		.hero-unit4 
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)

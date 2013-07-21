@@ -4,6 +4,7 @@ class Student::UsersController < ApplicationController
   def edit
     @form_type = "form_student"
     @user = current_user
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def update

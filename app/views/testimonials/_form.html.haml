@@ -4,9 +4,7 @@
     %br
     .row  
       .span2
-        <div class="photo130">
         = image_tag @company_detail.image
-        </div>
       .span5
         .bold
           %p= link_to @company_detail.company_name, company_detail_path(@company_detail)
@@ -59,6 +57,6 @@
     %p= m.text_area :advice, :value => @testimonial.contents["advice"]
   %br
   .center
-    = f.button :submit, :class => "btn btn-primary"
+    = f.button :submit, :class => "btn btn-primary", :value => "Submit"
 
 

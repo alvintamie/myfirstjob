@@ -1,15 +1,15 @@
-%h2 MyFirstJob Account Confirmation 
+%h2 CareerScout Account Confirmation 
 %br
 <b>
 %p Hi #{@user.first_name},
 </b>
-%p You just signed up for MyFirstJob.
+%p You just signed up for CareerScout.
 %p Please follow this link to confirm that this is your e-mail address.
 %br
 %p= link_to "Click here", activate_profile_url(:id => @user.id, :digest => @digest, :key => @key), :target => "_blank"
 %br
 %p Best Regards,
-%p MyFirstJob Management Team
+%p CareerScout Management Team
 
 %table{:style => "width: 600px" "height => 1000px"}
 	%tr
