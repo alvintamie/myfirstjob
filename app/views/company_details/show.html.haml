@@ -27,7 +27,7 @@
 				.span4
 					.company_hub_description
 						%h1= @company_detail.company_name
-						%p= @company_detail.about
+						%p= simple_format @company_detail.about
 		- ts = @company_detail.testimonials.size
 		.span4
 			.company_comments

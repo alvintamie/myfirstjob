@@ -13,19 +13,18 @@
 %br
 %br
 .span8
-	.hero-unit8
+	.event_container
 		%h1= @event.title
 		.green
 			%p= @event.created_at.strftime("%d %b %Y") + " by " + @event.author
-		%br
 		.span4.pull-right
 			.article_image
 				= image_tag @event.image.url
 		%p= simple_format @event.content
 		%br
-		%br
 		.italic
 			%p= link_to @event.label, @event.label_link
+		%br
 .span4
 	.hero-unit4
 		%h1 Top Stories

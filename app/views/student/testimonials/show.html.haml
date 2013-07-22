@@ -56,22 +56,23 @@
 							Downvote
 							%i.icon-thumbs-down
 			</div>
+		%br
 		.review_text
 			- if @testimonial.contents["culture"].present?
 				%h2 Culture
-				%p= @testimonial.contents["culture"]
+				%p= simple_format @testimonial.contents["culture"]
 				%br
 			- if @testimonial.contents["work_balance"].present?
 				%h2 Work Balance
-				%p= @testimonial.contents["work_balance"]
+				%p= simple_format @testimonial.contents["work_balance"]
 				%br
 			- if @testimonial.contents["work_experience"].present?
 				%h2 Overall Work Experience
-				%p= @testimonial.contents["work_experience"]
+				%p= simple_format @testimonial.contents["work_experience"]
 				%br
 			- if @testimonial.contents["advice"].present?
 				%h2 Advice
-				%p= @testimonial.contents["advice"]
+				%p= simple_format @testimonial.contents["advice"]
 				%br
 			- if @from_current_student
 				.center
@@ -89,7 +90,7 @@
 		.comment_list
 			- @comments.each do |c|
 				.row
-					.testimonial_profile
+					.comment_profile
 						-if c.user.profile_image.present?	
 							=image_tag c.user.profile_image.url
 						-else
@@ -99,9 +100,10 @@
 							.bold
 								= c.user.first_name
 							.green
-								%p=c.created_at.strftime("%d %b %Y")
-							%p= c.content
-				.herolist
+								=c.created_at.strftime("%d %b %Y")
+							.comment_container
+								%p= simple_format c.content
+				.herolist_comment
 				%br
 	.span4
 		.hero-unit4

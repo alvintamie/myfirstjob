@@ -41,8 +41,8 @@
 			%p= link_to "See Full Reviews", student_testimonial_path(testimonial)
 	%br
 	.row
-		%p= testimonial.contents["work_experience"]
-	%br
+		.testimonial_container
+			%p= simple_format testimonial.contents["work_experience"]
 	.herolist
 	%br
 .pull-right

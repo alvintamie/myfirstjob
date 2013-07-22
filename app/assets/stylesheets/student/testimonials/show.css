@@ -43,6 +43,7 @@
 .review_text p{
 	padding:0px;
 	margin:0px;
+	margin-bottom:15px;
 }
 
 .comment_section{
@@ -66,4 +67,33 @@
 
 #comment_button{
 	width:100px;
+}
+
+.comment_container p{
+	margin:0px;
+	margin-bottom:15px;
+	position:relative;
+	top:-15px;
+}
+
+.herolist_comment{
+	border-bottom:1px #cccccc solid;
+}
+
+.comment_profile{
+	width:82px;
+	height:auto;
+	overflow:hidden;
+	margin-left:10px;
+	color:#0088cc;
+	float:left;
+	margin-bottom:15px;
+}
+
+.comment_profile img{
+	width:80px;
+	height:auto;
+	overflow:hidden;
+	border:solid #cccccc 1px;
+	float:left;
 }

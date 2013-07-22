@@ -29,3 +29,15 @@
 .company_hub_description{
 	width:320px;
 }
+
+.company_hub_description p{
+	margin-bottom:15px;
+}
+
+.opportunity_container p{
+	margin-bottom: 15px;
+}
+
+.testimonial_container p{
+	margin-bottom:15px;
+}

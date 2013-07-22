@@ -2,3 +2,19 @@
 	margin-left:10px;
 	margin-bottom:10px;
 }
+
+.event_container{
+margin-bottom:10px;
+background:none;
+margin-top:10px;
+margin-bottom:0px;
+margin-left:20px;
+}
+
+.event_container h1{
+	font-size:18pt;
+}
+
+.event_container p{
+	margin-bottom:15px;
+}
