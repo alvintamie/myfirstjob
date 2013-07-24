@@ -76,12 +76,11 @@ Myfirstjob::Application.configure do
   }
 end
 
-ActionMailer::Base.smtp_settings = {
-  :user_name => "CareerScout",
-  :password => "career13",
-  :domain => "careerscout.asia",
-  :address => "smtp.sendgrid.net",
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true  
+config.action_mailer.smtp_settings = {
+  :address   => "smtp.gmail.com",
+  :port      => 587,
+  :user_name => "alvintamie@gmail.com",
+  :password  => "illuminati0",
+  :authentication => "plain",
+  :enable_starttls_auto => true
 }
