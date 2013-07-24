@@ -76,11 +76,20 @@ Myfirstjob::Application.configure do
   }
 end
 
+# ActionMailer::Base.smtp_settings = {
+#   :address   => "smtp.gmail.com",
+#   :port      => 587,
+#   :user_name => "alvintamie@gmail.com",
+#   :password  => "illuminati0",
+#   :authentication => "plain",
+#   :enable_starttls_auto => true 
+# }
+
 ActionMailer::Base.smtp_settings = {
-  :address   => "smtp.gmail.com",
-  :port      => 587,
-  :user_name => "alvintamie@gmail.com",
-  :password  => "illuminati0",
+  :address   => "smtp.zoho.com",
+  :port      => 465,
+  :user_name => "signup@careerscout.asia",
+  :password  => "careerscout",
   :authentication => "plain",
   :enable_starttls_auto => true 
 }
