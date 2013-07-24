@@ -1,7 +1,8 @@
 class Testimonial < ActiveRecord::Base
   extend ModelUtilities 
-  attr_accessible :position, :upvotes, :status, :downvotes, :tmp_company_name, :other, :grade, :contents, :anonymous, :start_date, :end_date, :company_detail_id, :student_id, :student, :votes
-
+  attr_accessible :position, :upvotes, :status, :downvotes, :tmp_company_name, :other, :grade, :contents, :anonymous, :company_detail_id, :student_id, :student, :votes, :experience_level, :still_employer, :last_working_month, :last_working_year
+  before_save :check_last_working_date
+  #:start_date, :end_date,
   serialize :contents
   serialize :upvotes, Array
   serialize :downvotes, Array
@@ -14,6 +15,8 @@ class Testimonial < ActiveRecord::Base
   STATUS = ["approved", "rejected", "pending"]
   SEARCH_KEYS = ["position"]
   GRADES = ["Positive", "Neutral", "Negative"]
+  EXPERIENCE_LEVEL = ["Intern","Graduate/Junior Level","Mid Level","Senior Level"]
+  MONTHS = ["January","Febuary","March","April","May","June","July","August","September","October","November","December"]
 
   scope :pendings, where(:status => "pending")
   scope :rejecteds, where(:status => "rejected")
@@ -25,12 +28,15 @@ class Testimonial < ActiveRecord::Base
 
   validates :grade, :presence => true, :inclusion => { :in => GRADES}
   validates :status, :presence => true, :inclusion => { :in => STATUS}
-  validates :start_date, :presence => true
-  validates :end_date, :presence => true
+  validates :experience_level, :presence => true, :inclusion => { :in => EXPERIENCE_LEVEL}
+  validates :last_working_month, :presence => true, :inclusion => { :in => MONTHS}
+  validates :last_working_year, :presence => true, :inclusion => { :in => proc {(1993 .. Time.now.year).to_a}}
+  # validates :start_date, :presence => true
+  # validates :end_date, :presence => true
   validates :position, :presence => true
 
   validate :contents_validation
-  validate :date_validation
+  #validate :date_validation
   validate :company_validation
 
   def company_validation
@@ -42,6 +48,14 @@ class Testimonial < ActiveRecord::Base
     errors.add :contents, "Your Comment on the work-life balance  can't be empty" if contents["work_balance"].blank?
     errors.add :contents, "Your Share with us the overall job/internship experience can't be empty" if contents["work_experience"].blank?
   end
+
+  def check_last_working_date
+    if self.still_employer
+      self.last_working_year = Time.now.year
+      self.last_working_month = MONTHS[Time.now.month - 1]
+    end
+  end
+
   def check_date_format t
     t.strftime('%d/%m/%Y/') rescue return false
     return true
@@ -68,7 +82,11 @@ class Testimonial < ActiveRecord::Base
   end
 
   def profile_image
-    anonymous ? "/anonymous.jpeg" : student.user.profile_image.url(:thumbnail)
+    if anonymous || student.user.profile_image.url(:thumbnail).include?("missing.png")
+      "/anonymous.jpeg"
+    else
+      student.user.profile_image.url(:thumbnail)
+    end
   end
 
   def student_name

@@ -127,8 +127,12 @@ namespace :seed do
           testimonial.grade = Testimonial::GRADES
           testimonial.anonymous = [true,false]
           testimonial.votes = -10..50
-          testimonial.start_date = 3.months.ago
-          testimonial.end_date = Time.now
+          testimonial.last_working_month = Testimonial::MONTHS
+          testimonial.last_working_year = (1993..Time.now.year)
+          testimonial.still_employer = [true,false]
+          testimonial.experience_level = Testimonial::EXPERIENCE_LEVEL
+          # testimonial.start_date = 3.months.ago
+          # testimonial.end_date = Time.now
           testimonial.status = "approved"
           contents = Hash.new
           contents["culture"] = Populator.sentences(1..10) 

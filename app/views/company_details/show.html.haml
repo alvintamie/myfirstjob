@@ -23,7 +23,10 @@
 		.hero-unit8
 			.row
 				.company_hub_image
-					= image_tag @company_detail.image
+					-if @company_detail.image.url.include?("missing.png")
+						= image_tag("anonymous.jpeg")
+					-else
+						= image_tag @company_detail.image
 				.span4
 					.company_hub_description
 						%h1= @company_detail.company_name
@@ -90,65 +93,3 @@
 			- @events.each do |event|
 				.space
 				%p= link_to event.title, event_path(event)
-      
-
-/				<div class="company_details">
-/				%table{:class => "table"}
-/					%tr 
-/						%td Industry
-/						%td= @company_detail.company_industry
-/					%tr
-/						%td Type:
-/						%td= @company_detail.company_type
-/					%tr
-/						%td Address:
-/						%td= @company_detail.address
-/					%tr
-/						%td Tel:
-/						%td= @company_detail.telephone
-/					%tr
-/						%td Email:
-/						%td= @company_detail.contact_email
-/				</div>
-/				- if @company_detail.image.present?
-/					.herolist
-/					.row
-/						<div class="company_photo">
-/						%h4 Sneak Peek on Company 
-/						.span9
-/							<div class="photo130">
-/							= image_tag @company_detail.image if @company_detail.image.present?
-/							</div>
-/						.span9
-/							<div class="photo130">
-/							= image_tag @company_detail.image if @company_detail.image.present?
-/							</div>
-/						.span9
-/							<div class="photo130">
-/							= image_tag @company_detail.image if @company_detail.image.present?
-/							</div>
-/						.span9
-/							<div class="photo130">
-/							= image_tag @company_detail.image if @company_detail.image.present?
-/							</div>
-/						</div>
-/		<div id="company_navigation">
-/		.company-detail-navigation
-/			= link_to "Overview", company_detail_path(@company_detail), :class => @tab == "default" ? "active btn" : "btn"
-/			= link_to "Company Review", company_detail_path(@company_detail,:tab => "testimonial"), :class => @tab == "testimonial" ? "active btn" : "btn"
-/			= link_to "Interview", company_detail_path(@company_detail, :tab => "interview"), :class => @tab == "interview" ? "active btn" : "btn"
-/		.hero-unitcompany
-/			= render @tab
-/		</div>
-/	.span4
-/		.hero-unit
-/			%h1 Contribute
-/			.space
-/			%p= link_to "Share your Company Review", new_student_testimonial_path(:company_detail_id => @company_detail.id),	:class => "btn btn-primary"
-/			.space
-/			%p= link_to "Share your Interview", new_student_interview_path(:company_detail_id => @company_detail.id), :class => "btn btn-primary"
-/		.hero-unit
-/			%h1 Advanced Search
-/			<div id="searchbox">
-/			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
-/			</div>

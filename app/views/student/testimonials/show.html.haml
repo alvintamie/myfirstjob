@@ -22,10 +22,7 @@
 			%h1 Full Company Review
 			<div class="reviewer_box">
 			.testimonial_profile
-				-if @testimonial.profile_image.present?
-					= image_tag @testimonial.profile_image
-				-else
-					= image_tag("anonymous.jpeg")
+				= image_tag @testimonial.profile_image
 			.span3
 				.testimonial_particular
 					.bold
@@ -37,6 +34,9 @@
 					%p
 					%i.icon-comment
 					=@testimonial.grade
+					%p
+					%i.icon-comment
+					= @testimonial.last_working_month + " " + @testimonial.last_working_year.to_s
 			.span3
 				.bold
 					.inline
@@ -91,10 +91,10 @@
 			- @comments.each do |c|
 				.row
 					.comment_profile
-						-if c.user.profile_image.present?	
-							=image_tag c.user.profile_image.url
-						-else
+						-if c.user.profile_image.url.include?("missing.png")
 							=image_tag("anonymous.jpeg")
+						-else
+							=image_tag c.user.profile_image
 					.span6
 						.row
 							.bold

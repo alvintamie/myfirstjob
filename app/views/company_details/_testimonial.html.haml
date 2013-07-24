@@ -17,10 +17,7 @@
 - @testimonials.each do |testimonial|
 	.row
 		.testimonial_profile
-			-if testimonial.profile_image.present?
-				= image_tag testimonial.profile_image
-			-else
-				= image_tag("anonymous.jpeg")
+			= image_tag testimonial.profile_image
 		.span3
 			.testimonial_particular
 				.bold

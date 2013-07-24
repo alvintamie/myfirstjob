@@ -24,14 +24,20 @@
     Overall Experience
   = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
   %br
-  %br
   %p= f.input :position
-  .space
-  Work/Internship Period
   %br
-  = f.text_field :start_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
-  =" to "
-  = f.text_field :end_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+  = f.input :experience_level, :collection => Testimonial::EXPERIENCE_LEVEL.map{|c| [c,c]}, :default => Testimonial::EXPERIENCE_LEVEL.first
+  %br
+  = f.input :still_employer, :label => "Are you a current employee?"
+  %br
+  = f.input :last_working_month, :collection => Testimonial::MONTHS.map{|c| [c,c]}, :default => Time.now.strftime("%B")
+  = f.input :last_working_year, :collection => (1993..Time.now.year).to_a.reverse.map{|c| [c,c]}, :default => Time.now.year
+  / .space
+  / Work/Internship Period
+  / %br
+  / = f.text_field :start_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
+  / =" to "
+  / = f.text_field :end_date, :value => @testimonial.start_date.try(:strftime,'%d/%m/%Y')
   %br
   %br
   .bold

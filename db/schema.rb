@@ -146,22 +146,24 @@ ActiveRecord::Schema.define(:version => 20130621161001) do
 
   create_table "testimonials", :force => true do |t|
     t.string   "position"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "experience_level"
+    t.string   "last_working_month"
+    t.integer  "last_working_year"
+    t.boolean  "still_employer"
     t.string   "tmp_company_name"
     t.text     "contents"
     t.string   "grade"
     t.boolean  "anonymous"
     t.string   "status"
     t.text     "rejected_message"
-    t.integer  "votes",             :default => 0
+    t.integer  "votes",              :default => 0
     t.text     "downvotes"
     t.text     "upvotes"
     t.integer  "company_detail_id"
     t.integer  "student_id"
     t.string   "other"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "testimonials", ["company_detail_id"], :name => "index_testimonials_on_company_detail_id"

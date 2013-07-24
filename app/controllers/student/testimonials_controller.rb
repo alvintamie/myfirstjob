@@ -15,6 +15,7 @@ class Student::TestimonialsController < ApplicationController
     @company_details = CompanyDetail.approveds
     @testimonial.status = @testimonial.company_detail.nil? && @testimonial.present? ? "pending" : "approved"
     @testimonial.student = current_user.student
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
     if @testimonial.save
       flash[:success] = "You have successfully create a company detail, thank you for your submission"
       if @testimonial.company_detail.nil?
