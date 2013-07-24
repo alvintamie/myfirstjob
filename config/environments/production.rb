@@ -76,11 +76,11 @@ Myfirstjob::Application.configure do
   }
 end
 
-config.action_mailer.smtp_settings = {
+ActionMailer::Base.smtp_settings = {
   :address   => "smtp.gmail.com",
   :port      => 587,
   :user_name => "alvintamie@gmail.com",
   :password  => "illuminati0",
   :authentication => "plain",
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true 
 }
