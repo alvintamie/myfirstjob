@@ -34,7 +34,7 @@ class Job < ActiveRecord::Base
     errors.add :start_date, "Your date format is invalid" unless check_date_format self.start_date 
     if self.end_date.present?
       errors.add :end_date, "Your date format is invalid"  unless check_date_format self.end_date
-      errors.add(:start_date, "must be earlier than end_date") if start_date.to_i > end_date.to_i
+      errors.add(:start_date, "Start date must be earlier than end date") if start_date.to_i > end_date.to_i
     end
   end
 

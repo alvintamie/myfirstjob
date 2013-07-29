@@ -59,11 +59,11 @@
 		%br
 		.review_text
 			- if @testimonial.contents["culture"].present?
-				%h2 Culture
+				%h2 Company Culture
 				%p= simple_format @testimonial.contents["culture"]
 				%br
 			- if @testimonial.contents["work_balance"].present?
-				%h2 Work Balance
+				%h2 Work-Life Balance
 				%p= simple_format @testimonial.contents["work_balance"]
 				%br
 			- if @testimonial.contents["work_experience"].present?

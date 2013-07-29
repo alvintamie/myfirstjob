@@ -18,10 +18,10 @@
       = f.input :company_detail_id, :label => 'Company Name', :collection => @company_details.map{|c| [c.company_name, c.id]}
     .row
       %br
-      = f.input :other, :label => "If others, please specify"
+      = f.input :other, :label => "If not listed, please specify"
   %br
   .bold
-    Overall Experience
+    Overall Experience*
   = f.collection_radio_buttons :grade, Testimonial::GRADES.map{|a| [a,a]}, :first, :last, :checked => @testimonial.grade
   %br
   %br
@@ -46,17 +46,17 @@
   = f.simple_fields_for :contents do |m|
     .space
     .bold
-      1. Comment on the company environment
+      1. Comment on the company culture*
     (i.e: Amount of autonomy, mentorship, relationship with colleagues, etc)
     %p= m.text_area :culture, :value => @testimonial.contents["culture"]
     %br
     .bold
-      2. Comment on the work-life balance
+      2. Comment on the work-life balance*
     (i.e: Working hours, break time, frequency of overtime, weekend shift, etc)
     %p= m.text_area :work_balance, :value => @testimonial.contents["work_balance"]
     %br
     .bold
-      3. Share with us the overall job/internship experience
+      3. Share with us the overall job/internship experience*
     %p= m.text_area :work_experience, :value => @testimonial.contents["work_experience"]
     %br
     .bold

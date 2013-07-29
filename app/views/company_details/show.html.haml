@@ -15,7 +15,6 @@
 		%span.divider >
 		%li.gray
 			= @company_detail.company_name
-
 %br
 %br
 .row
@@ -73,7 +72,7 @@
 			.span4
 				.company_details
 					%h2 Top Review
-					%p= @most_popular_testimonial.contents["work_experience"].split(".").first + "." unless @most_popular_testimonial.nil?
+					%p= " '' " + @most_popular_testimonial.contents["work_experience"].split(".").first + " '' " unless @most_popular_testimonial.nil?
 		.row
 			<div id="company_navigation">
 			.company-detail-navigation

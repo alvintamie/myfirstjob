@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       if !user.activated
         @warning = "You haven't activated your account. Please check your email to activate your account now."
       elsif user.locked
-        @warning = "Your account has been locked by the administrator, please contact the us for more detail."
+        @warning = "Your account has been locked by the administrator. Please contact us for more details."
       else      
         session[:user_id] = user.id
         params[:remember_me] ? cookies.permanent[:auth_token] = user.auth_token : cookies[:auth_token] = user.auth_token
