@@ -14,7 +14,7 @@
     #admin
       <div class="logo_box">
       </div>
-      =link_to image_tag("careerscoutlogo.png"), root_path, :class => "brand"
+      =link_to image_tag("careerscoutlogo.png"), student_root_path, :class => "brand"
       .navbar.navbar-inverse
         .navbar-inner
           .container-fluid
@@ -26,7 +26,7 @@
             %ul.nav
               %li.divider-vertical
               %li{:class => (current_page?(root_path) ? :active : "") }
-                = link_to root_path do
+                = link_to student_root_path do
                   Home
               %li.divider-vertical
               %li{:class => (current_page?(homes_company_hub_path) ? :active : "") }
