@@ -1,3 +1,25 @@
+/*admin article*/
+#event_admin{
+	position:relative;
+	left:500px;
+	top:-200px;
+}
+
+#event_content{
+width:620px;
+}
+
+.company_hub_admin{
+	position:relative;
+	left:350px ;
+	top:-200px;
+}
+
+.input.select.optional.company_detail_featured_position{
+	position:relative;
+	top:-300px;
+}
+/**/
 .alert{
 	position:absolute;
 	left:60%;}

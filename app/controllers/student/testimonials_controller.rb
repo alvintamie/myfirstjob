@@ -42,6 +42,7 @@ class Student::TestimonialsController < ApplicationController
     @company_detail = CompanyDetail.find_by_id(params[:company_detail_id])
     @company_details = CompanyDetail.approveds
     redirect_to student_homes_path unless @testimonial.student == current_user.student
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
   end
 
   def update

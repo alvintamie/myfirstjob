@@ -10,11 +10,14 @@
   = f.input :fax
   = f.input :contact_email
   = f.input :about
+  <div class="company_hub_admin">
   = f.input :award
+  </div>
   = f.input :opportunities
+  <div class="company_hub_admin">
   = f.input :featured
   = f.input :featured_position, :collection => 1..10
   %br
   = f.button :submit, :class => "btn btn-primary"
-
+  </div>
 
