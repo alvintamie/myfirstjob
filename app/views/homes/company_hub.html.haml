@@ -69,6 +69,7 @@
           %h4= link_to industry, industry_company_details_path(:category => industry)
           - CompanyDetail.where(:company_industry => industry).order("company_name ASC").each do |company_detail|
             %p= link_to company_detail.company_name, company_detail_path(company_detail)
+    %br
   .span4
     .hero-unit4
       %h1 Top Stories

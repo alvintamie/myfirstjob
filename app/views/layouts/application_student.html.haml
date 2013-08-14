@@ -1,6 +1,6 @@
 %html
   %head
-    %title CareerScout
+    %title CareerScout: Job, Internship & Company Reviews in Singapore 
   = stylesheet_link_tag    "application", params[:controller], :media => "all"
   = javascript_include_tag "application", params[:controller], "http://gdc.indeed.com/ads/apiresults.js"
   = csrf_meta_tags
@@ -14,7 +14,7 @@
     #admin
       <div class="logo_box">
       </div>
-      =link_to image_tag("careerscoutlogo.png"), student_root_path, :class => "brand"
+      =link_to image_tag("CareerScout.png"), student_root_path, :class => "brand"
       .navbar.navbar-inverse
         .navbar-inner
           .container-fluid
