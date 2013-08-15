@@ -12,7 +12,7 @@ width:300px;
 
 .figure1{
 	float:left;
-	width:65px;
+	width:80px;
 }
 
 .figure2{
@@ -22,7 +22,7 @@ width:300px;
 
 .text{
 	float:left;
-	width:235px;
+	width:220px;
 }
 
 
@@ -107,7 +107,10 @@ margin:0px;
 .company_details .table td{
 	border:none;
 	line-height:150%;
-	padding:3px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:5px;
 }
 
 .company_photo{

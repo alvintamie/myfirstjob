@@ -1,9 +1,25 @@
 .row
 	.span8
-		.hero-unit
+		.hero-unit8_border
 			%h1 Edit Company Review
 			=render "form"
 	.span4
-		.hero-unit
-			%h1 Advanced Search
-			= render 'shared/search_box', :options =>  CompanyDetail::SEARCH_KEYS 
+		.hero-unit4
+			%h1 Message to Users
+			%p We will do our due dilligence to review every single submission to maintain credibility of the posts. 
+			.space
+			%p Please follow the approriate code of conduct, terms and guidelines in posting reviews. We will remove any posts that contain obscenities, defamatory attacks, trade secrets and etc.  
+			%h1 Top Stories
+			- @events.each do |event|
+				.space
+				%p= link_to event.title, event_path(event)
+			%br
+			<script type="text/javascript"><!--google_ad_client = "ca-pub-7141414805566169";
+			/* Homepage Ad */
+			google_ad_slot = "2265020331";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>

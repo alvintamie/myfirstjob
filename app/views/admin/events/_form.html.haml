@@ -4,11 +4,12 @@
   = f.input :title
   = f.input :author
   = f.input :content
+  <div id="event_admin">
   = f.input :label
   = f.input :label_link
   = f.input :status, :collection => Event::STATUS
   = f.input :featured
   %br
   = f.button :submit, :class => "btn btn-primary"
-
+  </div>
 

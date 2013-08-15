@@ -10,12 +10,13 @@ class TestimonialsController < ApplicationController
 
   def create
     @testimonial = Testimonial.new(params[:testimonial])
+    @events = Event.approveds.featureds.order("created_at DESC").limit(10)
     @company_detail = @testimonial.company_detail
     @company_details = CompanyDetail.approveds.order("company_name ASC")
     @testimonial.status = "pending"
     @testimonial.anonymous = true
     if @testimonial.save
-      flash[:success] = "You have successfully create a company detail, thank you for your submission"
+      flash[:success] = "You have successfully created a company review! Thank you for your submission!"
       redirect_to root_path
     else
       render :new

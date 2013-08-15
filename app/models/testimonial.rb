@@ -44,9 +44,9 @@ class Testimonial < ActiveRecord::Base
   end
 
   def contents_validation
-    errors.add :contents, "Your Comment on the company environment can't be empty" if contents["culture"].blank?
-    errors.add :contents, "Your Comment on the work-life balance  can't be empty" if contents["work_balance"].blank?
-    errors.add :contents, "Your Share with us the overall job/internship experience can't be empty" if contents["work_experience"].blank?
+    errors.add :contents, "The company culture field cannot be empty" if contents["culture"].blank?
+    errors.add :contents, "The work-life balance field cannot be empty" if contents["work_balance"].blank?
+    errors.add :contents, "Your overall job/internship experience field cannot be empty" if contents["work_experience"].blank?
   end
 
   def check_last_working_date
