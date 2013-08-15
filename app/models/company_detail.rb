@@ -4,8 +4,8 @@ class CompanyDetail < ActiveRecord::Base
 
   belongs_to :employer
   belongs_to :student
-  has_many :testimonials
-  has_many :interviews
+  has_many :testimonials, :dependent => :destroy
+  has_many :interviews, :dependent => :destroy
 
   SORT_KEYS = { :asc => %w(company_name, company_type, company_industry), :default => "id desc"}
   TYPES = ["Multi-national Company", "Small Medium Enterprise","Start-up","Government Agency","Government-Linked Companies"]
