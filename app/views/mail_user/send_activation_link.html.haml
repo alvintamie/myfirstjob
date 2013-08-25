@@ -1,14 +1,14 @@
-%h2 CareerScout Account Confirmation 
+%h2 CareerScout Asia Account Confirmation 
 %br
 <b>
 %p Hi #{@user.first_name},
 </b>
-%p You just signed up for CareerScout.
+%p You just signed up for CareerScout Asia.
 %p Please follow this link to confirm that this is your e-mail address.
 %br
 %p= link_to "Click here", activate_profile_url(:id => @user.id, :digest => @digest, :key => @key), :target => "_blank"
 %br
 %p Best Regards,
-%p CareerScout Management Team
+%p CareerScout Asia Management Team
 %br
 %img{:alt => "CareerScout Logo", :src => "http://careerscout.asia/assets/careerscoutlogo-d5700fa97f365bb5cb743ffec74140a8.png", :width => "300"}/
