@@ -9,7 +9,7 @@ class CompanyDetail < ActiveRecord::Base
 
   SORT_KEYS = { :asc => %w(company_name, company_type, company_industry), :default => "id desc"}
   TYPES = ["Multi-national Company", "Small Medium Enterprise","Start-up","Government Agency","Government-Linked Companies"]
-  INDUSTRIES = ["Accounting & Financial Management","Aerospace","Banking","Civil Engineering","Construction","Consulting","Energy/Oil & Gas/Utilities","Engineering & Manufacturing","FMCG/Retail","Healthcare & Pharmaceutical","Hospitality","Infocomms","Insurance & Financial Services","Investment & Investment Banking","Legal","Leisure & Tourism","Logistics","Property & Development","Public Sector","Scientific Research & Development","Transport & Supply Chain"]
+  INDUSTRIES = ["Accounting & Financial Management","Aerospace","Banking","Civil Engineering","Construction","Consulting","Energy/Oil & Gas/Utilities","Engineering & Manufacturing","FMCG/Retail","Healthcare & Pharmaceutical","Hospitality","Infocomms","Insurance & Financial Services","Investment & Investment Banking","Legal","Leisure & Tourism","Transport, Logistic & Supply Chain","Property & Development","Public Sector","Scientific Research & Development"]
   STATUS = ["approved", "rejected", "pending"]
   NUMBER_OF_EMPLOYEES = ["1-50", "51-100", "100-1000", "> 1000"]
   SEARCH_KEYS = ["company_name", "company_type", "company_industry"]
