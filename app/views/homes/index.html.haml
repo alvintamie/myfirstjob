@@ -111,15 +111,14 @@
   .span4
     .hero-unit4
       %h1 Job & Internship Seeker
-      %p We use an innovative algorithm to help you find out your dream job or internship. What's more! By getting registered, you can write, ask and find out more about the companies in Singapore from the insiders' perspective!
+      %p Find your dream job or internship. What's more! By getting registered for FREE, you can write, ask and find out more about the companies in Singapore from the insiders' perspective!
       .space
-      .center.green
-        %p Get your free registration now!
       .center
         %p= link_to "Register", new_user_path(:type => "student"),:class => "btn btn-primary", :id=>"student_sign_up_button"
       %br
       %h1 Employer
-      %p Get your job or internship posts listed in our site! We choose and control the quality of our posts to maintain credibility and trust from job applicants. There are also other opportunities to show how awesome your company is to those applicants. 
+      %p Get your job or internship posts listed in our site! We choose and control the quality of our posts to maintain credibility and trust from job applicants. 
+      .space
       .center
         %p=link_to "Find Out More", employers_path, :class => "btn btn-primary", :id=>"employer_button"
       %br
